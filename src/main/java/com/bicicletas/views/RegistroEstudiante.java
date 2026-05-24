@@ -48,7 +48,7 @@ public class RegistroEstudiante extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Ancizar Serif", 0, 36)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel2.setText("Cédula / Ti:");
+        jLabel2.setText("Cédula / TI:");
 
         jButton1.setFont(new java.awt.Font("Ancizar Serif Light", 0, 36)); // NOI18N
         jButton1.setLabel("Ingresar");

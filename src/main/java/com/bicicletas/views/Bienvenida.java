@@ -89,7 +89,9 @@ public class Bienvenida extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void iniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarSesionActionPerformed
-        // TODO add your handling code here:
+        Login login=new Login();
+        login.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_iniciarSesionActionPerformed
 
     private void sinCuenta_textMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sinCuenta_textMouseClicked
