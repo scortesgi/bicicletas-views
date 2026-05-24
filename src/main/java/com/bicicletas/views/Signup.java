@@ -43,34 +43,96 @@ public class Signup extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        registro_text = new javax.swing.JLabel();
+        pswrd_text = new javax.swing.JLabel();
+        user_text = new javax.swing.JLabel();
+        id_text = new javax.swing.JLabel();
+        tiun_text = new javax.swing.JLabel();
+        enterUser = new javax.swing.JTextField();
+        enterID = new javax.swing.JTextField();
+        enterTIUN = new javax.swing.JTextField();
+        enterPswrd = new javax.swing.JPasswordField();
         UNlogo = new javax.swing.JLabel();
-        Bienvenido1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        nextPage = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        registro_text.setFont(new java.awt.Font("Ancizar Sans ExtraBold", 1, 60)); // NOI18N
+        registro_text.setForeground(new java.awt.Color(19, 134, 201));
+        registro_text.setText("Registro");
+        getContentPane().add(registro_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, -1, -1));
+
+        pswrd_text.setFont(new java.awt.Font("Ancizar Serif", 1, 24)); // NOI18N
+        pswrd_text.setText("Contraseña:");
+        getContentPane().add(pswrd_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, -1, -1));
+
+        user_text.setFont(new java.awt.Font("Ancizar Serif", 1, 24)); // NOI18N
+        user_text.setText("Usuario:");
+        getContentPane().add(user_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, -1, -1));
+
+        id_text.setFont(new java.awt.Font("Ancizar Serif", 1, 24)); // NOI18N
+        id_text.setText("Identificación:");
+        getContentPane().add(id_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, -1, -1));
+
+        tiun_text.setFont(new java.awt.Font("Ancizar Serif", 1, 24)); // NOI18N
+        tiun_text.setText("TIUN:");
+        getContentPane().add(tiun_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, -1, -1));
+
+        enterUser.setBackground(new java.awt.Color(56, 182, 255, 9));
+        enterUser.setFont(new java.awt.Font("Ancizar Serif Medium", 0, 18)); // NOI18N
+        enterUser.setForeground(new java.awt.Color(0,0,0,50));
+        enterUser.setText("Ingrese un usuario\n");
+        enterUser.addActionListener(this::enterUserActionPerformed);
+        getContentPane().add(enterUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 420, -1));
+
+        enterID.setBackground(new java.awt.Color(56, 182, 255, 9));
+        enterID.setFont(new java.awt.Font("Ancizar Serif Medium", 0, 18)); // NOI18N
+        enterID.setForeground(new java.awt.Color(0,0,0,50));
+        enterID.setText("Identificación sin puntos");
+        getContentPane().add(enterID, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 420, -1));
+
+        enterTIUN.setBackground(new java.awt.Color(56, 182, 255, 9));
+        enterTIUN.setFont(new java.awt.Font("Ancizar Serif Medium", 0, 18)); // NOI18N
+        enterTIUN.setForeground(new java.awt.Color(0,0,0,50));
+        enterTIUN.setText("Ingrese TIUN de su carnet");
+        getContentPane().add(enterTIUN, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, 420, -1));
+
+        enterPswrd.setBackground(new java.awt.Color(56, 182, 255, 9));
+        enterPswrd.setFont(new java.awt.Font("Ancizar Serif Medium", 0, 18)); // NOI18N
+        enterPswrd.setForeground(new java.awt.Color(0,0,0,50));
+        enterPswrd.setText("********");
+        getContentPane().add(enterPswrd, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 420, 420, 30));
+
         UNlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/universidad-nacional-de-colombia-sede-bogota-logo.png"))); // NOI18N
-        getContentPane().add(UNlogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
+        getContentPane().add(UNlogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        Bienvenido1.setFont(new java.awt.Font("Ancizar Sans ExtraBold", 1, 60)); // NOI18N
-        Bienvenido1.setForeground(new java.awt.Color(19, 134, 201));
-        Bienvenido1.setText("Registro");
-        getContentPane().add(Bienvenido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, -1, -1));
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Estudiante" }));
-        jComboBox1.setSelectedItem(getCursor());
-        jComboBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jComboBox1.addActionListener(this::jComboBox1ActionPerformed);
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, -1, -1));
+        nextPage.setBackground(new java.awt.Color(56, 182, 255));
+        nextPage.setFont(new java.awt.Font("Ancizar Sans ExtraBold", 0, 48)); // NOI18N
+        nextPage.setText("Siguiente");
+        nextPage.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        nextPage.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        nextPage.setMaximumSize(new java.awt.Dimension(276, 65));
+        nextPage.setMinimumSize(new java.awt.Dimension(276, 65));
+        /*
+        nextPage.addActionListener(this::nextPage_click);
+        */
+        getContentPane().add(nextPage, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 480, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void enterUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterUserActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_enterUserActionPerformed
 
+    private void nextPage_click(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextPage_click
+        // TODO add your handling code here:
+        SignUp2 registro2=new SignUp2();
+        registro2.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_nextPage_click
+/**/
     /**
      * @param args the command line arguments
      */
@@ -97,8 +159,16 @@ public class Signup extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Bienvenido1;
     private javax.swing.JLabel UNlogo;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JTextField enterID;
+    private javax.swing.JPasswordField enterPswrd;
+    private javax.swing.JTextField enterTIUN;
+    private javax.swing.JTextField enterUser;
+    private javax.swing.JLabel id_text;
+    private javax.swing.JButton nextPage;
+    private javax.swing.JLabel pswrd_text;
+    private javax.swing.JLabel registro_text;
+    private javax.swing.JLabel tiun_text;
+    private javax.swing.JLabel user_text;
     // End of variables declaration//GEN-END:variables
 }
