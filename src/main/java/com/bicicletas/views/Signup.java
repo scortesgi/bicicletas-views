@@ -19,6 +19,7 @@ public class Signup extends javax.swing.JFrame {
     /**
      * Creates new form Signup
      */
+     int xMouse, yMouse;
     public Signup() {
         initComponents();
         ImageIcon icon = new ImageIcon(getClass().getResource("/imagenes/universidad-nacional-de-colombia-sede-bogota-logo.png"));
@@ -54,8 +55,13 @@ public class Signup extends javax.swing.JFrame {
         enterPswrd = new javax.swing.JPasswordField();
         UNlogo = new javax.swing.JLabel();
         nextPage = new javax.swing.JButton();
+        panel_superior = new javax.swing.JPanel();
+        exit = new javax.swing.JPanel();
+        CERRAR = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setSize(new java.awt.Dimension(800, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         registro_text.setFont(new java.awt.Font("Ancizar Sans ExtraBold", 1, 60)); // NOI18N
@@ -111,13 +117,61 @@ public class Signup extends javax.swing.JFrame {
         nextPage.setFont(new java.awt.Font("Ancizar Sans ExtraBold", 0, 48)); // NOI18N
         nextPage.setText("Siguiente");
         nextPage.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        nextPage.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        nextPage.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         nextPage.setMaximumSize(new java.awt.Dimension(276, 65));
         nextPage.setMinimumSize(new java.awt.Dimension(276, 65));
         /*
         nextPage.addActionListener(this::nextPage_click);
         */
         getContentPane().add(nextPage, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 480, -1, -1));
+
+        panel_superior.setBackground(new java.awt.Color(255, 255, 255));
+        panel_superior.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        panel_superior.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                panel_superiorMouseDragged(evt);
+            }
+        });
+        panel_superior.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panel_superiorMousePressed(evt);
+            }
+        });
+        getContentPane().add(panel_superior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 30));
+
+        exit.setBackground(new java.awt.Color(255, 255, 255));
+        exit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        exit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                exitMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                exitMouseExited(evt);
+            }
+        });
+        exit.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        CERRAR.setFont(new java.awt.Font("Ancizar Sans Thin", 0, 24)); // NOI18N
+        CERRAR.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        CERRAR.setText("X");
+        CERRAR.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        CERRAR.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CERRARMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                CERRARMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                CERRARMouseExited(evt);
+            }
+        });
+        exit.add(CERRAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
+
+        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, 40, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -132,6 +186,41 @@ public class Signup extends javax.swing.JFrame {
         registro2.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_nextPage_click
+
+    private void panel_superiorMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_superiorMouseDragged
+        int x=evt.getXOnScreen();
+        int y=evt.getYOnScreen();
+        this.setLocation(x-xMouse, y-yMouse);
+    }//GEN-LAST:event_panel_superiorMouseDragged
+
+    private void panel_superiorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_superiorMousePressed
+        xMouse=evt.getX();
+        yMouse=evt.getY();
+    }//GEN-LAST:event_panel_superiorMousePressed
+
+    private void CERRARMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CERRARMouseClicked
+        System.exit(0);        // TODO add your handling code here:
+    }//GEN-LAST:event_CERRARMouseClicked
+
+    private void CERRARMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CERRARMouseEntered
+        exit.setBackground(new Color(19,134,201));        // TODO add your handling code here:
+    }//GEN-LAST:event_CERRARMouseEntered
+
+    private void CERRARMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CERRARMouseExited
+        exit.setBackground(new Color(255,255,255));        // TODO add your handling code here:
+    }//GEN-LAST:event_CERRARMouseExited
+
+    private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_exitMouseClicked
+
+    private void exitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseEntered
+        exit.setBackground(new Color(19,134,201));
+    }//GEN-LAST:event_exitMouseEntered
+
+    private void exitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseExited
+        exit.setBackground(new Color(255,255,255));
+    }//GEN-LAST:event_exitMouseExited
 /**/
     /**
      * @param args the command line arguments
@@ -159,13 +248,16 @@ public class Signup extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel CERRAR;
     private javax.swing.JLabel UNlogo;
     private javax.swing.JTextField enterID;
     private javax.swing.JPasswordField enterPswrd;
     private javax.swing.JTextField enterTIUN;
     private javax.swing.JTextField enterUser;
+    private javax.swing.JPanel exit;
     private javax.swing.JLabel id_text;
     private javax.swing.JButton nextPage;
+    private javax.swing.JPanel panel_superior;
     private javax.swing.JLabel pswrd_text;
     private javax.swing.JLabel registro_text;
     private javax.swing.JLabel tiun_text;

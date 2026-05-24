@@ -63,7 +63,7 @@ public class Bienvenida extends javax.swing.JFrame {
         sinCuenta_text.setFont(new java.awt.Font("Ancizar Sans ExtraLight", 0, 18)); // NOI18N
         sinCuenta_text.setForeground(new java.awt.Color(56, 182, 255));
         sinCuenta_text.setText("¿No tienes cuenta? Regístrate aquí");
-        sinCuenta_text.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        sinCuenta_text.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         sinCuenta_text.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 sinCuenta_textMouseClicked(evt);
@@ -85,7 +85,7 @@ public class Bienvenida extends javax.swing.JFrame {
 
         iniciarSesion_button.setBackground(new java.awt.Color(56, 182, 255));
         iniciarSesion_button.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(56, 182, 255), 10, true));
-        iniciarSesion_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        iniciarSesion_button.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         iniciarSesion_button.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         IniciarSesion_text.setBackground(new java.awt.Color(56, 182, 255));
@@ -94,7 +94,7 @@ public class Bienvenida extends javax.swing.JFrame {
         IniciarSesion_text.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         IniciarSesion_text.setText("Iniciar Sesión");
         IniciarSesion_text.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(56, 182, 255), 10, true));
-        IniciarSesion_text.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        IniciarSesion_text.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         IniciarSesion_text.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 IniciarSesion_textMouseClicked(evt);
@@ -118,7 +118,7 @@ public class Bienvenida extends javax.swing.JFrame {
         getContentPane().add(panel_superior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 30));
 
         exit.setBackground(new java.awt.Color(255, 255, 255));
-        exit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        exit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         exit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 exitMouseClicked(evt);
@@ -134,7 +134,7 @@ public class Bienvenida extends javax.swing.JFrame {
         CERRAR.setFont(new java.awt.Font("Ancizar Sans Thin", 0, 24)); // NOI18N
         CERRAR.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         CERRAR.setText("X");
-        CERRAR.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        CERRAR.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout exitLayout = new javax.swing.GroupLayout(exit);
         exit.setLayout(exitLayout);

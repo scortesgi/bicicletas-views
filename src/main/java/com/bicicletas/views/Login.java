@@ -1,9 +1,12 @@
-package com.bicicletas.views;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+package com.bicicletas.views;
+
+import java.awt.Color;
+import static java.lang.System.exit;
+
 
 /**
  *
@@ -16,6 +19,7 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    int xMouse, yMouse;
     public Login() {
         initComponents();
     }
@@ -30,137 +34,229 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        RolAdmin = new javax.swing.JButton();
-        RolStudent = new javax.swing.JButton();
-        EligeRol = new javax.swing.JButton();
-        InfoApp = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        panel_superior = new javax.swing.JPanel();
+        exit = new javax.swing.JPanel();
+        CERRAR = new javax.swing.JLabel();
+        enterUser = new javax.swing.JTextField();
+        enterUser1 = new javax.swing.JTextField();
+        UNlogo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(255, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        RolAdmin.setBackground(new java.awt.Color(153, 0, 51));
-        RolAdmin.setFont(new java.awt.Font("Ancizar Serif", 0, 24)); // NOI18N
-        RolAdmin.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        RolAdmin.setBorderPainted(false);
-        RolAdmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        RolAdmin.setLabel("Administrador");
-        RolAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                RolAdminMouseClicked(evt);
+        jLabel1.setFont(new java.awt.Font("Ancizar Serif Black", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(19, 134, 201));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("INICIAR SESIÓN");
+
+        jLabel4.setFont(new java.awt.Font("Ancizar Serif", 0, 24)); // NOI18N
+        jLabel4.setText("Seleccione su rol");
+
+        jComboBox2.setBackground(new java.awt.Color(196, 231, 251));
+        jComboBox2.setEditable(true);
+        jComboBox2.setFont(new java.awt.Font("Ancizar Serif Light", 0, 14)); // NOI18N
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Estudiante" }));
+        jComboBox2.setToolTipText("");
+
+        jLabel2.setFont(new java.awt.Font("Ancizar Serif", 0, 24)); // NOI18N
+        jLabel2.setText("usuario:");
+
+        jLabel3.setFont(new java.awt.Font("Ancizar Serif", 0, 24)); // NOI18N
+        jLabel3.setText("identificación:");
+
+        jButton1.setBackground(new java.awt.Color(19, 134, 201));
+        jButton1.setFont(new java.awt.Font("Ancizar Serif Medium", 0, 18)); // NOI18N
+        jButton1.setText("Entrar");
+        jButton1.addActionListener(this::jButton1ActionPerformed);
+
+        panel_superior.setBackground(new java.awt.Color(255, 255, 255));
+        panel_superior.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        panel_superior.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                panel_superiorMouseDragged(evt);
             }
         });
-        RolAdmin.addActionListener(this::RolAdminActionPerformed);
-
-        RolStudent.setBackground(new java.awt.Color(153, 0, 51));
-        RolStudent.setFont(new java.awt.Font("Ancizar Serif", 0, 24)); // NOI18N
-        RolStudent.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        RolStudent.setBorderPainted(false);
-        RolStudent.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        RolStudent.setLabel("Estudiante");
-        RolStudent.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                RolStudentMouseClicked(evt);
+        panel_superior.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panel_superiorMousePressed(evt);
             }
         });
-        RolStudent.addActionListener(this::RolStudentActionPerformed);
 
-        EligeRol.setBackground(new java.awt.Color(153, 0, 51));
-        EligeRol.setFont(new java.awt.Font("Ancizar Serif", 1, 48)); // NOI18N
-        EligeRol.setText("Elige tu rol");
-        EligeRol.setBorder(null);
-        EligeRol.setBorderPainted(false);
-        EligeRol.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        EligeRol.setFocusPainted(false);
-        EligeRol.addActionListener(this::EligeRolActionPerformed);
+        exit.setBackground(new java.awt.Color(255, 255, 255));
+        exit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        exit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                exitMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                exitMouseExited(evt);
+            }
+        });
+        exit.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        InfoApp.setBackground(new java.awt.Color(153, 0, 51));
-        InfoApp.setFont(new java.awt.Font("Ancizar Sans Thin", 0, 18)); // NOI18N
-        InfoApp.setText("Bicirrun");
-        InfoApp.setBorder(null);
-        InfoApp.setBorderPainted(false);
-        InfoApp.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        InfoApp.addActionListener(this::InfoAppActionPerformed);
+        CERRAR.setFont(new java.awt.Font("Ancizar Sans Thin", 0, 24)); // NOI18N
+        CERRAR.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        CERRAR.setText("X");
+        CERRAR.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        CERRAR.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CERRARMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                CERRARMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                CERRARMouseExited(evt);
+            }
+        });
+        exit.add(CERRAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
+
+        enterUser.setBackground(new java.awt.Color(56, 182, 255, 9));
+        enterUser.setFont(new java.awt.Font("Ancizar Serif Medium", 0, 18)); // NOI18N
+        enterUser.setForeground(new java.awt.Color(0,0,0,50));
+        enterUser.setText("Ingrese su identificación");
+        enterUser.addActionListener(this::enterUserActionPerformed);
+
+        enterUser1.setBackground(new java.awt.Color(56, 182, 255, 9));
+        enterUser1.setFont(new java.awt.Font("Ancizar Serif Medium", 0, 18)); // NOI18N
+        enterUser1.setForeground(new java.awt.Color(0,0,0,50));
+        enterUser1.setText("Ingrese un usuario\n");
+        enterUser1.addActionListener(this::enterUser1ActionPerformed);
+
+        UNlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/universidad-nacional-de-colombia-sede-bogota-logo.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(148, 148, 148)
-                .addComponent(RolAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 269, Short.MAX_VALUE)
-                .addComponent(RolStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(150, 150, 150))
-            .addComponent(EligeRol, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(InfoApp, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(296, 296, 296)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(143, 143, 143)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(enterUser1, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(enterUser, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+                                    .addComponent(jComboBox2, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(261, 261, 261)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(panel_superior, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(UNlogo)
+                .addGap(508, 508, 508))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(EligeRol, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RolStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(RolAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
-                .addComponent(InfoApp, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panel_superior, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(UNlogo, javax.swing.GroupLayout.PREFERRED_SIZE, 79, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(enterUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(enterUser, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(390, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void RolStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RolStudentActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_RolStudentActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void RolAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RolAdminActionPerformed
+    private void panel_superiorMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_superiorMouseDragged
+        int x=evt.getXOnScreen();
+        int y=evt.getYOnScreen();
+        this.setLocation(x-xMouse, y-yMouse);
+    }//GEN-LAST:event_panel_superiorMouseDragged
+
+    private void panel_superiorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_superiorMousePressed
+         xMouse=evt.getX();
+        yMouse=evt.getY();
+    }//GEN-LAST:event_panel_superiorMousePressed
+
+    private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_exitMouseClicked
+
+    private void exitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseEntered
+        exit.setBackground(new Color(19,134,201));
+    }//GEN-LAST:event_exitMouseEntered
+
+    private void exitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseExited
+        exit.setBackground(new Color(255,255,255));
+    }//GEN-LAST:event_exitMouseExited
+
+    private void CERRARMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CERRARMouseEntered
+        exit.setBackground(new Color(19,134,201));        // TODO add your handling code here:
+    }//GEN-LAST:event_CERRARMouseEntered
+
+    private void CERRARMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CERRARMouseExited
+        exit.setBackground(new Color(255,255,255));        // TODO add your handling code here:
+    }//GEN-LAST:event_CERRARMouseExited
+
+    private void CERRARMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CERRARMouseClicked
+ System.exit(0);        // TODO add your handling code here:
+    }//GEN-LAST:event_CERRARMouseClicked
+
+    private void enterUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterUserActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_RolAdminActionPerformed
+    }//GEN-LAST:event_enterUserActionPerformed
 
-    private void EligeRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EligeRolActionPerformed
+    private void enterUser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterUser1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_EligeRolActionPerformed
+    }//GEN-LAST:event_enterUser1ActionPerformed
 
-    private void RolAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RolAdminMouseClicked
-        // TODO add your handling code here:
-        RegistroAdmin registroAdmin=new RegistroAdmin();
-        registroAdmin.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_RolAdminMouseClicked
-
-    private void InfoAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoAppActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_InfoAppActionPerformed
-
-    private void RolStudentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RolStudentMouseClicked
-
-        // TODO add your handling code here:
-        RegistroEstudiante registroEstudiante=new RegistroEstudiante();
-        registroEstudiante.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_RolStudentMouseClicked
-
+    
     /**
      * @param args the command line arguments
      */
@@ -187,10 +283,18 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton EligeRol;
-    private javax.swing.JButton InfoApp;
-    private javax.swing.JButton RolAdmin;
-    private javax.swing.JButton RolStudent;
+    private javax.swing.JLabel CERRAR;
+    private javax.swing.JLabel UNlogo;
+    private javax.swing.JTextField enterUser;
+    private javax.swing.JTextField enterUser1;
+    private javax.swing.JPanel exit;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel panel_superior;
     // End of variables declaration//GEN-END:variables
 }
