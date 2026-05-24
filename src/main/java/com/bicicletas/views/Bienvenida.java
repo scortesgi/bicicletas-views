@@ -18,6 +18,7 @@ public class Bienvenida extends javax.swing.JFrame {
     /**
      * Creates new form Bienvenida
      */
+    int xMouse, yMouse;
     public Bienvenida() {
         initComponents();
         ImageIcon icon = new ImageIcon(getClass().getResource("/imagenes/universidad-nacional-de-colombia-sede-bogota-logo.png"));
@@ -44,12 +45,19 @@ public class Bienvenida extends javax.swing.JFrame {
 
         sinCuenta_text = new javax.swing.JLabel();
         Bienvenido = new javax.swing.JLabel();
-        iniciarSesion = new javax.swing.JButton();
         UNlogo = new javax.swing.JLabel();
         bicirrun_text = new javax.swing.JLabel();
+        iniciarSesion_button = new javax.swing.JPanel();
+        IniciarSesion_text = new javax.swing.JLabel();
+        panel_superior = new javax.swing.JPanel();
+        exit = new javax.swing.JPanel();
+        CERRAR = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setLocationByPlatform(true);
+        setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         sinCuenta_text.setFont(new java.awt.Font("Ancizar Sans ExtraLight", 0, 18)); // NOI18N
@@ -61,38 +69,90 @@ public class Bienvenida extends javax.swing.JFrame {
                 sinCuenta_textMouseClicked(evt);
             }
         });
-        getContentPane().add(sinCuenta_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, -1, -1));
+        getContentPane().add(sinCuenta_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 380, -1, -1));
 
         Bienvenido.setFont(new java.awt.Font("Ancizar Sans ExtraBold", 1, 60)); // NOI18N
         Bienvenido.setForeground(new java.awt.Color(19, 134, 201));
         Bienvenido.setText("Bienvenido(a)");
         getContentPane().add(Bienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, -1, -1));
 
-        iniciarSesion.setBackground(new java.awt.Color(56, 182, 255));
-        iniciarSesion.setFont(new java.awt.Font("Ancizar Sans ExtraBold", 0, 48)); // NOI18N
-        iniciarSesion.setText("Iniciar Sesión");
-        iniciarSesion.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        iniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        iniciarSesion.setMaximumSize(new java.awt.Dimension(276, 65));
-        iniciarSesion.setMinimumSize(new java.awt.Dimension(276, 65));
-        iniciarSesion.addActionListener(this::iniciarSesionActionPerformed);
-        getContentPane().add(iniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 300, -1, -1));
-
         UNlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/universidad-nacional-de-colombia-sede-bogota-logo.png"))); // NOI18N
-        getContentPane().add(UNlogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(UNlogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         bicirrun_text.setFont(new java.awt.Font("Ancizar Sans ExtraLight", 0, 24)); // NOI18N
         bicirrun_text.setText("Bicirrun préstamo de bicicletas");
         getContentPane().add(bicirrun_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, -1, -1));
 
+        iniciarSesion_button.setBackground(new java.awt.Color(56, 182, 255));
+        iniciarSesion_button.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(56, 182, 255), 10, true));
+        iniciarSesion_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        iniciarSesion_button.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        IniciarSesion_text.setBackground(new java.awt.Color(56, 182, 255));
+        IniciarSesion_text.setFont(new java.awt.Font("Ancizar Sans ExtraBold", 0, 24)); // NOI18N
+        IniciarSesion_text.setForeground(new java.awt.Color(255, 255, 255));
+        IniciarSesion_text.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        IniciarSesion_text.setText("Iniciar Sesión");
+        IniciarSesion_text.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(56, 182, 255), 10, true));
+        IniciarSesion_text.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        IniciarSesion_text.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                IniciarSesion_textMouseClicked(evt);
+            }
+        });
+        iniciarSesion_button.add(IniciarSesion_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 60));
+
+        getContentPane().add(iniciarSesion_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 300, 60));
+
+        panel_superior.setBackground(new java.awt.Color(255, 255, 255));
+        panel_superior.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                panel_superiorMouseDragged(evt);
+            }
+        });
+        panel_superior.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panel_superiorMousePressed(evt);
+            }
+        });
+        getContentPane().add(panel_superior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 30));
+
+        exit.setBackground(new java.awt.Color(255, 255, 255));
+        exit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        exit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                exitMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                exitMouseExited(evt);
+            }
+        });
+
+        CERRAR.setFont(new java.awt.Font("Ancizar Sans Thin", 0, 24)); // NOI18N
+        CERRAR.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        CERRAR.setText("X");
+        CERRAR.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        javax.swing.GroupLayout exitLayout = new javax.swing.GroupLayout(exit);
+        exit.setLayout(exitLayout);
+        exitLayout.setHorizontalGroup(
+            exitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(CERRAR, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+        exitLayout.setVerticalGroup(
+            exitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, exitLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(CERRAR))
+        );
+
+        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, 40, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void iniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarSesionActionPerformed
-        Login login=new Login();
-        login.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_iniciarSesionActionPerformed
 
     private void sinCuenta_textMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sinCuenta_textMouseClicked
         Signup registrarse=new Signup();
@@ -100,6 +160,35 @@ public class Bienvenida extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_sinCuenta_textMouseClicked
+
+    private void IniciarSesion_textMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IniciarSesion_textMouseClicked
+        Login login=new Login();
+        login.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_IniciarSesion_textMouseClicked
+
+    private void panel_superiorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_superiorMousePressed
+        xMouse=evt.getX();
+        yMouse=evt.getY();
+    }//GEN-LAST:event_panel_superiorMousePressed
+
+    private void panel_superiorMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_superiorMouseDragged
+        int x=evt.getXOnScreen();
+        int y=evt.getYOnScreen();
+        this.setLocation(x-xMouse, y-yMouse);
+    }//GEN-LAST:event_panel_superiorMouseDragged
+
+    private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_exitMouseClicked
+
+    private void exitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseEntered
+        exit.setBackground(new Color(19,134,201));
+    }//GEN-LAST:event_exitMouseEntered
+
+    private void exitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseExited
+        exit.setBackground(new Color(255,255,255));
+    }//GEN-LAST:event_exitMouseExited
 
     /**
      * @param args the command line arguments
@@ -128,9 +217,13 @@ public class Bienvenida extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Bienvenido;
+    private javax.swing.JLabel CERRAR;
+    private javax.swing.JLabel IniciarSesion_text;
     private javax.swing.JLabel UNlogo;
     private javax.swing.JLabel bicirrun_text;
-    private javax.swing.JButton iniciarSesion;
+    private javax.swing.JPanel exit;
+    private javax.swing.JPanel iniciarSesion_button;
+    private javax.swing.JPanel panel_superior;
     private javax.swing.JLabel sinCuenta_text;
     // End of variables declaration//GEN-END:variables
 }
