@@ -71,6 +71,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         panel_superior = new javax.swing.JPanel();
         exit = new javax.swing.JPanel();
         CERRAR = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -109,6 +110,11 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         UNlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/universidad-nacional-de-colombia-sede-bogota-logo.png"))); // NOI18N
         UNlogo.setPreferredSize(new java.awt.Dimension(200, 50));
+        UNlogo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                UNlogoMouseClicked(evt);
+            }
+        });
 
         jButton12.setBackground(new java.awt.Color(56, 182, 255));
         jButton12.setText("Admin ciclas");
@@ -239,60 +245,159 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(535, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(292, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
+       // 1. Creamos la instancia del panel para agregar bicicletas
+    AdminAgregarcicla vistaAgregarCicla = new AdminAgregarcicla();
+    
+    // 2. Le asignamos el tamaño exacto del contenedor (jPanel4)
+    vistaAgregarCicla.setSize(jPanel4.getWidth(), jPanel4.getHeight());
+    vistaAgregarCicla.setLocation(0, 0);
+    
+    // 3. Vaciamos el contenedor y metemos el nuevo panel
+    jPanel4.removeAll();
+    jPanel4.add(vistaAgregarCicla, java.awt.BorderLayout.CENTER);
+    
+    // 4. Refrescamos la interfaz para aplicar los cambios
+    jPanel4.revalidate();
+    jPanel4.repaint();
+    // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
+        // 1. Creamos la instancia de tu panel de penalizaciones
+    adminPenalizar vistaPenalizar = new adminPenalizar();
+    
+    // 2. Le asignamos el tamaño exacto del contenedor blanco de abajo
+    vistaPenalizar.setSize(jPanel4.getWidth(), jPanel4.getHeight());
+    vistaPenalizar.setLocation(0, 0);
+    
+    // 3. Vaciamos lo que haya en la zona blanca y metemos el nuevo panel
+    jPanel4.removeAll();
+    jPanel4.add(vistaPenalizar, java.awt.BorderLayout.CENTER);
+    
+    // 4. Le avisamos a Java que redibuje la interfaz para que se vea el cambio
+    jPanel4.revalidate();
+    jPanel4.repaint();
+
+    // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
+        Reglas vistaReglas = new Reglas();
+    
+    // 2. Le asignamos el tamaño exacto del contenedor (jPanel4)
+    vistaReglas.setSize(jPanel4.getWidth(), jPanel4.getHeight());
+    vistaReglas.setLocation(0, 0);
+    
+    // 3. Vaciamos el contenedor y metemos el nuevo panel
+    jPanel4.removeAll();
+    jPanel4.add(vistaReglas, java.awt.BorderLayout.CENTER);
+    
+    // 4. Refrescamos la interfaz para aplicar los cambios
+    jPanel4.revalidate();
+    jPanel4.repaint();
+    // TODO add your handling code here:
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        // TODO add your handling code here:
+       
+    AdminReportes vistaReportes = new AdminReportes();
+    
+    // 2. Le asignamos el tamaño exacto del contenedor blanco (jPanel4)
+    vistaReportes.setSize(jPanel4.getWidth(), jPanel4.getHeight());
+    vistaReportes.setLocation(0, 0);
+    
+    // 3. Vaciamos el contenedor y metemos el nuevo panel de reportes
+    jPanel4.removeAll();
+    jPanel4.add(vistaReportes, java.awt.BorderLayout.CENTER);
+    
+    // 4. Refrescamos la interfaz gráfica para pintar los nuevos componentes
+    jPanel4.revalidate();
+    jPanel4.repaint();
+    // TODO add your handling code here:
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        // TODO add your handling code here:
+        // 1. Creamos la instancia del panel para eliminar estudiantes
+    AdminQuitarEstudiante vistaQuitarEstudiante = new AdminQuitarEstudiante();
+    
+    // 2. Le asignamos el tamaño exacto del contenedor principal (jPanel4)
+    vistaQuitarEstudiante.setSize(jPanel4.getWidth(), jPanel4.getHeight());
+    vistaQuitarEstudiante.setLocation(0, 0);
+    
+    // 3. Limpiamos el panel contenedor e insertamos la nueva vista
+    jPanel4.removeAll();
+    jPanel4.add(vistaQuitarEstudiante, java.awt.BorderLayout.CENTER);
+    
+    // 4. Forzamos a Java a redibujar los componentes en pantalla
+    jPanel4.revalidate();
+    jPanel4.repaint();
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
+        Adminadministrarbicicleta vistaAdminBici = new Adminadministrarbicicleta();
+    
+    // 2. Le asignamos el tamaño exacto del contenedor principal (jPanel4)
+    vistaAdminBici.setSize(jPanel4.getWidth(), jPanel4.getHeight());
+    vistaAdminBici.setLocation(0, 0);
+    
+    // 3. Limpiamos el panel contenedor e insertamos la nueva vista
+    jPanel4.removeAll();
+    jPanel4.add(vistaAdminBici, java.awt.BorderLayout.CENTER);
+    
+    // 4. Forzamos a Java a redibujar los componentes en pantalla
+    jPanel4.revalidate();
+    jPanel4.repaint();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void panel_superiorMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_superiorMouseDragged
@@ -330,6 +435,22 @@ public class MenuAdmin extends javax.swing.JFrame {
         
         exit.setBackground(new Color(19,134,201));
     }//GEN-LAST:event_exitMouseExited
+
+    private void UNlogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UNlogoMouseClicked
+        MenuAdmin vistaMenuPrincipal = new MenuAdmin();
+    
+    // 2. Le asignamos el tamaño exacto del contenedor (jPanel4)
+    vistaMenuPrincipal.setSize(jPanel4.getWidth(), jPanel4.getHeight());
+    vistaMenuPrincipal.setLocation(0, 0);
+    
+    // 3. Vaciamos el contenedor actual y metemos el MenuAdmin
+    jPanel4.removeAll();
+    jPanel4.add(vistaMenuPrincipal, java.awt.BorderLayout.CENTER);
+    
+    // 4. Refrescamos la interfaz gráfica para pintar los componentes
+    jPanel4.revalidate();
+    jPanel4.repaint();
+    }//GEN-LAST:event_UNlogoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -372,6 +493,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel panel_superior;
     // End of variables declaration//GEN-END:variables
 
