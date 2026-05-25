@@ -46,12 +46,14 @@ public class SignUp2 extends javax.swing.JFrame {
         enterUser = new javax.swing.JTextField();
         id_text = new javax.swing.JLabel();
         enterID = new javax.swing.JTextField();
-        tiun_text = new javax.swing.JLabel();
-        enterTIUN1 = new javax.swing.JTextField();
+        tel_text = new javax.swing.JLabel();
+        enterTel = new javax.swing.JTextField();
         registro_text1 = new javax.swing.JLabel();
         registro_text = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         UNlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/universidad-nacional-de-colombia-sede-bogota-logo.png"))); // NOI18N
@@ -64,8 +66,12 @@ public class SignUp2 extends javax.swing.JFrame {
         enterUser.setBackground(new java.awt.Color(56, 182, 255, 9));
         enterUser.setFont(new java.awt.Font("Ancizar Serif Medium", 0, 18)); // NOI18N
         enterUser.setForeground(new java.awt.Color(0,0,0,50));
-        enterUser.setText("Ingrese un usuario\n");
-        enterUser.addActionListener(this::enterUserActionPerformed);
+        enterUser.setText("Ingrese el nombre");
+        enterUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                enterUserMousePressed(evt);
+            }
+        });
         getContentPane().add(enterUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 420, -1));
 
         id_text.setFont(new java.awt.Font("Ancizar Serif", 1, 24)); // NOI18N
@@ -76,17 +82,28 @@ public class SignUp2 extends javax.swing.JFrame {
         enterID.setFont(new java.awt.Font("Ancizar Serif Medium", 0, 18)); // NOI18N
         enterID.setForeground(new java.awt.Color(0,0,0,50));
         enterID.setText("Identificación sin puntos");
+        enterID.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                enterIDMousePressed(evt);
+            }
+        });
         getContentPane().add(enterID, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, 420, -1));
 
-        tiun_text.setFont(new java.awt.Font("Ancizar Serif", 1, 24)); // NOI18N
-        tiun_text.setText("Teléfono:");
-        getContentPane().add(tiun_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, -1, -1));
+        tel_text.setFont(new java.awt.Font("Ancizar Serif", 1, 24)); // NOI18N
+        tel_text.setText("Teléfono:");
+        getContentPane().add(tel_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, -1, -1));
 
-        enterTIUN1.setBackground(new java.awt.Color(56, 182, 255, 9));
-        enterTIUN1.setFont(new java.awt.Font("Ancizar Serif Medium", 0, 18)); // NOI18N
-        enterTIUN1.setForeground(new java.awt.Color(0,0,0,50));
-        enterTIUN1.setText("Ingrese TIUN de su carnet");
-        getContentPane().add(enterTIUN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 420, -1));
+        enterTel.setBackground(new java.awt.Color(56, 182, 255, 9));
+        enterTel.setFont(new java.awt.Font("Ancizar Serif Medium", 0, 18)); // NOI18N
+        enterTel.setForeground(new java.awt.Color(0,0,0,50));
+        enterTel.setText("Ingrese número de teléfono");
+        enterTel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                enterTelMousePressed(evt);
+            }
+        });
+        enterTel.addActionListener(this::enterTelActionPerformed);
+        getContentPane().add(enterTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 420, -1));
 
         registro_text1.setFont(new java.awt.Font("Ancizar Sans ExtraBold", 1, 60)); // NOI18N
         registro_text1.setForeground(new java.awt.Color(19, 134, 201));
@@ -101,9 +118,54 @@ public class SignUp2 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void enterUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterUserActionPerformed
+    private void enterUserMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterUserMousePressed
+        if (enterUser.getText().equals("Ingrese el nombre")){
+            enterUser.setText("");
+            enterUser.setForeground(Color.black);
+        }
+        if(enterID.getText().isEmpty()){
+            enterID.setText("Identificación sin puntos");
+            enterID.setForeground(new Color(0,0,0,50));
+        }
+        if (enterTel.getText().isEmpty()){
+            enterTel.setText("Ingrese número de teléfono");
+            enterTel.setForeground(new Color(0,0,0,50));
+        }
+    }//GEN-LAST:event_enterUserMousePressed
+
+    private void enterTelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterTelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_enterUserActionPerformed
+    }//GEN-LAST:event_enterTelActionPerformed
+
+    private void enterIDMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterIDMousePressed
+        if (enterID.getText().equals("Identificación sin puntos")){
+            enterID.setText("");
+            enterID.setForeground(Color.black);
+        }
+        if(enterUser.getText().isEmpty()){
+            enterUser.setText("Ingrese el nombre");
+            enterUser.setForeground(new Color(0,0,0,50));
+        }
+        if (enterTel.getText().isEmpty()){
+            enterTel.setText("Ingrese número de teléfono");
+            enterTel.setForeground(new Color(0,0,0,50));
+        }
+    }//GEN-LAST:event_enterIDMousePressed
+
+    private void enterTelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterTelMousePressed
+        if (enterTel.getText().equals("Ingrese número de teléfono")){
+            enterTel.setText("");
+            enterTel.setForeground(Color.black);
+        }
+        if(enterUser.getText().isEmpty()){
+            enterUser.setText("Ingrese el nombre");
+            enterUser.setForeground(new Color(0,0,0,50));
+        }
+        if (enterID.getText().isEmpty()){
+            enterID.setText("Identificación sin puntos");
+            enterID.setForeground(new Color(0,0,0,50));
+        }
+    }//GEN-LAST:event_enterTelMousePressed
 
     /**
      * @param args the command line arguments
@@ -133,12 +195,12 @@ public class SignUp2 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel UNlogo;
     private javax.swing.JTextField enterID;
-    private javax.swing.JTextField enterTIUN1;
+    private javax.swing.JTextField enterTel;
     private javax.swing.JTextField enterUser;
     private javax.swing.JLabel id_text;
     private javax.swing.JLabel registro_text;
     private javax.swing.JLabel registro_text1;
-    private javax.swing.JLabel tiun_text;
+    private javax.swing.JLabel tel_text;
     private javax.swing.JLabel user_text;
     // End of variables declaration//GEN-END:variables
 }
