@@ -2,12 +2,6 @@ package com.bicicletas.views;
 import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
-import com.bicicletas.modelo.Student;
-import com.bicicletas.modelo.Bike;
-import com.bicicletas.modelo.Station;
-import com.bicicletas.modelo.Reservar;
-import com.bicicletas.modelo.Administrator;
-import com.bicicletas.modelo.Comment;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -69,10 +63,16 @@ public class Bienvenida extends javax.swing.JFrame {
         sinCuenta_text.setFont(new java.awt.Font("Ancizar Sans ExtraLight", 0, 18)); // NOI18N
         sinCuenta_text.setForeground(new java.awt.Color(56, 182, 255));
         sinCuenta_text.setText("¿No tienes cuenta? Regístrate aquí");
-        sinCuenta_text.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        sinCuenta_text.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         sinCuenta_text.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 sinCuenta_textMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                sinCuenta_textMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                sinCuenta_textMouseExited(evt);
             }
         });
         getContentPane().add(sinCuenta_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 380, -1, -1));
@@ -90,20 +90,23 @@ public class Bienvenida extends javax.swing.JFrame {
         getContentPane().add(bicirrun_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, -1, -1));
 
         iniciarSesion_button.setBackground(new java.awt.Color(56, 182, 255));
-        iniciarSesion_button.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(56, 182, 255), 10, true));
         iniciarSesion_button.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         iniciarSesion_button.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         IniciarSesion_text.setBackground(new java.awt.Color(56, 182, 255));
         IniciarSesion_text.setFont(new java.awt.Font("Ancizar Sans ExtraBold", 0, 24)); // NOI18N
-        IniciarSesion_text.setForeground(new java.awt.Color(255, 255, 255));
         IniciarSesion_text.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         IniciarSesion_text.setText("Iniciar Sesión");
-        IniciarSesion_text.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(56, 182, 255), 10, true));
-        IniciarSesion_text.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        IniciarSesion_text.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         IniciarSesion_text.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 IniciarSesion_textMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                IniciarSesion_textMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                IniciarSesion_textMouseExited(evt);
             }
         });
         iniciarSesion_button.add(IniciarSesion_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 60));
@@ -195,6 +198,26 @@ public class Bienvenida extends javax.swing.JFrame {
     private void exitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseExited
         exit.setBackground(new Color(255,255,255));
     }//GEN-LAST:event_exitMouseExited
+
+    private void IniciarSesion_textMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IniciarSesion_textMouseEntered
+        iniciarSesion_button.setBackground(new Color(19,134,201));
+        IniciarSesion_text.setForeground(Color.WHITE);
+        //iniciarSesion_button.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(19, 134, 201), 10, true));
+    }//GEN-LAST:event_IniciarSesion_textMouseEntered
+
+    private void IniciarSesion_textMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IniciarSesion_textMouseExited
+        iniciarSesion_button.setBackground(new Color(56,182,255));
+        IniciarSesion_text.setForeground(Color.BLACK);
+        //iniciarSesion_button.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(56, 182, 255), 10, true));
+    }//GEN-LAST:event_IniciarSesion_textMouseExited
+
+    private void sinCuenta_textMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sinCuenta_textMouseEntered
+        sinCuenta_text.setForeground(new Color(19,134,201));
+    }//GEN-LAST:event_sinCuenta_textMouseEntered
+
+    private void sinCuenta_textMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sinCuenta_textMouseExited
+        sinCuenta_text.setForeground(new Color(56,182,255));
+    }//GEN-LAST:event_sinCuenta_textMouseExited
 
     /**
      * @param args the command line arguments

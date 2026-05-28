@@ -6,12 +6,6 @@ package com.bicicletas.views;
 import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
-import com.bicicletas.modelo.Student;
-import com.bicicletas.modelo.Bike;
-import com.bicicletas.modelo.Station;
-import com.bicicletas.modelo.Reservar;
-import com.bicicletas.modelo.Administrator;
-import com.bicicletas.modelo.Comment;
 /**
  *
  * @author VALETOR
@@ -49,14 +43,7 @@ public class SignUp2 extends javax.swing.JFrame {
     private void initComponents() {
 
         UNlogo = new javax.swing.JLabel();
-        user_text = new javax.swing.JLabel();
-        enterUser = new javax.swing.JTextField();
-        id_text = new javax.swing.JLabel();
-        enterID = new javax.swing.JTextField();
-        tiun_text = new javax.swing.JLabel();
-        enterTIUN1 = new javax.swing.JTextField();
         registro_text1 = new javax.swing.JLabel();
-        registro_text = new javax.swing.JLabel();
         panel_superior = new javax.swing.JPanel();
         exit = new javax.swing.JPanel();
         CERRAR = new javax.swing.JLabel();
@@ -68,46 +55,10 @@ public class SignUp2 extends javax.swing.JFrame {
         UNlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/universidad-nacional-de-colombia-sede-bogota-logo.png"))); // NOI18N
         getContentPane().add(UNlogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        user_text.setFont(new java.awt.Font("Ancizar Serif", 1, 24)); // NOI18N
-        user_text.setText("Nombre:");
-        getContentPane().add(user_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, -1, -1));
-
-        enterUser.setBackground(new java.awt.Color(56, 182, 255, 9));
-        enterUser.setFont(new java.awt.Font("Ancizar Serif Medium", 0, 18)); // NOI18N
-        enterUser.setForeground(new java.awt.Color(0,0,0,50));
-        enterUser.setText("Ingrese un usuario\n");
-        enterUser.addActionListener(this::enterUserActionPerformed);
-        getContentPane().add(enterUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 420, -1));
-
-        id_text.setFont(new java.awt.Font("Ancizar Serif", 1, 24)); // NOI18N
-        id_text.setText("Identificación:");
-        getContentPane().add(id_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, -1, -1));
-
-        enterID.setBackground(new java.awt.Color(56, 182, 255, 9));
-        enterID.setFont(new java.awt.Font("Ancizar Serif Medium", 0, 18)); // NOI18N
-        enterID.setForeground(new java.awt.Color(0,0,0,50));
-        enterID.setText("Identificación sin puntos");
-        getContentPane().add(enterID, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, 420, -1));
-
-        tiun_text.setFont(new java.awt.Font("Ancizar Serif", 1, 24)); // NOI18N
-        tiun_text.setText("Teléfono:");
-        getContentPane().add(tiun_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, -1, -1));
-
-        enterTIUN1.setBackground(new java.awt.Color(56, 182, 255, 9));
-        enterTIUN1.setFont(new java.awt.Font("Ancizar Serif Medium", 0, 18)); // NOI18N
-        enterTIUN1.setForeground(new java.awt.Color(0,0,0,50));
-        enterTIUN1.setText("Ingrese TIUN de su carnet");
-        getContentPane().add(enterTIUN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 420, -1));
-
         registro_text1.setFont(new java.awt.Font("Ancizar Sans ExtraBold", 1, 60)); // NOI18N
         registro_text1.setForeground(new java.awt.Color(19, 134, 201));
         registro_text1.setText("Registro");
         getContentPane().add(registro_text1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, -1, -1));
-
-        registro_text.setFont(new java.awt.Font("Ancizar Sans ExtraBold", 1, 36)); // NOI18N
-        registro_text.setForeground(new java.awt.Color(19, 134, 201));
-        registro_text.setText("Contacto de emergencia");
-        getContentPane().add(registro_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, -1, -1));
 
         panel_superior.setBackground(new java.awt.Color(255, 255, 255));
         panel_superior.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -159,10 +110,6 @@ public class SignUp2 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void enterUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterUserActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_enterUserActionPerformed
 
     private void panel_superiorMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_superiorMouseDragged
         int x=evt.getXOnScreen();
@@ -227,15 +174,8 @@ public class SignUp2 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CERRAR;
     private javax.swing.JLabel UNlogo;
-    private javax.swing.JTextField enterID;
-    private javax.swing.JTextField enterTIUN1;
-    private javax.swing.JTextField enterUser;
     private javax.swing.JPanel exit;
-    private javax.swing.JLabel id_text;
     private javax.swing.JPanel panel_superior;
-    private javax.swing.JLabel registro_text;
     private javax.swing.JLabel registro_text1;
-    private javax.swing.JLabel tiun_text;
-    private javax.swing.JLabel user_text;
     // End of variables declaration//GEN-END:variables
 }

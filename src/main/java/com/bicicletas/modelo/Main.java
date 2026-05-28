@@ -711,7 +711,6 @@ if(claveCorrecta){
 
 */
 package com.bicicletas.modelo;
-import com.bicicletas.modelo.Comment;
 import java.util.ArrayList;
 import com.bicicletas.views.MenuAdmin; // Asegúrate de que apunte al paquete de tus vistas
 

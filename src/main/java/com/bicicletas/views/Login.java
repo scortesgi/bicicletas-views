@@ -6,13 +6,6 @@ package com.bicicletas.views;
 
 import java.awt.Color;
 import static java.lang.System.exit;
-import com.bicicletas.modelo.Student;
-import com.bicicletas.modelo.Bike;
-import com.bicicletas.modelo.Station;
-import com.bicicletas.modelo.Reservar;
-import com.bicicletas.modelo.Administrator;
-import com.bicicletas.modelo.Comment;
-import com.bicicletas.modelo.DocReader;
 
 
 /**
@@ -65,19 +58,19 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setText("INICIAR SESIÓN");
 
         jLabel4.setFont(new java.awt.Font("Ancizar Serif", 0, 24)); // NOI18N
-        jLabel4.setText("Seleccione su rol");
+        jLabel4.setText("Seleccione su rol:");
 
         jComboBox2.setBackground(new java.awt.Color(196, 231, 251));
         jComboBox2.setEditable(true);
         jComboBox2.setFont(new java.awt.Font("Ancizar Serif Light", 0, 14)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Estudiante" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Administrador", "Estudiante" }));
         jComboBox2.setToolTipText("");
 
         jLabel2.setFont(new java.awt.Font("Ancizar Serif", 0, 24)); // NOI18N
-        jLabel2.setText("usuario:");
+        jLabel2.setText("Usuario:");
 
         jLabel3.setFont(new java.awt.Font("Ancizar Serif", 0, 24)); // NOI18N
-        jLabel3.setText("identificación:");
+        jLabel3.setText("Identificación:");
 
         jButton1.setBackground(new java.awt.Color(19, 134, 201));
         jButton1.setFont(new java.awt.Font("Ancizar Serif Medium", 0, 18)); // NOI18N
@@ -173,7 +166,7 @@ public class Login extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(UNlogo)
-                .addGap(507, 507, 507))
+                .addGap(508, 508, 508))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
