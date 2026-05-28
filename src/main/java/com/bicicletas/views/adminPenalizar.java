@@ -3,6 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.bicicletas.views;
+import com.bicicletas.modelo.Student;
+import com.bicicletas.modelo.Bike;
+import com.bicicletas.modelo.Station;
+import com.bicicletas.modelo.Reservar;
+import com.bicicletas.modelo.Administrator;
+import com.bicicletas.modelo.Comment;
+
 import java.awt.Color;
 /**
  *
@@ -15,7 +22,18 @@ public class adminPenalizar extends javax.swing.JPanel {
      */
     public adminPenalizar() {
         initComponents();
-    }
+   
+    // Forzar opacidad y color de fondo por código para evitar errores del diseñador
+    enterID.setOpaque(true);
+    enterID.setBackground(java.awt.Color.WHITE);
+    enterID.setText(""); // Asegurar que inicie vacío sin textos fantasmas
+    
+    enterTel.setOpaque(true);
+    enterTel.setBackground(java.awt.Color.WHITE);
+    enterTel.setText("");
+}
+        
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -36,6 +54,8 @@ public class adminPenalizar extends javax.swing.JPanel {
         enterID = new javax.swing.JTextField();
         user_text2 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
+
+        setLayout(new java.awt.BorderLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -73,7 +93,7 @@ public class adminPenalizar extends javax.swing.JPanel {
         enterTel.setBackground(new java.awt.Color(56, 182, 255, 9));
         enterTel.setFont(new java.awt.Font("Ancizar Serif Medium", 0, 18)); // NOI18N
         enterTel.setForeground(new java.awt.Color(0,0,0,50));
-        enterTel.setText("(opcional)");
+        enterTel.setOpaque(true);
         enterTel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 enterTelMousePressed(evt);
@@ -90,6 +110,7 @@ public class adminPenalizar extends javax.swing.JPanel {
         enterID.setBackground(new java.awt.Color(56, 182, 255, 9));
         enterID.setFont(new java.awt.Font("Ancizar Serif Medium", 0, 18)); // NOI18N
         enterID.setForeground(new java.awt.Color(0,0,0,50));
+        enterID.setOpaque(true);
         enterID.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 enterIDMousePressed(evt);
@@ -113,7 +134,7 @@ public class adminPenalizar extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(156, 156, 156)
+                        .addGap(159, 159, 159)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(24, 24, 24)
@@ -130,14 +151,14 @@ public class adminPenalizar extends javax.swing.JPanel {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(112, 112, 112)
                                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(212, Short.MAX_VALUE))
+                .addContainerGap(181, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75)
+                .addGap(18, 18, 18)
                 .addComponent(user_text1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(user_text2)
@@ -149,24 +170,10 @@ public class adminPenalizar extends javax.swing.JPanel {
                 .addComponent(enterTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(209, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
-        );
+        add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
     private void enterTelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterTelMousePressed
@@ -204,12 +211,6 @@ public class adminPenalizar extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField enterID;
     private javax.swing.JTextField enterTel;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

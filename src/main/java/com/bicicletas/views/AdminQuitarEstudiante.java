@@ -4,6 +4,12 @@
  */
 package com.bicicletas.views;
 
+import java.awt.Color;
+import java.util.ArrayList;
+
+// 🌟 TRAER LA LÓGICA DEL MODELO:
+import com.bicicletas.modelo.*;
+
 /**
  *
  * @author sammu
@@ -77,6 +83,7 @@ public class AdminQuitarEstudiante extends javax.swing.JPanel {
         enterID.setBackground(new java.awt.Color(56, 182, 255, 9));
         enterID.setFont(new java.awt.Font("Ancizar Serif Medium", 0, 18)); // NOI18N
         enterID.setForeground(new java.awt.Color(0,0,0,50));
+        enterID.setOpaque(true);
         enterID.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 enterIDMousePressed(evt);

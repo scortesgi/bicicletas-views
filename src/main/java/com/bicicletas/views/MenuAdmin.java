@@ -3,6 +3,17 @@ import java.awt.Color;
 import java.awt.Image;
 import java.time.LocalDate;
 import javax.swing.ImageIcon;
+
+// 1. 🌟 EL IMPORT ESENCIAL PARA REPARAR LOS ARRAYLIST:
+import java.util.ArrayList;
+
+// 2. 🌟 IMPORTS DE TU MODELO (Asegúrate de que no falte ninguno):
+import com.bicicletas.modelo.*;
+import com.bicicletas.views.*;
+
+
+
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -12,14 +23,15 @@ import javax.swing.ImageIcon;
  *
  * @author sammu
  */
- 
+ /*
 public class MenuAdmin extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuAdmin.class.getName());
 
     /**
      * Creates new form Login
-     */
+
+     
     int xMouse, yMouse;
     public MenuAdmin() {
         initComponents();
@@ -36,7 +48,69 @@ public class MenuAdmin extends javax.swing.JFrame {
         getContentPane().setBackground(Color.WHITE);
     
     }
+    
+   
 
+    */
+
+
+public class MenuAdmin extends javax.swing.JFrame {
+    
+    public MenuAdmin() {
+    this.listaEstudiante = new java.util.ArrayList<>();
+    this.estaciones = new java.util.ArrayList<>();
+    this.listaComentarios = new java.util.ArrayList<>();
+    this.administrador = null;
+    
+    initComponents();
+    SetDate();
+}
+    
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuAdmin.class.getName());
+
+    // --- NUESTRAS VARIABLES GLOBALES PARA EL MODELO ---
+     private ArrayList<Student> listaEstudiante;
+    private ArrayList<Station> estaciones;
+    private ArrayList<Comment> listaComentarios;
+    private Administrator administrador;
+
+    int xMouse, yMouse; // Las variables de diseño que ya tenías
+
+    // MODIFICAMOS EL CONSTRUCTOR PARA RECIBIR LOS DATOS
+   public MenuAdmin(ArrayList<Student> listaEstudiante, ArrayList<Station> estaciones, ArrayList<Comment> listaComentarios, Administrator administrador) {
+       
+    this.listaEstudiante = listaEstudiante;
+    this.estaciones = estaciones;
+    this.listaComentarios = listaComentarios;
+    this.administrador = administrador;
+       
+        initComponents();
+        SetDate();
+        
+        
+        if (estaciones.isEmpty()) {
+            estaciones.add(new Station("Calle 53", 2));
+            estaciones.add(new Station("CYT", 2));
+            estaciones.add(new Station("Uriel", 15));   
+            estaciones.add(new Station("Calle 45", 15));
+        }
+        
+       /* // Tu código existente del logo de la UN
+        ImageIcon icon = new ImageIcon(getClass().getResource("/imagenes/universidad-nacional-de-colombia-sede-bogota-logo.png"));
+        Image img = icon.getImage();
+        Image imgEscalada = img.getScaledInstance(400, 80, Image.SCALE_SMOOTH);
+        UNlogo.setIcon(new ImageIcon(imgEscalada));
+        
+        setResizable(false);
+        setLocationRelativeTo(null);
+        getContentPane().setBackground(Color.WHITE);
+        
+        // Cargamos el primer panel por defecto (Administrar Bicicletas) al abrir la app
+        Adminadministrarbicicleta panelBici = new Adminadministrarbicicleta();
+        */
+    }
+    
+    // ... El resto de tus métodos (SetDate, etc.) se quedan exactamente igual
         private void SetDate() {
     LocalDate now = LocalDate.now();
     int year = now.getYear();
@@ -66,17 +140,18 @@ public class MenuAdmin extends javax.swing.JFrame {
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        UNlogo = new javax.swing.JLabel();
         jButton12 = new javax.swing.JButton();
         panel_superior = new javax.swing.JPanel();
         exit = new javax.swing.JPanel();
         CERRAR = new javax.swing.JLabel();
+        UNlogo = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
         setUndecorated(true);
         setResizable(false);
         setSize(new java.awt.Dimension(800, 600));
@@ -84,6 +159,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel2.setBackground(new java.awt.Color(19, 134, 201));
+        jPanel2.setPreferredSize(new java.awt.Dimension(873, 190));
 
         jButton7.setBackground(new java.awt.Color(56, 182, 255));
         jButton7.setText("agregar cicla");
@@ -107,14 +183,6 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jButton6.setBackground(new java.awt.Color(56, 182, 255));
         jButton6.setText("Cerrar sesión");
-
-        UNlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/universidad-nacional-de-colombia-sede-bogota-logo.png"))); // NOI18N
-        UNlogo.setPreferredSize(new java.awt.Dimension(200, 50));
-        UNlogo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                UNlogoMouseClicked(evt);
-            }
-        });
 
         jButton12.setBackground(new java.awt.Color(56, 182, 255));
         jButton12.setText("Admin ciclas");
@@ -146,7 +214,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 exitMouseExited(evt);
             }
         });
-        exit.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        exit.setLayout(new java.awt.BorderLayout());
 
         CERRAR.setFont(new java.awt.Font("Ancizar Sans Thin", 0, 24)); // NOI18N
         CERRAR.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -163,56 +231,83 @@ public class MenuAdmin extends javax.swing.JFrame {
                 CERRARMouseExited(evt);
             }
         });
-        exit.add(CERRAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
+        exit.add(CERRAR, java.awt.BorderLayout.CENTER);
+
+        UNlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/universidad-nacional-de-colombia-sede-bogota-logo.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(UNlogo, javax.swing.GroupLayout.PREFERRED_SIZE, 205, Short.MAX_VALUE)
-                .addGap(40, 40, 40)
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton6)
-                .addContainerGap())
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(panel_superior, javax.swing.GroupLayout.PREFERRED_SIZE, 763, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(UNlogo)
+                        .addGap(48, 48, 48)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(44, 44, 44)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(47, 47, 47)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(34, 34, 34)
+                        .addComponent(jButton6))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(panel_superior, javax.swing.GroupLayout.PREFERRED_SIZE, 756, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton10, jButton11, jButton12, jButton7, jButton8, jButton9});
+
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panel_superior, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(UNlogo)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(panel_superior, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(8, Short.MAX_VALUE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(UNlogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
+
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton10, jButton11, jButton12, jButton7, jButton8, jButton9});
+
+        jPanel4.setLayout(new java.awt.BorderLayout());
 
         jPanel3.setBackground(new java.awt.Color(56, 182, 255));
 
@@ -230,11 +325,10 @@ public class MenuAdmin extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(843, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jLabel2)
-                .addGap(191, 191, 191))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,37 +339,28 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(535, Short.MAX_VALUE))
-        );
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1131, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -289,116 +374,41 @@ public class MenuAdmin extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(341, Short.MAX_VALUE))
         );
 
-        pack();
+        setBounds(0, 0, 815, 592);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-       // 1. Creamos la instancia del panel para agregar bicicletas
-    AdminAgregarcicla vistaAgregarCicla = new AdminAgregarcicla();
-    
-    // 2. Le asignamos el tamaño exacto del contenedor (jPanel4)
-    vistaAgregarCicla.setSize(jPanel4.getWidth(), jPanel4.getHeight());
-    vistaAgregarCicla.setLocation(0, 0);
-    
-    // 3. Vaciamos el contenedor y metemos el nuevo panel
-    jPanel4.removeAll();
-    jPanel4.add(vistaAgregarCicla, java.awt.BorderLayout.CENTER);
-    
-    // 4. Refrescamos la interfaz para aplicar los cambios
-    jPanel4.revalidate();
-    jPanel4.repaint();
-    // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    private void exitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseExited
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // 1. Creamos la instancia de tu panel de penalizaciones
-    adminPenalizar vistaPenalizar = new adminPenalizar();
-    
-    // 2. Le asignamos el tamaño exacto del contenedor blanco de abajo
-    vistaPenalizar.setSize(jPanel4.getWidth(), jPanel4.getHeight());
-    vistaPenalizar.setLocation(0, 0);
-    
-    // 3. Vaciamos lo que haya en la zona blanca y metemos el nuevo panel
-    jPanel4.removeAll();
-    jPanel4.add(vistaPenalizar, java.awt.BorderLayout.CENTER);
-    
-    // 4. Le avisamos a Java que redibuje la interfaz para que se vea el cambio
-    jPanel4.revalidate();
-    jPanel4.repaint();
+        exit.setBackground(new Color(19,134,201));
+    }//GEN-LAST:event_exitMouseExited
 
-    // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    private void exitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseEntered
+        exit.setBackground(new Color(255,255,255));
+    }//GEN-LAST:event_exitMouseEntered
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        Reglas vistaReglas = new Reglas();
-    
-    // 2. Le asignamos el tamaño exacto del contenedor (jPanel4)
-    vistaReglas.setSize(jPanel4.getWidth(), jPanel4.getHeight());
-    vistaReglas.setLocation(0, 0);
-    
-    // 3. Vaciamos el contenedor y metemos el nuevo panel
-    jPanel4.removeAll();
-    jPanel4.add(vistaReglas, java.awt.BorderLayout.CENTER);
-    
-    // 4. Refrescamos la interfaz para aplicar los cambios
-    jPanel4.revalidate();
-    jPanel4.repaint();
-    // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
+    private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_exitMouseClicked
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-       
-    AdminReportes vistaReportes = new AdminReportes();
-    
-    // 2. Le asignamos el tamaño exacto del contenedor blanco (jPanel4)
-    vistaReportes.setSize(jPanel4.getWidth(), jPanel4.getHeight());
-    vistaReportes.setLocation(0, 0);
-    
-    // 3. Vaciamos el contenedor y metemos el nuevo panel de reportes
-    jPanel4.removeAll();
-    jPanel4.add(vistaReportes, java.awt.BorderLayout.CENTER);
-    
-    // 4. Refrescamos la interfaz gráfica para pintar los nuevos componentes
-    jPanel4.revalidate();
-    jPanel4.repaint();
-    // TODO add your handling code here:
-    }//GEN-LAST:event_jButton10ActionPerformed
+    private void CERRARMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CERRARMouseExited
+        exit.setBackground(new Color(255,255,255));        // TODO add your handling code here:
+    }//GEN-LAST:event_CERRARMouseExited
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        // 1. Creamos la instancia del panel para eliminar estudiantes
-    AdminQuitarEstudiante vistaQuitarEstudiante = new AdminQuitarEstudiante();
-    
-    // 2. Le asignamos el tamaño exacto del contenedor principal (jPanel4)
-    vistaQuitarEstudiante.setSize(jPanel4.getWidth(), jPanel4.getHeight());
-    vistaQuitarEstudiante.setLocation(0, 0);
-    
-    // 3. Limpiamos el panel contenedor e insertamos la nueva vista
-    jPanel4.removeAll();
-    jPanel4.add(vistaQuitarEstudiante, java.awt.BorderLayout.CENTER);
-    
-    // 4. Forzamos a Java a redibujar los componentes en pantalla
-    jPanel4.revalidate();
-    jPanel4.repaint();
-    }//GEN-LAST:event_jButton11ActionPerformed
+    private void CERRARMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CERRARMouseEntered
+        exit.setBackground(new Color(19,134,201));        // TODO add your handling code here:
+    }//GEN-LAST:event_CERRARMouseEntered
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        Adminadministrarbicicleta vistaAdminBici = new Adminadministrarbicicleta();
-    
-    // 2. Le asignamos el tamaño exacto del contenedor principal (jPanel4)
-    vistaAdminBici.setSize(jPanel4.getWidth(), jPanel4.getHeight());
-    vistaAdminBici.setLocation(0, 0);
-    
-    // 3. Limpiamos el panel contenedor e insertamos la nueva vista
-    jPanel4.removeAll();
-    jPanel4.add(vistaAdminBici, java.awt.BorderLayout.CENTER);
-    
-    // 4. Forzamos a Java a redibujar los componentes en pantalla
-    jPanel4.revalidate();
-    jPanel4.repaint();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton12ActionPerformed
+    private void CERRARMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CERRARMouseClicked
+        System.exit(0);        // TODO add your handling code here:
+    }//GEN-LAST:event_CERRARMouseClicked
+
+    private void panel_superiorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_superiorMousePressed
+        xMouse=evt.getX();
+        yMouse=evt.getY();
+    }//GEN-LAST:event_panel_superiorMousePressed
 
     private void panel_superiorMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_superiorMouseDragged
         int x=evt.getXOnScreen();
@@ -406,77 +416,115 @@ public class MenuAdmin extends javax.swing.JFrame {
         this.setLocation(x-xMouse, y-yMouse);
     }//GEN-LAST:event_panel_superiorMouseDragged
 
-    private void panel_superiorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_superiorMousePressed
-        xMouse=evt.getX();
-        yMouse=evt.getY();
-    }//GEN-LAST:event_panel_superiorMousePressed
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        Adminadministrarbicicleta vistaAdminBici = new Adminadministrarbicicleta();
 
-    private void CERRARMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CERRARMouseClicked
-        System.exit(0);        // TODO add your handling code here:
-    }//GEN-LAST:event_CERRARMouseClicked
+        // 2. Le asignamos el tamaño exacto del contenedor principal (jPanel4)
+        vistaAdminBici.setSize(jPanel4.getWidth(), jPanel4.getHeight());
+        vistaAdminBici.setLocation(0, 0);
 
-    private void CERRARMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CERRARMouseEntered
-        exit.setBackground(new Color(19,134,201));        // TODO add your handling code here:
-    }//GEN-LAST:event_CERRARMouseEntered
+        // 3. Limpiamos el panel contenedor e insertamos la nueva vista
+        jPanel4.removeAll();
+        jPanel4.add(vistaAdminBici, java.awt.BorderLayout.CENTER);
 
-    private void CERRARMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CERRARMouseExited
-        exit.setBackground(new Color(255,255,255));        // TODO add your handling code here:
-    }//GEN-LAST:event_CERRARMouseExited
+        // 4. Forzamos a Java a redibujar los componentes en pantalla
+        jPanel4.revalidate();
+        jPanel4.repaint();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton12ActionPerformed
 
-    private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
-        System.exit(0);
-    }//GEN-LAST:event_exitMouseClicked
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // 1. Creamos la instancia del panel para eliminar estudiantes
+        AdminQuitarEstudiante vistaQuitarEstudiante = new AdminQuitarEstudiante();
 
-    private void exitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseEntered
-        exit.setBackground(new Color(255,255,255));
-    }//GEN-LAST:event_exitMouseEntered
+        // 2. Le asignamos el tamaño exacto del contenedor principal (jPanel4)
+        vistaQuitarEstudiante.setSize(jPanel4.getWidth(), jPanel4.getHeight());
+        vistaQuitarEstudiante.setLocation(0, 0);
 
-    private void exitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseExited
-        
-        exit.setBackground(new Color(19,134,201));
-    }//GEN-LAST:event_exitMouseExited
+        // 3. Limpiamos el panel contenedor e insertamos la nueva vista
+        jPanel4.removeAll();
+        jPanel4.add(vistaQuitarEstudiante, java.awt.BorderLayout.CENTER);
 
-    private void UNlogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UNlogoMouseClicked
-        MenuAdmin vistaMenuPrincipal = new MenuAdmin();
-    
-    // 2. Le asignamos el tamaño exacto del contenedor (jPanel4)
-    vistaMenuPrincipal.setSize(jPanel4.getWidth(), jPanel4.getHeight());
-    vistaMenuPrincipal.setLocation(0, 0);
-    
-    // 3. Vaciamos el contenedor actual y metemos el MenuAdmin
-    jPanel4.removeAll();
-    jPanel4.add(vistaMenuPrincipal, java.awt.BorderLayout.CENTER);
-    
-    // 4. Refrescamos la interfaz gráfica para pintar los componentes
-    jPanel4.revalidate();
-    jPanel4.repaint();
-    }//GEN-LAST:event_UNlogoMouseClicked
+        // 4. Forzamos a Java a redibujar los componentes en pantalla
+        jPanel4.revalidate();
+        jPanel4.repaint();
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+
+        AdminReportes vistaReportes = new AdminReportes();
+
+        // 2. Le asignamos el tamaño exacto del contenedor blanco (jPanel4)
+        vistaReportes.setSize(jPanel4.getWidth(), jPanel4.getHeight());
+        vistaReportes.setLocation(0, 0);
+
+        // 3. Vaciamos el contenedor y metemos el nuevo panel de reportes
+        jPanel4.removeAll();
+        jPanel4.add(vistaReportes, java.awt.BorderLayout.CENTER);
+
+        // 4. Refrescamos la interfaz gráfica para pintar los nuevos componentes
+        jPanel4.revalidate();
+        jPanel4.repaint();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        Reglas vistaReglas = new Reglas();
+
+        // 2. Le asignamos el tamaño exacto del contenedor (jPanel4)
+        vistaReglas.setSize(jPanel4.getWidth(), jPanel4.getHeight());
+        vistaReglas.setLocation(0, 0);
+
+        // 3. Vaciamos el contenedor y metemos el nuevo panel
+        jPanel4.removeAll();
+        jPanel4.add(vistaReglas, java.awt.BorderLayout.CENTER);
+
+        // 4. Refrescamos la interfaz para aplicar los cambios
+        jPanel4.revalidate();
+        jPanel4.repaint();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // 1. Creamos la instancia de tu panel de penalizaciones
+        adminPenalizar vistaPenalizar = new adminPenalizar();
+
+        // 2. Le asignamos el tamaño exacto del contenedor blanco de abajo
+        vistaPenalizar.setSize(jPanel4.getWidth(), jPanel4.getHeight());
+        vistaPenalizar.setLocation(0, 0);
+
+        // 3. Vaciamos lo que haya en la zona blanca y metemos el nuevo panel
+        jPanel4.removeAll();
+        jPanel4.add(vistaPenalizar, java.awt.BorderLayout.CENTER);
+
+        // 4. Le avisamos a Java que redibuje la interfaz para que se vea el cambio
+        jPanel4.revalidate();
+        jPanel4.repaint();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // 1. Creamos la instancia del panel para agregar bicicletas
+        AdminAgregarcicla vistaAgregarCicla = new AdminAgregarcicla();
+
+        // 2. Le asignamos el tamaño exacto del contenedor (jPanel4)
+        vistaAgregarCicla.setSize(jPanel4.getWidth(), jPanel4.getHeight());
+        vistaAgregarCicla.setLocation(0, 0);
+
+        // 3. Vaciamos el contenedor y metemos el nuevo panel
+        jPanel4.removeAll();
+        jPanel4.add(vistaAgregarCicla, java.awt.BorderLayout.CENTER);
+
+        // 4. Refrescamos la interfaz para aplicar los cambios
+        jPanel4.revalidate();
+        jPanel4.repaint();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new MenuAdmin().setVisible(true));
-    }
-
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CERRAR;
     private javax.swing.JLabel UNlogo;
@@ -497,7 +545,5 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel panel_superior;
     // End of variables declaration//GEN-END:variables
 
-    private void setdate() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+   
 }

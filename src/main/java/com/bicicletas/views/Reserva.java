@@ -1,4 +1,10 @@
 package com.bicicletas.views;
+import com.bicicletas.modelo.Student;
+import com.bicicletas.modelo.Bike;
+import com.bicicletas.modelo.Station;
+import com.bicicletas.modelo.Reservar;
+import com.bicicletas.modelo.Administrator;
+import com.bicicletas.modelo.Comment;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license

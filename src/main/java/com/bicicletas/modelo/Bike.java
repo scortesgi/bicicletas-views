@@ -1,3 +1,4 @@
+package com.bicicletas.modelo;
 public class Bike {
     
     //Atributos

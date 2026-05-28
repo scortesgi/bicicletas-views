@@ -2,6 +2,12 @@ package com.bicicletas.views;
 import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import com.bicicletas.modelo.Student;
+import com.bicicletas.modelo.Bike;
+import com.bicicletas.modelo.Station;
+import com.bicicletas.modelo.Reservar;
+import com.bicicletas.modelo.Administrator;
+import com.bicicletas.modelo.Comment;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template

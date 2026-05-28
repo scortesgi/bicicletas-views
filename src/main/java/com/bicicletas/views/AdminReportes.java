@@ -4,6 +4,11 @@
  */
 package com.bicicletas.views;
 
+import java.awt.Color;
+import java.util.ArrayList;
+
+// 🌟 TRAER LA LÓGICA DEL MODELO:
+import com.bicicletas.modelo.*;
 /**
  *
  * @author sammu

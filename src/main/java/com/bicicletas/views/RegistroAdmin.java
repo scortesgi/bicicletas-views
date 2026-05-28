@@ -1,5 +1,6 @@
 package com.bicicletas.views;
-
+import com.bicicletas.modelo.*;
+import com.bicicletas.views.*;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -145,9 +146,10 @@ public class RegistroAdmin extends javax.swing.JFrame {
     private void IngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IngresarMouseClicked
         // TODO add your handling code here:
         //if (){
-            MenuAdmin menuAdmin=new MenuAdmin();
-            menuAdmin.setVisible(true);
-            this.dispose();
+            
+MenuAdmin ventanaAdmin = new MenuAdmin(); 
+ventanaAdmin.setVisible(true);
+this.dispose(); 
         //}
     }//GEN-LAST:event_IngresarMouseClicked
 

@@ -6,6 +6,13 @@ package com.bicicletas.views;
 
 import java.awt.Color;
 import static java.lang.System.exit;
+import com.bicicletas.modelo.Student;
+import com.bicicletas.modelo.Bike;
+import com.bicicletas.modelo.Station;
+import com.bicicletas.modelo.Reservar;
+import com.bicicletas.modelo.Administrator;
+import com.bicicletas.modelo.Comment;
+import com.bicicletas.modelo.DocReader;
 
 
 /**
@@ -166,7 +173,7 @@ public class Login extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(UNlogo)
-                .addGap(508, 508, 508))
+                .addGap(507, 507, 507))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

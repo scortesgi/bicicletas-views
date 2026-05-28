@@ -1,4 +1,5 @@
  //clase hija  de madre para estudiante
+package com.bicicletas.modelo;
 
 import java.time.LocalDateTime; // Para capturar la fecha y hora exacta
 import java.util.ArrayList;

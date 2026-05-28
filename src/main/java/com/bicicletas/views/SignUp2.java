@@ -6,6 +6,12 @@ package com.bicicletas.views;
 import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import com.bicicletas.modelo.Student;
+import com.bicicletas.modelo.Bike;
+import com.bicicletas.modelo.Station;
+import com.bicicletas.modelo.Reservar;
+import com.bicicletas.modelo.Administrator;
+import com.bicicletas.modelo.Comment;
 /**
  *
  * @author VALETOR

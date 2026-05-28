@@ -1,3 +1,4 @@
+package com.bicicletas.modelo;
 //clase madre user
 public abstract class User {
     //Atributos

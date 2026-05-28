@@ -1,5 +1,5 @@
 //clase hija para administraador
-
+package com.bicicletas.modelo;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
