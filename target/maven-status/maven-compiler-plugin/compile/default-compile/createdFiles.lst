@@ -7,6 +7,7 @@ Administrator.class
 Student.class
 com\bicicletas\views\Bienvenida.class
 com\bicicletas\views\AdminReportes.class
+DocReader.class
 com\bicicletas\views\MenuAdmin$4.class
 User.class
 com\bicicletas\views\adminPenalizar.class
@@ -20,6 +21,7 @@ com\bicicletas\views\SignUp2$3.class
 com\bicicletas\views\AdminAgregarcicla.class
 com\bicicletas\views\adminPenalizar$1.class
 com\bicicletas\views\Reglas$1.class
+Comment.class
 com\bicicletas\views\MenuAdmin$2.class
 com\bicicletas\views\Bienvenida$5.class
 Station.class
@@ -38,9 +40,11 @@ com\bicicletas\views\RegistroAdmin$2.class
 com\bicicletas\views\Bienvenida$1.class
 com\bicicletas\views\SignUp2.class
 com\bicicletas\views\MenuAdmin$3.class
+Main.class
 tempCodeRunnerFile.class
 Bike.class
 com\bicicletas\views\AdminAgregarcicla$1.class
+com\bicicletas\views\AdminQuitarEstudiante$1.class
 com\bicicletas\views\Penalización.class
 com\bicicletas\Main.class
 com\bicicletas\views\Reglas.class
