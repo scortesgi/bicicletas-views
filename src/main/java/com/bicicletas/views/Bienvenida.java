@@ -68,6 +68,12 @@ public class Bienvenida extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 sinCuenta_textMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                sinCuenta_textMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                sinCuenta_textMouseExited(evt);
+            }
         });
         getContentPane().add(sinCuenta_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 380, -1, -1));
 
@@ -84,14 +90,13 @@ public class Bienvenida extends javax.swing.JFrame {
         getContentPane().add(bicirrun_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, -1, -1));
 
         iniciarSesion_button.setBackground(new java.awt.Color(56, 182, 255));
-        iniciarSesion_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        iniciarSesion_button.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         iniciarSesion_button.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         IniciarSesion_text.setBackground(new java.awt.Color(56, 182, 255));
         IniciarSesion_text.setFont(new java.awt.Font("Ancizar Sans ExtraBold", 0, 24)); // NOI18N
         IniciarSesion_text.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         IniciarSesion_text.setText("Iniciar Sesión");
-        IniciarSesion_text.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(56, 182, 255), 10, true));
         IniciarSesion_text.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         IniciarSesion_text.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -122,7 +127,7 @@ public class Bienvenida extends javax.swing.JFrame {
         getContentPane().add(panel_superior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 30));
 
         exit.setBackground(new java.awt.Color(255, 255, 255));
-        exit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        exit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         exit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 exitMouseClicked(evt);
@@ -138,7 +143,7 @@ public class Bienvenida extends javax.swing.JFrame {
         CERRAR.setFont(new java.awt.Font("Ancizar Sans Thin", 0, 24)); // NOI18N
         CERRAR.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         CERRAR.setText("X");
-        CERRAR.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        CERRAR.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout exitLayout = new javax.swing.GroupLayout(exit);
         exit.setLayout(exitLayout);
@@ -205,6 +210,14 @@ public class Bienvenida extends javax.swing.JFrame {
         IniciarSesion_text.setForeground(Color.BLACK);
         //iniciarSesion_button.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(56, 182, 255), 10, true));
     }//GEN-LAST:event_IniciarSesion_textMouseExited
+
+    private void sinCuenta_textMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sinCuenta_textMouseEntered
+        sinCuenta_text.setForeground(new Color(19,134,201));
+    }//GEN-LAST:event_sinCuenta_textMouseEntered
+
+    private void sinCuenta_textMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sinCuenta_textMouseExited
+        sinCuenta_text.setForeground(new Color(56,182,255));
+    }//GEN-LAST:event_sinCuenta_textMouseExited
 
     /**
      * @param args the command line arguments
