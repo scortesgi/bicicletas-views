@@ -17,7 +17,27 @@ public class Registro1 extends javax.swing.JPanel {
      */
 public Registro1() {
     initComponents();
+    
+    this.setFocusable(true);
+    javax.swing.SwingUtilities.invokeLater(() -> {
+        this.requestFocusInWindow();
+    });
+    
     setPreferredSize(new java.awt.Dimension(800,460));
+    
+     //valetor esto es para q no se joda , si quieres cambialo pero cuidado con la transparencia
+    enterUser.setOpaque(false);
+    enterUser.setBackground(new java.awt.Color(0, 0, 0, 0));
+    
+    enterID.setOpaque(false);
+    enterID.setBackground(new java.awt.Color(0, 0, 0, 0));
+    
+    enterTIUN.setOpaque(false);
+    enterTIUN.setBackground(new java.awt.Color(0, 0, 0, 0));
+    
+    enterPswrd.setOpaque(false);
+    enterPswrd.setBackground(new java.awt.Color(0, 0, 0, 0));
+    
 }
 
     /**
@@ -67,7 +87,7 @@ public Registro1() {
         nextPage_text.setFont(new java.awt.Font("Ancizar Sans ExtraBold", 0, 24)); // NOI18N
         nextPage_text.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nextPage_text.setText("Siguiente");
-        nextPage_text.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        nextPage_text.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         nextPage_text.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 nextPage_textMouseClicked(evt);
@@ -86,30 +106,67 @@ public Registro1() {
         enterUser.setBackground(new java.awt.Color(56, 182, 255, 9));
         enterUser.setFont(new java.awt.Font("Ancizar Serif Medium", 0, 18)); // NOI18N
         enterUser.setForeground(new java.awt.Color(0,0,0,50));
-        enterUser.setText("Ingrese un usuario\n");
+        enterUser.setText("Ingrese un usuario");
+        enterUser.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                enterUserFocusLost(evt);
+            }
+        });
         enterUser.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 enterUsermousePressed(evt);
             }
         });
+        enterUser.addActionListener(this::enterUserActionPerformed);
         add(enterUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 420, -1));
 
         enterID.setBackground(new java.awt.Color(56, 182, 255, 9));
         enterID.setFont(new java.awt.Font("Ancizar Serif Medium", 0, 18)); // NOI18N
         enterID.setForeground(new java.awt.Color(0,0,0,50));
         enterID.setText("Identificación sin puntos");
+        enterID.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                enterIDFocusLost(evt);
+            }
+        });
+        enterID.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                enterIDMousePressed(evt);
+            }
+        });
         add(enterID, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 420, -1));
 
         enterTIUN.setBackground(new java.awt.Color(56, 182, 255, 9));
         enterTIUN.setFont(new java.awt.Font("Ancizar Serif Medium", 0, 18)); // NOI18N
         enterTIUN.setForeground(new java.awt.Color(0,0,0,50));
         enterTIUN.setText("Ingrese TIUN de su carnet");
+        enterTIUN.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                enterTIUNFocusLost(evt);
+            }
+        });
+        enterTIUN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                enterTIUNMousePressed(evt);
+            }
+        });
+        enterTIUN.addActionListener(this::enterTIUNActionPerformed);
         add(enterTIUN, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 420, -1));
 
         enterPswrd.setBackground(new java.awt.Color(56, 182, 255, 9));
         enterPswrd.setFont(new java.awt.Font("Ancizar Serif Medium", 0, 18)); // NOI18N
         enterPswrd.setForeground(new java.awt.Color(0,0,0,50));
         enterPswrd.setText("********");
+        enterPswrd.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                enterPswrdFocusLost(evt);
+            }
+        });
+        enterPswrd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                enterPswrdMousePressed(evt);
+            }
+        });
         add(enterPswrd, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 420, 30));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -141,8 +198,84 @@ public Registro1() {
     }//GEN-LAST:event_nextPage_textMouseExited
 
     private void enterUsermousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterUsermousePressed
-
+    
+        if (enterUser.getText().equals("Ingrese un usuario")) {
+        enterUser.setText(""); // Deja el cuadro en blanco
+        enterUser.setForeground(java.awt.Color.BLACK);
+        }
+                
     }//GEN-LAST:event_enterUsermousePressed
+
+    private void enterUserFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_enterUserFocusLost
+    
+        if (enterUser.getText().isEmpty()) {
+        enterUser.setText("Ingrese un usuario");
+        enterUser.setForeground(new java.awt.Color(0, 0, 0, 50));
+               
+                }    
+        
+    }//GEN-LAST:event_enterUserFocusLost
+
+    private void enterIDMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterIDMousePressed
+        if (enterID.getText().equals("Identificación sin puntos")) {
+        enterID.setText("");
+        enterID.setForeground(java.awt.Color.BLACK);
+        }  // TODO add your handling code here:
+    }//GEN-LAST:event_enterIDMousePressed
+
+    private void enterIDFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_enterIDFocusLost
+         if (enterID.getText().isEmpty()) {
+        enterID.setText("Identificación sin puntos");
+        enterID.setForeground(new java.awt.Color(0, 0, 0, 50));
+               
+                }    
+
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_enterIDFocusLost
+
+    private void enterTIUNMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterTIUNMousePressed
+       if (enterTIUN.getText().equals("Ingrese TIUN de su carnet")) {
+        enterTIUN.setText("");
+        enterTIUN.setForeground(java.awt.Color.BLACK);
+        }
+       
+// TODO add your handling code here:
+    }//GEN-LAST:event_enterTIUNMousePressed
+
+    private void enterTIUNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterTIUNActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_enterTIUNActionPerformed
+
+    private void enterTIUNFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_enterTIUNFocusLost
+        // TODO add your handling code here:
+        if (enterTIUN.getText().isEmpty()) {
+        enterTIUN.setText("Ingrese TIUN de su carnet");
+        enterTIUN.setForeground(new java.awt.Color(0, 0, 0, 50));
+               
+                }  
+    }//GEN-LAST:event_enterTIUNFocusLost
+
+    private void enterPswrdMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterPswrdMousePressed
+            // TODO add your handling code here:
+            if (enterPswrd.getText().equals("********")) {
+        enterPswrd.setText("");
+        enterPswrd.setForeground(java.awt.Color.BLACK);
+        }
+    }//GEN-LAST:event_enterPswrdMousePressed
+
+    private void enterPswrdFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_enterPswrdFocusLost
+        // TODO add your handling code here:
+        if (enterPswrd.getText().isEmpty()) {
+        enterPswrd.setText("********");
+        enterPswrd.setForeground(new java.awt.Color(0, 0, 0, 50));
+               
+                }  
+    }//GEN-LAST:event_enterPswrdFocusLost
+
+    private void enterUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_enterUserActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

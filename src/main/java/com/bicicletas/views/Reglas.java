@@ -28,9 +28,6 @@ public class Reglas extends javax.swing.JPanel {
 
         jPasswordField1 = new javax.swing.JPasswordField();
         jPanel1 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         user_text1 = new javax.swing.JLabel();
         user_text2 = new javax.swing.JLabel();
         user_text3 = new javax.swing.JLabel();
@@ -41,37 +38,7 @@ public class Reglas extends javax.swing.JPanel {
         jPasswordField1.setText("jPasswordField1");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        jPanel3.setBackground(new java.awt.Color(56, 182, 255));
-
-        jLabel1.setBackground(new java.awt.Color(56, 182, 255));
-        jLabel1.setFont(new java.awt.Font("Ancizar Serif ExtraBold", 0, 12)); // NOI18N
-        jLabel1.setText("Administración / Reglas");
-
-        jLabel2.setFont(new java.awt.Font("Ancizar Serif Light", 0, 18)); // NOI18N
-        jLabel2.setText("Hoy es {dia} de {month} del {year}");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(191, 191, 191))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jPanel1.setPreferredSize(new java.awt.Dimension(820, 360));
 
         user_text1.setFont(new java.awt.Font("Ancizar Serif", 1, 36)); // NOI18N
         user_text1.setText("REGLAS");
@@ -86,44 +53,62 @@ public class Reglas extends javax.swing.JPanel {
 
         user_text3.setFont(new java.awt.Font("Ancizar Serif", 1, 24)); // NOI18N
         user_text3.setText("Uso");
+        user_text3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                user_text3MouseClicked(evt);
+            }
+        });
 
         user_text4.setFont(new java.awt.Font("Ancizar Serif", 1, 24)); // NOI18N
         user_text4.setText("Penalizaciones");
+        user_text4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                user_text4MouseClicked(evt);
+            }
+        });
+        user_text4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                user_text4KeyPressed(evt);
+            }
+        });
 
         user_text5.setFont(new java.awt.Font("Ancizar Serif", 1, 24)); // NOI18N
         user_text5.setText("Responsabilidades");
+        user_text5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                user_text5MouseClicked(evt);
+            }
+        });
 
         user_text6.setFont(new java.awt.Font("Ancizar Serif", 1, 24)); // NOI18N
         user_text6.setText("Restricciones adicionales");
+        user_text6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                user_text6MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(user_text6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(536, 536, 536))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(user_text5, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(user_text4)
-                            .addComponent(user_text1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(user_text2)
-                            .addComponent(user_text3))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(35, 35, 35))
+                    .addComponent(user_text5, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(user_text4)
+                    .addComponent(user_text1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(user_text2)
+                    .addComponent(user_text3))
+                .addGap(479, 479, 479))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(40, 40, 40)
                 .addComponent(user_text1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(user_text2)
@@ -135,7 +120,7 @@ public class Reglas extends javax.swing.JPanel {
                 .addComponent(user_text5)
                 .addGap(18, 18, 18)
                 .addComponent(user_text6)
-                .addContainerGap(255, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -165,21 +150,76 @@ public class Reglas extends javax.swing.JPanel {
 });        // TODO add your handling code here:
     }//GEN-LAST:event_user_text2MouseClicked
 
+    private void user_text3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user_text3MouseClicked
+    user_text3.addMouseListener(new java.awt.event.MouseAdapter() {
+    @Override
+    public void mouseClicked(java.awt.event.MouseEvent evt) {
+        String mensaje = "<html><body style='width: 250px;'>"
+                + "• El tiempo máximo de uso es de 15 minutos desde el retiro hasta la devolución.<br><br>"
+                + "• La bicicleta debe devolverse en la estación indicada al momento de la reserva.<br><br>"
+                + "• Se debe garantizar el buen uso y cuidado de la bicicleta."
+                + "</body></html>";
+                
+        javax.swing.JOptionPane.showMessageDialog(null, mensaje, "Uso", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+    }
+});
+        // TODO add your handling code here:
+    }//GEN-LAST:event_user_text3MouseClicked
+
+    private void user_text4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_user_text4KeyPressed
+ // TODO add your handling code here:
+    }//GEN-LAST:event_user_text4KeyPressed
+
+    private void user_text5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user_text5MouseClicked
+user_text5.addMouseListener(new java.awt.event.MouseAdapter() {
+    @Override
+    public void mouseClicked(java.awt.event.MouseEvent evt) {
+        String mensaje = "<html><body style='width: 250px;'>"
+                + "• Verificar el estado de la bicicleta antes de retirarla.<br><br>"
+                + "• Reportar cualquier daño o irregularidad inmediatamente.<br><br>"
+                + "• Usar la bicicleta únicamente para desplazamientos personales, no para actividades comerciales.<br><br>"
+                + "• Respetar las normas de tránsito y seguridad vial."
+                + "</body></html>";
+                
+        javax.swing.JOptionPane.showMessageDialog(null, mensaje, "Responsabilidades del Usuario", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+    }
+});        // TODO add your handling code here:
+    }//GEN-LAST:event_user_text5MouseClicked
+
+    private void user_text6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user_text6MouseClicked
+user_text6.addMouseListener(new java.awt.event.MouseAdapter() {
+    @Override
+    public void mouseClicked(java.awt.event.MouseEvent evt) {
+        String mensaje = "<html><body style='width: 250px;'>"
+                + "• No se permite transportar pasajeros.<br><br>"
+                + "• No se permite modificar o alterar partes de la bicicleta.<br><br>"
+                + "• El préstamo es personal e intransferible: solo el usuario registrado puede usar la bicicleta.<br><br>"
+                + "• El incumplimiento reiterado de las reglas puede llevar a la suspensión definitiva del servicio."
+                + "</body></html>";
+                
+        javax.swing.JOptionPane.showMessageDialog(null, mensaje, "Restricciones Adicionales", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+    }
+});        // TODO add your handling code here:
+    }//GEN-LAST:event_user_text6MouseClicked
+
+    private void user_text4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user_text4MouseClicked
+user_text4.addMouseListener(new java.awt.event.MouseAdapter() {
+    @Override
+    public void mouseClicked(java.awt.event.MouseEvent evt) {
+        String mensaje = "<html><body style='width: 250px;'>"
+                + "• Mal uso o daños: bloqueo de la cuenta por 15 días.<br><br>"
+                + "• No devolución en el tiempo establecido (15 minutos): bloqueo de la cuenta por 15 días.<br><br>"
+                + "• En caso de que cuente con 2 penalizaciones, el bloqueo podrá extenderse hasta 30 días o suspensión definitiva."
+                + "</body></html>";
+                
+        javax.swing.JOptionPane.showMessageDialog(null, mensaje, "Penalizaciones", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+    }
+});               // TODO add your handling code here:
+    }//GEN-LAST:event_user_text4MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JLabel user_text1;
     private javax.swing.JLabel user_text2;

@@ -15,6 +15,13 @@ public class adminPenalizar extends javax.swing.JPanel {
      */
     public adminPenalizar() {
         initComponents();
+        enterID.setOpaque(false);
+    enterID.setBackground(new java.awt.Color(0, 0, 0, 0));
+    
+    enterTel.setOpaque(false);
+    enterTel.setBackground(new java.awt.Color(0, 0, 0, 0));
+    
+    
     }
 
     /**
@@ -27,53 +34,25 @@ public class adminPenalizar extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         enterTel = new javax.swing.JTextField();
         user_text = new javax.swing.JLabel();
         user_text1 = new javax.swing.JLabel();
-        enterID = new javax.swing.JTextField();
         user_text2 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
+        enterID = new javax.swing.JTextField();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        jPanel3.setBackground(new java.awt.Color(56, 182, 255));
-
-        jLabel1.setBackground(new java.awt.Color(56, 182, 255));
-        jLabel1.setFont(new java.awt.Font("Ancizar Serif ExtraBold", 0, 12)); // NOI18N
-        jLabel1.setText("administración / Penalización");
-
-        jLabel2.setFont(new java.awt.Font("Ancizar Serif Light", 0, 18)); // NOI18N
-        jLabel2.setText("Hoy es {dia} de {month} del {year}");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(191, 191, 191))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jPanel1.setPreferredSize(new java.awt.Dimension(815, 347));
 
         enterTel.setBackground(new java.awt.Color(56, 182, 255, 9));
         enterTel.setFont(new java.awt.Font("Ancizar Serif Medium", 0, 18)); // NOI18N
         enterTel.setForeground(new java.awt.Color(0,0,0,50));
         enterTel.setText("(opcional)");
+        enterTel.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                enterTelFocusLost(evt);
+            }
+        });
         enterTel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 enterTelMousePressed(evt);
@@ -87,16 +66,6 @@ public class adminPenalizar extends javax.swing.JPanel {
         user_text1.setFont(new java.awt.Font("Ancizar Serif", 1, 36)); // NOI18N
         user_text1.setText("PENALIZACIÓN");
 
-        enterID.setBackground(new java.awt.Color(56, 182, 255, 9));
-        enterID.setFont(new java.awt.Font("Ancizar Serif Medium", 0, 18)); // NOI18N
-        enterID.setForeground(new java.awt.Color(0,0,0,50));
-        enterID.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                enterIDMousePressed(evt);
-            }
-        });
-        enterID.addActionListener(this::enterIDActionPerformed);
-
         user_text2.setFont(new java.awt.Font("Ancizar Serif", 1, 24)); // NOI18N
         user_text2.setText("Ingrese el TIUN que desea penalizar ");
 
@@ -105,116 +74,126 @@ public class adminPenalizar extends javax.swing.JPanel {
         jButton7.setText("Entregar");
         jButton7.addActionListener(this::jButton7ActionPerformed);
 
+        enterID.setBackground(new java.awt.Color(56, 182, 255, 9));
+        enterID.setFont(new java.awt.Font("Ancizar Serif Medium", 0, 18)); // NOI18N
+        enterID.setForeground(new java.awt.Color(0,0,0,50));
+        enterID.setText("TIUN del estudiante");
+        enterID.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                enterIDFocusLost(evt);
+            }
+        });
+        enterID.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                enterIDMousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(156, 156, 156)
+                        .addGap(214, 214, 214)
+                        .addComponent(user_text))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(190, 190, 190)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(user_text2)
-                                    .addComponent(user_text1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(22, 22, 22))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(enterTel, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(enterID, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(user_text)
-                                    .addGap(27, 27, 27)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(112, 112, 112)
-                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(212, Short.MAX_VALUE))
+                            .addComponent(enterID, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(enterTel, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(214, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(user_text2)
+                    .addComponent(user_text1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(232, 232, 232))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(296, 296, 296)
+                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75)
+                .addGap(12, 12, 12)
                 .addComponent(user_text1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(user_text2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(user_text2)
+                .addGap(12, 12, 12)
                 .addComponent(enterID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(user_text)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(enterTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
+                .addGap(18, 18, 18)
                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 824, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void enterTelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterTelMousePressed
-        if (enterTel.getText().equals("Ingrese el nombre")){
+        if (enterTel.getText().equals("(opcional)")) {
             enterTel.setText("");
-            enterTel.setForeground(Color.black);
-        }
-        if(enterID.getText().isEmpty()){
-            enterID.setText("Identificación sin puntos");
-            enterID.setForeground(new Color(0,0,0,50));
-        }
-        if (enterTel.getText().isEmpty()){
-            enterTel.setText("Ingrese número de teléfono");
-            enterTel.setForeground(new Color(0,0,0,50));
-        }
+            enterTel.setForeground(java.awt.Color.BLACK);
+        }  // TODO add your handling code here:
+        
+        
     }//GEN-LAST:event_enterTelMousePressed
 
     private void enterTelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterTelActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_enterTelActionPerformed
 
-    private void enterIDMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterIDMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_enterIDMousePressed
-
-    private void enterIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_enterIDActionPerformed
-
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void enterIDFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_enterIDFocusLost
+        if (enterID.getText().isEmpty()) {
+            enterID.setText("TIUN del estudiante");
+            enterID.setForeground(new java.awt.Color(0, 0, 0, 50));
+
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_enterIDFocusLost
+
+    private void enterIDMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterIDMousePressed
+        if (enterID.getText().equals("TIUN del estudiante")) {
+            enterID.setText("");
+            enterID.setForeground(java.awt.Color.BLACK);
+        }  // TODO add your handling code here:
+    }//GEN-LAST:event_enterIDMousePressed
+
+    private void enterTelFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_enterTelFocusLost
+      if (enterTel.getText().isEmpty()) {
+            enterTel.setText("(opcional)");
+            enterTel.setForeground(new java.awt.Color(0, 0, 0, 50));
+
+        }
+      // TODO add your handling code here:
+    }//GEN-LAST:event_enterTelFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField enterID;
     private javax.swing.JTextField enterTel;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel user_text;
     private javax.swing.JLabel user_text1;
     private javax.swing.JLabel user_text2;

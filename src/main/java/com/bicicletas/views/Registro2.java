@@ -17,6 +17,16 @@ public class Registro2 extends javax.swing.JPanel {
      */
     public Registro2() {
         initComponents();
+        //valetor esto es para q no se joda , si quieres cambialo pero cuidado con la transparencia
+        enterUser.setOpaque(false);
+    enterUser.setBackground(new java.awt.Color(0, 0, 0, 0));
+    
+    enterID.setOpaque(false);
+    enterID.setBackground(new java.awt.Color(0, 0, 0, 0));
+    
+    enterTel.setOpaque(false);
+    enterTel.setBackground(new java.awt.Color(0, 0, 0, 0));
+    
     }
 
     /**
@@ -119,8 +129,19 @@ public class Registro2 extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void enterMenu_textMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterMenu_textMouseClicked
+      
+        java.awt.Window ventanaActual = javax.swing.SwingUtilities.getWindowAncestor(this);
+        int x = ventanaActual.getX();
+        int y = ventanaActual.getY();
+        
         Login login=new Login();
+        login.setLocation(x, y);
         login.setVisible(true);
+        
+        
+        //cerrar el jframe de signup
+        ventanaActual.dispose();
+        
         //this.dispose();
     }//GEN-LAST:event_enterMenu_textMouseClicked
 

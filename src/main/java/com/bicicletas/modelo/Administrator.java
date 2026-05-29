@@ -8,8 +8,8 @@ public class Administrator extends User{
 
 
     //constructor
-    public Administrator (String username, long cedula){
-        super(username, cedula);
+    public Administrator (String username, long cedula, String password){
+        super(username, cedula, password);
     }
 
 

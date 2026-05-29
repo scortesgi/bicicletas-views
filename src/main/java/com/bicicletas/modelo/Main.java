@@ -712,35 +712,39 @@ if(claveCorrecta){
 */
 package com.bicicletas.modelo;
 import java.util.ArrayList;
-import com.bicicletas.views.MenuAdmin; // Asegúrate de que apunte al paquete de tus vistas
+import com.bicicletas.views.Bienvenida; // Asegúrate de que apunte al paquete de tus vistas
 
 public class Main {
  
+    public static ArrayList<Administrator> adminsAutorizados = new ArrayList<>();
+    public static ArrayList<Student> listaEstudiante = new ArrayList<>();
+    public static ArrayList<Station> estaciones = new ArrayList<>();
+    public static ArrayList<Comment> listaComentarios = new ArrayList<>();
+    public static ArrayList<Comment> listaComentariosAdmin = new ArrayList<>();
 
    public static void main(String[] args) {
        
-       java.awt.EventQueue.invokeLater(() -> new MenuAdmin(new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), null).setVisible(true));
-    // 1. Inicializamos las listas de datos (Tal como lo tenías originalmente)
-    ArrayList<Student> listaEstudiante = new ArrayList<>();
-    ArrayList<Comment> listaComentariosAdmin = new ArrayList<>();
-    ArrayList<Station> estaciones = new ArrayList<>();
+     
+        adminsAutorizados.add(new Administrator("santiago gonzalez", 1032443188, "1032443188"));
+        adminsAutorizados.add(new Administrator("laura valderrama", 1052841022, "1052841022"));
+        adminsAutorizados.add(new Administrator("sammuel cortes", 1013602884, "1013602884"));
+        adminsAutorizados.add(new Administrator("valery torres", 1141326715, "1141326715"));
+        adminsAutorizados.add(new Administrator("xiomara malagon", 1021666771, "1021666771"));
+        
+        
+       
     
-    // Instanciamos el Administrador con los datos por defecto
-    Administrator adminLogueado = new Administrator("Admin UN", 12345678);
+        estaciones.add(new Station("Calle 53", 2));
+        estaciones.add(new Station("CYT", 2));
+        estaciones.add(new Station("Uriel", 15));   
+        estaciones.add(new Station("Calle 45", 15));
+        estaciones.add(new Station("Calle 26", 30));
+        estaciones.add(new Station("Calle 30", 40));
+        
+    // para ver como es sn registrarse
+    listaEstudiante.add(new Student("estudiante prueba", 12345, 10101010, "12345"));
 
-    // 2. Cargamos las estaciones base de la Universidad Nacional
-    estaciones.add(new Station("Calle 53", 2));
-    estaciones.add(new Station("CYT", 2));
-    estaciones.add(new Station("Uriel", 15));   
-    estaciones.add(new Station("Calle 45", 15));
-    
-    // [Opcional] Quemamos un estudiante de prueba para poder testear los botones de una vez:
-    listaEstudiante.add(new Student("Santiago Cortes", 10001234, 1000123456L));
-
-    // 3. Arrancamos la interfaz gráfica pasando las listas al constructor
-    java.awt.EventQueue.invokeLater(() -> {
-        MenuAdmin ventanaAdmin = new MenuAdmin(listaEstudiante, estaciones, listaComentariosAdmin, adminLogueado);
-        ventanaAdmin.setVisible(true);
-    });
+    java.awt.EventQueue.invokeLater(() -> new Bienvenida().setVisible(true));
+   
 }
 }

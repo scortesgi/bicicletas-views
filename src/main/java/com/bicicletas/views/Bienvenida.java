@@ -63,7 +63,7 @@ public class Bienvenida extends javax.swing.JFrame {
         sinCuenta_text.setFont(new java.awt.Font("Ancizar Sans ExtraLight", 0, 18)); // NOI18N
         sinCuenta_text.setForeground(new java.awt.Color(56, 182, 255));
         sinCuenta_text.setText("¿No tienes cuenta? Regístrate aquí");
-        sinCuenta_text.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        sinCuenta_text.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         sinCuenta_text.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 sinCuenta_textMouseClicked(evt);
@@ -97,7 +97,7 @@ public class Bienvenida extends javax.swing.JFrame {
         IniciarSesion_text.setFont(new java.awt.Font("Ancizar Sans ExtraBold", 0, 24)); // NOI18N
         IniciarSesion_text.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         IniciarSesion_text.setText("Iniciar Sesión");
-        IniciarSesion_text.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        IniciarSesion_text.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         IniciarSesion_text.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 IniciarSesion_textMouseClicked(evt);
@@ -171,9 +171,20 @@ public class Bienvenida extends javax.swing.JFrame {
     }//GEN-LAST:event_sinCuenta_textMouseClicked
 
     private void IniciarSesion_textMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IniciarSesion_textMouseClicked
+
+        int x = this.getX();
+        int y = this.getY();
+        
+        
+        
         Login login=new Login();
+        login.setLocation(x, y);
         login.setVisible(true);
-        this.dispose();
+        
+        
+        //cerrar el jframe de signup
+        javax.swing.SwingUtilities.getWindowAncestor(this).dispose();
+        
     }//GEN-LAST:event_IniciarSesion_textMouseClicked
 
     private void panel_superiorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_superiorMousePressed

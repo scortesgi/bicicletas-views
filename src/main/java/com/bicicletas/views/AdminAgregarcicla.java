@@ -15,6 +15,12 @@ public class AdminAgregarcicla extends javax.swing.JPanel {
      */
     public AdminAgregarcicla() {
         initComponents();
+        enterID.setOpaque(false);
+    enterID.setBackground(new java.awt.Color(0, 0, 0, 0));
+    
+    jComboBox2.setSelectedIndex(-1);
+    
+    
     }
 
     /**
@@ -27,107 +33,53 @@ public class AdminAgregarcicla extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel11 = new javax.swing.JPanel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
         user_text1 = new javax.swing.JLabel();
         user_text2 = new javax.swing.JLabel();
-        enterID = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
+        user_text3 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        enterID = new javax.swing.JTextField();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        jPanel11.setBackground(new java.awt.Color(56, 182, 255));
-
-        jLabel17.setBackground(new java.awt.Color(56, 182, 255));
-        jLabel17.setFont(new java.awt.Font("Ancizar Serif ExtraBold", 0, 12)); // NOI18N
-        jLabel17.setText("Administración / AgregarCicla");
-
-        jLabel18.setFont(new java.awt.Font("Ancizar Serif Light", 0, 18)); // NOI18N
-        jLabel18.setText("Hoy es {dia} de {month} del {year}");
-
-        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
-        jPanel11.setLayout(jPanel11Layout);
-        jPanel11Layout.setHorizontalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel18)
-                .addGap(191, 191, 191))
-        );
-        jPanel11Layout.setVerticalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jPanel1.setPreferredSize(new java.awt.Dimension(820, 360));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         user_text1.setFont(new java.awt.Font("Ancizar Serif", 1, 36)); // NOI18N
         user_text1.setText("AGREGAR CICLA");
+        jPanel1.add(user_text1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 275, 49));
 
         user_text2.setFont(new java.awt.Font("Ancizar Serif", 1, 24)); // NOI18N
         user_text2.setText("Ingrese el ID de la bicicleta");
-
-        enterID.setBackground(new java.awt.Color(56, 182, 255, 9));
-        enterID.setFont(new java.awt.Font("Ancizar Serif Medium", 0, 18)); // NOI18N
-        enterID.setForeground(new java.awt.Color(0,0,0,50));
-        enterID.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                enterIDMousePressed(evt);
-            }
-        });
-        enterID.addActionListener(this::enterIDActionPerformed);
+        jPanel1.add(user_text2, new org.netbeans.lib.awtextra.AbsoluteConstraints(263, 91, -1, -1));
 
         jButton7.setBackground(new java.awt.Color(19, 134, 201));
         jButton7.setFont(new java.awt.Font("Ancizar Serif Medium", 0, 18)); // NOI18N
         jButton7.setText("Ingresar");
         jButton7.addActionListener(this::jButton7ActionPerformed);
+        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, 200, 50));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 441, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(user_text1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(225, 225, 225))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(254, 254, 254)
-                        .addComponent(user_text2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(182, 182, 182)
-                        .addComponent(enterID, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(290, 290, 290)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63)
-                .addComponent(user_text1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(user_text2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(enterID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(288, Short.MAX_VALUE))
-        );
+        user_text3.setFont(new java.awt.Font("Ancizar Serif", 1, 24)); // NOI18N
+        user_text3.setText("Ingrese la estación de la bicicleta");
+        jPanel1.add(user_text3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, -1, -1));
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Calle 53", "CYT", "Uriel", "Calle 45", "Calle 26", "Calle 30" }));
+        jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 420, 30));
+
+        enterID.setBackground(new java.awt.Color(56, 182, 255, 9));
+        enterID.setFont(new java.awt.Font("Ancizar Serif Medium", 0, 18)); // NOI18N
+        enterID.setForeground(new java.awt.Color(0,0,0,50));
+        enterID.setText("ID de la bicicleta");
+        enterID.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                enterIDFocusLost(evt);
+            }
+        });
+        enterID.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                enterIDMousePressed(evt);
+            }
+        });
+        jPanel1.add(enterID, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 420, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -141,51 +93,35 @@ public class AdminAgregarcicla extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void enterIDMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterIDMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_enterIDMousePressed
-
-    private void enterIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_enterIDActionPerformed
-
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void enterIDFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_enterIDFocusLost
+        if (enterID.getText().isEmpty()) {
+            enterID.setText("ID de la bicicleta");
+            enterID.setForeground(new java.awt.Color(0, 0, 0, 50));
+
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_enterIDFocusLost
+
+    private void enterIDMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterIDMousePressed
+        if (enterID.getText().equals("ID de la bicicleta")) {
+            enterID.setText("");
+            enterID.setForeground(java.awt.Color.BLACK);
+        }  // TODO add your handling code here:
+    }//GEN-LAST:event_enterIDMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField enterID;
     private javax.swing.JButton jButton7;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JLabel user_text1;
     private javax.swing.JLabel user_text2;
+    private javax.swing.JLabel user_text3;
     // End of variables declaration//GEN-END:variables
 }

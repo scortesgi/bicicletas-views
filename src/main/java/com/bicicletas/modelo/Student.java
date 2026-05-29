@@ -18,8 +18,8 @@ public class Student extends User {
     
 
     //Constructor
-    public Student (String username, long cedula, long tiun){
-        super(username, cedula);
+    public Student (String username, long cedula, long tiun ,String password){
+        super(username, cedula,  password );
         this.tiun = tiun;
     }
 
@@ -40,7 +40,7 @@ public class Student extends User {
     public Reservar getReserva(){
         return reserva;
     }
-
+    
         //Set
     public void setReserva(Reservar reserva) {
         this.reserva = reserva;
