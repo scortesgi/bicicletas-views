@@ -5,7 +5,6 @@
 package com.bicicletas.views;
 
 import java.awt.Color;
-import static java.lang.System.exit;
 
 
 /**

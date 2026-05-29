@@ -1,5 +1,7 @@
+/*package com.bicicletas.modelo;
 
-/*
+
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -8,8 +10,6 @@ public class Main {
     
     public static void main(String[] args) {
         
-
-/*
         Scanner sc = new Scanner(System.in);
         String nombre_st = " ", opcionMenu = " ", nombre_admi;
         int tiun = 0, num_estacion, id, admi_usu, menu,cedulaEstudiante, cedulaAdmi;
@@ -74,90 +74,6 @@ public class Main {
                     System.out.println("No eres administrador autorizado");
                     opcionMenu = "no";
                 }else{
-                    System.out.println("- - - CAMBIO DE CLAVE ADMINISTRADOR - - -");
-
-int intentos = 0;
-boolean claveCorrecta = false;
-
-// 🔥 DECLARAR FUERA DEL WHILE
-int claveIngresada = 0;
-
-while(intentos < 3 && !claveCorrecta){
-
-    System.out.print("Ingrese clave actual: ");
-    claveIngresada = sc.nextInt();
-
-    claveCorrecta =
-            DocReader.verificarClaveAdministrador(
-                    "poo/archivoHistorial/Administradores.txt",
-                    nombre_admi,
-                    cedulaAdmi,
-                    claveIngresada
-            );
-
-    if(!claveCorrecta){
-
-        intentos++;
-
-        System.out.println(
-                "Clave incorrecta. Intento "
-                + intentos +
-                " de 3."
-        );
-    }
-}
-
-if(claveCorrecta){
-
-    System.out.print(
-            "Desea cambiar la contraseña? (si/no): "
-    );
-
-    sc.nextLine();
-
-    String opcion = sc.nextLine().toLowerCase();
-
-    if(opcion.equals("si")){
-
-        System.out.print("Ingrese nueva clave: ");
-
-        int nuevaClave = sc.nextInt();
-
-        boolean cambio =
-                DocReader.cambiarClaveAdministrador(
-                        "poo/archivoHistorial/Administradores.txt",
-                        nombre_admi,
-                        cedulaAdmi,
-                        claveIngresada,
-                        nuevaClave
-                );
-
-        if(cambio){
-
-            System.out.println(
-                    "Clave cambiada correctamente."
-            );
-
-        }else{
-
-            System.out.println(
-                    "No se pudo cambiar la clave."
-            );
-        }
-
-    }else{
-
-        System.out.println(
-                "No se realizó ningún cambio."
-        );
-    }
-
-}else{
-
-    System.out.println(
-            "Acceso bloqueado."
-    );
-}
                     do{
                         //Menu principal
                         System.out.println("- - - -- - - - -- - - -- - - - -- - - - -- - - - -- ");
@@ -435,174 +351,164 @@ if(claveCorrecta){
                             DocReader.leerArchivo("poo/archivoHistorial/estudianteReal.txt");
                     //*-********************************************************************************************************
                 }
-                do{
+                
                     //Menu principal
-                    if (estudiante.getState().equals("bloqueado")){
-                        System.out.println("Tiene su cuenta bloqueada por alguna penalizacion, por lo tanto solo podra observar el estado de la cuenta");
-                        menu = 2;
-                    }else{
+                if (estudiante.getState().equals("bloqueado")){
+                    System.out.println("Tiene su cuenta bloqueada por alguna penalizacion, por lo tanto solo podra observar el estado de la cuenta");
+                    estudiante.estadoPenalizacion(); 
+                    estudiante.verMotivosPenalizacion(listaComentariosAdmin);
+                }else{
+
+                    do{
                         System.out.println("- - - -- - - - -- - - -- - - - -- - - - -- - - - -- ");
                         System.out.println("Menu principal: ");
                         System.out.println("- - - -- - - - -- - - -- - - - -- - - - -- - - - -- ");
                         System.out.println("1. Reservacion de cicla");
-                        System.out.println("2. Estado de la cuenta");
-                        System.out.println("3. Reglas");
-                        System.out.println("4. Tiempo de reservacion y uso");
-                        System.out.println("5. Queja o comentario sobre servicio");
+                        System.out.println("2. Reglas");
+                        System.out.println("3. Tiempo de reservacion y uso");
+                        System.out.println("4. Queja o comentario sobre servicio");
                         System.out.println("- - - -- - - - -- - - -- - - - -- - - - -- - - - -- ");
                         menu = verifExcepcion(sc, "Ingrese el numero de lo que desea hacer: ");
-
-                    }
-                    
-                    if (menu == 1 && estudiante.getState().equals("activo")){
-                        System.out.println("- - - -- - - - -- - - -- - - - -- - - - -- - - - -- ");
-                        System.out.println("Reservacion de cicla");
-                        System.out.println("- - - -- - - - -- - - -- - - - -- - - - -- - - - -- ");
-                        boolean verifEstacion = false;
-                        do{
-                            if((reserva != null && (reserva.getEstadoReserva().equals("reservada") || reserva.getEstadoReserva().equals("en_uso")))){
-                                System.out.println("Su cuenta ya tiene una reserva o una activacion de uso en curso, por ende no puede hacer mas reservas");
-                                verifEstacion = false;
-                                
-                            }else{
-                                
-                                num_estacion = seleccionDeEstacion(sc, "Ingresa el numero de la estacion que deseas usar (1 a 6): ");
-                                // Se guarda la estación elegida
-                                estacionRecogida = estaciones.get(num_estacion - 1);
-
-                                if(estacionRecogida.getBicis().size() > 0){
-                                
-                                    System.out.println("--- BICICLETAS DISPONIBLES EN LA ESTACIÓN ---");
-                                    estacionRecogida.infoBicicletasDisponibles();
-                                    System.out.println("---------------------------------------------\n");
-
-                                    do{
-                                        // Ingresa ID  de cicla a usar
-                                        id = idCicla(sc, "Ingresa el id de la cicla que deseas usar: ");
-                                        for (Bike bike : estacionRecogida.getBicis()) {
-                                            if (bike.getId() == id) {
-                                                bicicleta = bike;
-                                                break;
-                                            }
-                                        }
-                                        if(bicicleta != null ){
-                                        // Clase reserva
-                                            reserva = new Reservar(bicicleta, estudiante);
-                                            // Verifica si la estación seleccionada es correcta
-                                            boolean recogidaCorrecta = reserva.setEstacionRecogida(estacionRecogida);
-                                            
-                                            if(recogidaCorrecta){
-                                                int entrega = seleccionDeEstacion(sc, "Ingrese estación de entrega (1 a 6): ");
-                                                estacionEntrega = estaciones.get(entrega - 1);
-                                                boolean entregaCorrecta = reserva.setEstacionEntrega(estacionEntrega);
-                                                
-                                                if(entregaCorrecta){
-                                                    reserva.realizarReserva();
-                                                    verifEstacion = false;
-                                                }
-                                            }
-                                        
-                                        }else{
-                                            System.out.println("No existe bicicleta con ese ID. \nIngrese ID correcto.");
-                                        }
-                                        sc.nextLine();
-                                    }while(bicicleta == null);
+                        if (menu == 1 && estudiante.getState().equals("activo")){
+                            System.out.println("- - - -- - - - -- - - -- - - - -- - - - -- - - - -- ");
+                            System.out.println("Reservacion de cicla");
+                            System.out.println("- - - -- - - - -- - - -- - - - -- - - - -- - - - -- ");
+                            boolean verifEstacion = false;
+                            do{
+                                if((reserva != null && (reserva.getEstadoReserva().equals("reservada") || reserva.getEstadoReserva().equals("en_uso")))){
+                                    System.out.println("Su cuenta ya tiene una reserva o una activacion de uso en curso, por ende no puede hacer mas reservas");
+                                    verifEstacion = false;
                                     
                                 }else{
-                                    System.out.println("No hay bicicletas en esta estación. \nIngrese otra estacion");
-                                    verifEstacion = true;
                                     
-                                }
-                            }
-                        
-                        }while(verifEstacion);
-                        sc.nextLine();
-                        
-                    }else if ( menu == 2){
-                        System.out.println("- - - -- - - - -- - - -- - - - -- - - - -- - - - -- ");
-                        System.out.println("Estado de la cuenta");
-                        System.out.println("- - - -- - - - -- - - -- - - - -- - - - -- - - - -- ");
-                        System.out.println();
-                       
-                        estudiante.estadoPenalizacion(); 
-                        estudiante.verMotivosPenalizacion(listaComentariosAdmin);
-                        
-                        sc.nextLine();
+                                    num_estacion = seleccionDeEstacion(sc, "Ingresa el numero de la estacion que deseas usar (1 a 6): ");
+                                    // Se guarda la estación elegida
+                                    estacionRecogida = estaciones.get(num_estacion - 1);
 
-                    }else if (menu == 3 && estudiante.getState().equals("activo")){
-                        System.out.println("- - - -- - - - -- - - -- - - - -- - - - -- - - - -- ");
-                        System.out.println("Reglas");
-                        estudiante.seeRules();
-                        sc.nextLine();
-    
-                    }else if ( menu == 4 && estudiante.getState().equals("activo")){
-                        System.out.println("- - - -- - - - -- - - -- - - - -- - - - -- - - - -- ");
-                        System.out.println("Tiempo de reservacion y uso");
-                        System.out.println("- - - -- - - - -- - - -- - - - -- - - - -- - - - -- ");
-                        System.out.println();
-                        
-                        int opciontime;
-                        do {
-                            opciontime =verifExcepcion(sc, "Selecciona 1 para saber su tiempo de reserva y 2 para tiempo de uso: ");
-                            if (opciontime == 1){
-                                System.out.println("- - - -- - - - -- - - -- - - - -- - - - -- - - - -- ");
-                                System.out.println("Tiempo de reservacion");
-                                System.out.println("- - - -- - - - -- - - -- - - - -- - - - -- - - - -- ");
-                                System.out.println();
-                                if (reserva != null) {
-                                    // El estudiante solo consulta. Tu método se encarga de decirle si sigue activa o si se le canceló en ese instante
-                                    reserva.verificarExcesoReserva(); 
-                                } else {
-                                    System.out.println("Usted no cuenta con ninguna reserva activa en este momento.");
-                                }
+                                    if(estacionRecogida.getBicis().size() > 0){
+                                    
+                                        System.out.println("--- BICICLETAS DISPONIBLES EN LA ESTACIÓN ---");
+                                        estacionRecogida.infoBicicletasDisponibles();
+                                        System.out.println("---------------------------------------------\n");
 
-                            }else if (opciontime == 2){
-                                System.out.println("- - - -- - - - -- - - -- - - - -- - - - -- - - - -- ");
-                                System.out.println("Tiempo de uso");
-                                System.out.println("- - - -- - - - -- - - -- - - - -- - - - -- - - - -- ");
-                                System.out.println();
-                                estudiante.tiempoDeUso();
-                            }else {
-                                mensajeError();
-                            }
-                             sc.nextLine();
+                                        do{
+                                            // Ingresa ID  de cicla a usar
+                                            id = idCicla(sc, "Ingresa el id de la cicla que deseas usar: ");
+                                            for (Bike bike : estacionRecogida.getBicis()) {
+                                                if (bike.getId() == id) {
+                                                    bicicleta = bike;
+                                                    break;
+                                                }
+                                            }
+                                            if(bicicleta != null ){
+                                            // Clase reserva
+                                                reserva = new Reservar(bicicleta, estudiante);
+                                                // Verifica si la estación seleccionada es correcta
+                                                boolean recogidaCorrecta = reserva.setEstacionRecogida(estacionRecogida);
+                                                
+                                                if(recogidaCorrecta){
+                                                    int entrega = seleccionDeEstacion(sc, "Ingrese estación de entrega (1 a 6): ");
+                                                    estacionEntrega = estaciones.get(entrega - 1);
+                                                    boolean entregaCorrecta = reserva.setEstacionEntrega(estacionEntrega);
+                                                    
+                                                    if(entregaCorrecta){
+                                                        reserva.realizarReserva();
+                                                        verifEstacion = false;
+                                                    }
+                                                }
+                                            
+                                            }else{
+                                                System.out.println("No existe bicicleta con ese ID. \nIngrese ID correcto.");
+                                            }
+                                            sc.nextLine();
+                                        }while(bicicleta == null);
+                                        
+                                    }else{
+                                        System.out.println("No hay bicicletas en esta estación. \nIngrese otra estacion");
+                                        verifEstacion = true;
+                                        
+                                    }
+                                }
                             
-                        } while (opciontime > 2 || opciontime < 1 );
+                            }while(verifEstacion);
+                            sc.nextLine();
+                            
+
+                        }else if (menu == 2 && estudiante.getState().equals("activo")){
+                            System.out.println("- - - -- - - - -- - - -- - - - -- - - - -- - - - -- ");
+                            System.out.println("Reglas");
+                            estudiante.seeRules();
+                            sc.nextLine();
+
+                        }else if ( menu == 3 && estudiante.getState().equals("activo")){
+                            System.out.println("- - - -- - - - -- - - -- - - - -- - - - -- - - - -- ");
+                            System.out.println("Tiempo de reservacion y uso");
+                            System.out.println("- - - -- - - - -- - - -- - - - -- - - - -- - - - -- ");
+                            System.out.println();
+                            
+                            int opciontime;
+                            do {
+                                opciontime =verifExcepcion(sc, "Selecciona 1 para saber su tiempo de reserva y 2 para tiempo de uso: ");
+                                if (opciontime == 1){
+                                    System.out.println("- - - -- - - - -- - - -- - - - -- - - - -- - - - -- ");
+                                    System.out.println("Tiempo de reservacion");
+                                    System.out.println("- - - -- - - - -- - - -- - - - -- - - - -- - - - -- ");
+                                    System.out.println();
+                                    if (reserva != null) {
+                                        // El estudiante solo consulta. Tu método se encarga de decirle si sigue activa o si se le canceló en ese instante
+                                        reserva.verificarExcesoReserva(); 
+                                    } else {
+                                        System.out.println("Usted no cuenta con ninguna reserva activa en este momento.");
+                                    }
+
+                                }else if (opciontime == 2){
+                                    System.out.println("- - - -- - - - -- - - -- - - - -- - - - -- - - - -- ");
+                                    System.out.println("Tiempo de uso");
+                                    System.out.println("- - - -- - - - -- - - -- - - - -- - - - -- - - - -- ");
+                                    System.out.println();
+                                    estudiante.tiempoDeUso();
+                                }else {
+                                    mensajeError();
+                                }
+                                    sc.nextLine();
+                                
+                            } while (opciontime > 2 || opciontime < 1 );
 
 
-                    }else if (menu == 5 && estudiante.getState().equals("activo")){
-                        System.out.println("- - - -- - - - -- - - -- - - - -- - - - -- - - - -- ");
-                        System.out.println("Queja o comentario sobre servicio");
-                        System.out.println("- - - -- - - - -- - - -- - - - -- - - - -- - - - -- ");
-                        System.out.println();
-                        System.out.print("Escribe tu comentario: ");
-                        sc.nextLine();
-                        String mensaje = sc.nextLine();
-                         //Se crea un comentario
-                        Comment comentario = new Comment(mensaje, estudiante);
-                        //Se agrega a la lista de comentarios
-                        listaComentarios.add(comentario);
-                        //Preservar los datos de la lista en el archivo
-                        System.out.println();
+                        }else if (menu == 4 && estudiante.getState().equals("activo")){
+                            System.out.println("- - - -- - - - -- - - -- - - - -- - - - -- - - - -- ");
+                            System.out.println("Queja o comentario sobre servicio");
+                            System.out.println("- - - -- - - - -- - - -- - - - -- - - - -- - - - -- ");
+                            System.out.println();
+                            System.out.print("Escribe tu comentario: ");
+                            sc.nextLine();
+                            String mensaje = sc.nextLine();
+                                //Se crea un comentario
+                            Comment comentario = new Comment(mensaje, estudiante);
+                            //Se agrega a la lista de comentarios
+                            listaComentarios.add(comentario);
+                            //Preservar los datos de la lista en el archivo
+                            System.out.println();
 
 
-                    }else{
-                        mensajeError();
-                    }
-                    do{
-                        System.out.print("Desea volver al menu principal? (si/no); ");
-                        opcionMenu = sc.nextLine().toLowerCase();
-                        if (opcionMenu.equals("no")){
-                            System.out.println("Gracias por usar el aplicativo.");
                         }else{
                             mensajeError();
                         }
-                    }while(!opcionMenu.equals("no") && !opcionMenu.equals("si"));
+                        do{
+                            System.out.print("Desea volver al menu principal? (si/no); ");
+                            opcionMenu = sc.nextLine().toLowerCase();
+                            if (opcionMenu.equals("no")){
+                                System.out.println("Gracias por usar el aplicativo.");
+                            }else{
+                                mensajeError();
+                            }
+                        }while(!opcionMenu.equals("no") && !opcionMenu.equals("si"));
                     
 
-                }while (menu > 5 || menu < 0 || opcionMenu.equals("si"));
-                
-
+                    }while (menu > 4 || menu < 0 || opcionMenu.equals("si"));   
+                }
+                    
+                 
             }else{
                 mensajeError();
             }
@@ -706,10 +612,10 @@ if(claveCorrecta){
             }
         }while(!verifStud);
     }
-}
+}*/
 
 
-*/
+/*
 package com.bicicletas.modelo;
 import java.util.ArrayList;
 import com.bicicletas.views.Bienvenida; // Asegúrate de que apunte al paquete de tus vistas
@@ -747,4 +653,4 @@ public class Main {
     java.awt.EventQueue.invokeLater(() -> new Bienvenida().setVisible(true));
    
 }
-}
+}*/

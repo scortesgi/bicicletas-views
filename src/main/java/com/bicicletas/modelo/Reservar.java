@@ -1,4 +1,5 @@
 package com.bicicletas.modelo;
+
 import java.time.LocalDateTime; // Para capturar la fecha y hora exacta
 import java.time.Duration;      // Para calcular la diferencia de tiempo entre dos momentos
 

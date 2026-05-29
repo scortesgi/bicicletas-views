@@ -1,5 +1,7 @@
-//clase hija para administraador
 package com.bicicletas.modelo;
+
+//clase hija para administraador
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -8,8 +10,8 @@ public class Administrator extends User{
 
 
     //constructor
-    public Administrator (String username, long cedula, String password){
-        super(username, cedula, password);
+    public Administrator (String username, long cedula){
+        super(username, cedula);
     }
 
 
@@ -40,7 +42,7 @@ public class Administrator extends User{
         return false;
     }
     
-public boolean removeStudent(ArrayList<Student> listaEstudiante, long tiun){
+    public boolean removeStudent(ArrayList<Student> listaEstudiante, long tiun){
         
         for(int i = 0; i < listaEstudiante.size(); i++){  
              if(listaEstudiante.get(i).getTiun() == tiun){
@@ -52,15 +54,16 @@ public boolean removeStudent(ArrayList<Student> listaEstudiante, long tiun){
     }
 
 //método para registrar el motivo de la penalización
-public void addMotivoPenalizacion(ArrayList<Comment> listaComentariosAdmin, long tiun, String motivo){
+    public void addMotivoPenalizacion(ArrayList<Comment> listaComentariosAdmin, long tiun, String motivo){
     
-    Comment comentario = new Comment(motivo, this, tiun);
-    listaComentariosAdmin.add(comentario);
-    System.out.println("Motivo registrado correctamente.");
+        Comment comentario = new Comment(motivo, this, tiun);
+        listaComentariosAdmin.add(comentario);
+        System.out.println("Motivo registrado correctamente.");
 
+    }
+
+    public Object getPassword() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }
-
-
-   //addBicycle(), viewReports(), removeStudent()*/

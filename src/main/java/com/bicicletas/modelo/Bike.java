@@ -1,4 +1,5 @@
 package com.bicicletas.modelo;
+
 public class Bike {
     
     //Atributos
@@ -43,7 +44,18 @@ public class Bike {
             //return false;
         }
     }
-        
+
+    public void mantenimiento(){//solo lo usara el administrador
+
+        if (state.equals("disponible")){
+            state = "mantenimiento";
+            //return true;
+        }else{
+            //return false;
+        }
+    }
+    
+    
     public  void disponible() {
         state = "disponible";
         System.out.println("bicicleta " + id + "está disponible");

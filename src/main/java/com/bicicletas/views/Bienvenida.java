@@ -62,6 +62,7 @@ public class Bienvenida extends javax.swing.JFrame {
 
         sinCuenta_text.setFont(new java.awt.Font("Ancizar Sans ExtraLight", 0, 18)); // NOI18N
         sinCuenta_text.setForeground(new java.awt.Color(56, 182, 255));
+        sinCuenta_text.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         sinCuenta_text.setText("¿No tienes cuenta? Regístrate aquí");
         sinCuenta_text.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         sinCuenta_text.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -75,7 +76,7 @@ public class Bienvenida extends javax.swing.JFrame {
                 sinCuenta_textMouseExited(evt);
             }
         });
-        getContentPane().add(sinCuenta_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 380, -1, -1));
+        getContentPane().add(sinCuenta_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 380, 310, -1));
 
         Bienvenido.setFont(new java.awt.Font("Ancizar Sans ExtraBold", 1, 60)); // NOI18N
         Bienvenido.setForeground(new java.awt.Color(19, 134, 201));
