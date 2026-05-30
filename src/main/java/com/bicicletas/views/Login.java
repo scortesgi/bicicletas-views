@@ -314,10 +314,7 @@ public class Login extends javax.swing.JFrame {
                 javax.swing.JOptionPane.showMessageDialog(this, "Bienvenido Administrador: " + admin.getUserName());
                 
                 // Redirigir al MenuAdmin
-                MenuAdmin menuA = new MenuAdmin(com.bicicletas.modelo.Main.listaEstudiante, 
-                                                com.bicicletas.modelo.Main.estaciones, 
-                                                com.bicicletas.modelo.Main.listaComentariosAdmin, 
-                                                admin);
+                MenuAdmin menuA = new MenuAdmin();
                 menuA.setVisible(true);
                 this.dispose(); // Cerrar el login
                 break;

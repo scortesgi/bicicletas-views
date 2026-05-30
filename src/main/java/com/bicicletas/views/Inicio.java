@@ -66,7 +66,7 @@ public class Inicio extends javax.swing.JPanel {
 
         reglamento_text.setFont(new java.awt.Font("Ancizar Serif", 1, 24)); // NOI18N
         reglamento_text.setText("Restricciones adicionales:");
-        add(reglamento_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
+        add(reglamento_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
 
         reglamento_text1.setFont(new java.awt.Font("Ancizar Serif Black", 0, 36)); // NOI18N
         reglamento_text1.setText("Reglamento para el uso de bicicletas:");
@@ -125,7 +125,7 @@ public class Inicio extends javax.swing.JPanel {
 
         jLabel10.setFont(new java.awt.Font("Ancizar Sans Light", 0, 14)); // NOI18N
         jLabel10.setText("El incumplimiento reiterado de las reglas puede llevar a la suspensión definitiva del servicio. ");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, -1, -1));
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Ancizar Sans Light", 0, 14)); // NOI18N
         jLabel11.setText("usar la bicicleta únicamente para desplazamientos personales, no para actividades comerciales, ");
@@ -137,7 +137,7 @@ public class Inicio extends javax.swing.JPanel {
 
         jLabel13.setFont(new java.awt.Font("Ancizar Sans Light", 0, 14)); // NOI18N
         jLabel13.setText("No se permite: transportar pasajeros, modificar o alterar partes de la bicicleta. El préstamo es personal e intransferible. ");
-        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, -1, -1));
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, -1, -1));
 
         fecha_panel.setBackground(new java.awt.Color(19, 134, 201));
 
