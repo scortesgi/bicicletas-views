@@ -1,4 +1,5 @@
 package com.bicicletas.views;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Image;
 import java.time.LocalDate;
@@ -31,18 +32,14 @@ public class MenuEstudiante extends javax.swing.JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
         getContentPane().setBackground(Color.WHITE);
-        SetDate();
+        Inicio home=new Inicio();
+        BLANK.setLayout(new BorderLayout());
+        BLANK.removeAll();
+        BLANK.add(home, BorderLayout.CENTER);
+        BLANK.revalidate();
+        BLANK.repaint();
+        
     }
-         private void SetDate() {
-    LocalDate now = LocalDate.now();
-    int year = now.getYear();
-    int dia = now.getDayOfMonth();
-    int month = now.getMonthValue();
-    String[] meses = {"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre",
-        "Octubre","Noviembre","Diciembre"};
-    //jLabel2.setText("Hoy es "+dia+" de "+meses[month - 1]+" de "+year);
-}
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -58,7 +55,8 @@ public class MenuEstudiante extends javax.swing.JFrame {
         panel_superior = new javax.swing.JPanel();
         menuBarra = new javax.swing.JPanel();
         Inicio_text = new javax.swing.JLabel();
-        pqrs_button = new javax.swing.JPanel();
+        logout_button = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         Inicio_button = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         Reserva_button = new javax.swing.JPanel();
@@ -67,6 +65,7 @@ public class MenuEstudiante extends javax.swing.JFrame {
         Tiempo_text1 = new javax.swing.JLabel();
         pqrs_button1 = new javax.swing.JPanel();
         Reservar_text1 = new javax.swing.JLabel();
+        BLANK = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -131,14 +130,15 @@ public class MenuEstudiante extends javax.swing.JFrame {
         Inicio_text.setText("Inicio");
         menuBarra.add(Inicio_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 70, -1));
 
-        pqrs_button.setBackground(new java.awt.Color(56, 182, 255));
-        pqrs_button.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                pqrs_buttonMouseEntered(evt);
-            }
-        });
-        pqrs_button.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        menuBarra.add(pqrs_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 40, 80, 20));
+        logout_button.setBackground(new java.awt.Color(56, 182, 255));
+        logout_button.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Ancizar Sans Medium", 0, 14)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Cerrar Sesión");
+        logout_button.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 30));
+
+        menuBarra.add(logout_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 30, 100, 30));
 
         Inicio_button.setBackground(new java.awt.Color(56, 182, 255));
         Inicio_button.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -167,11 +167,6 @@ public class MenuEstudiante extends javax.swing.JFrame {
         menuBarra.add(Tiempo_text1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 100, 70, -1));
 
         pqrs_button1.setBackground(new java.awt.Color(56, 182, 255));
-        pqrs_button1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                pqrs_button1MouseEntered(evt);
-            }
-        });
         pqrs_button1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         menuBarra.add(pqrs_button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 30, 70, 70));
 
@@ -181,6 +176,10 @@ public class MenuEstudiante extends javax.swing.JFrame {
         menuBarra.add(Reservar_text1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 70, -1));
 
         getContentPane().add(menuBarra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 140));
+
+        BLANK.setBackground(new java.awt.Color(255, 255, 255));
+        BLANK.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(BLANK, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 800, 460));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -207,15 +206,11 @@ public class MenuEstudiante extends javax.swing.JFrame {
     private void exitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseExited
         exit.setBackground(new Color(19,134,201));
     }//GEN-LAST:event_exitMouseExited
-
+/*
     private void pqrs_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pqrs_buttonMouseEntered
-        
+        ADD YOUR CODE HERE
     }//GEN-LAST:event_pqrs_buttonMouseEntered
-
-    private void pqrs_button1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pqrs_button1MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pqrs_button1MouseEntered
-
+*/
     /**
      * @param args the command line arguments
      */
@@ -242,6 +237,7 @@ public class MenuEstudiante extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel BLANK;
     private javax.swing.JLabel CERRAR;
     private javax.swing.JPanel Inicio_button;
     private javax.swing.JLabel Inicio_text;
@@ -252,9 +248,10 @@ public class MenuEstudiante extends javax.swing.JFrame {
     private javax.swing.JLabel UNlogo;
     private javax.swing.JPanel exit;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel logout_button;
     private javax.swing.JPanel menuBarra;
     private javax.swing.JPanel panel_superior;
-    private javax.swing.JPanel pqrs_button;
     private javax.swing.JPanel pqrs_button1;
     private javax.swing.JLabel pqrs_text1;
     // End of variables declaration//GEN-END:variables
