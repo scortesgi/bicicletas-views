@@ -4,12 +4,9 @@ import java.awt.Image;
 import java.time.LocalDate;
 import javax.swing.ImageIcon;
 
-// 1. 🌟 EL IMPORT ESENCIAL PARA REPARAR LOS ARRAYLIST:
 import java.util.ArrayList;
 
-// 2. 🌟 IMPORTS DE TU MODELO (Asegúrate de que no falte ninguno):
 import com.bicicletas.modelo.*;
-import com.bicicletas.views.*;
 
 
 
@@ -64,19 +61,24 @@ public class MenuAdmin extends javax.swing.JFrame {
     
     initComponents();
     SetDate();
+    configurarImagenes();
+    
+   
 }
+    
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuAdmin.class.getName());
 
-    // --- NUESTRAS VARIABLES GLOBALES PARA EL MODELO ---
+    
      private ArrayList<Student> listaEstudiante;
     private ArrayList<Station> estaciones;
     private ArrayList<Comment> listaComentarios;
     private Administrator administrador;
 
-    int xMouse, yMouse; // Las variables de diseño que ya tenías
+    int xMouse, yMouse; 
 
-    // MODIFICAMOS EL CONSTRUCTOR PARA RECIBIR LOS DATOS
+   
+   
    public MenuAdmin(ArrayList<Student> listaEstudiante, ArrayList<Station> estaciones, ArrayList<Comment> listaComentarios, Administrator administrador) {
        
     this.listaEstudiante = listaEstudiante;
@@ -86,8 +88,11 @@ public class MenuAdmin extends javax.swing.JFrame {
        
         initComponents();
         SetDate();
+    
+    
         
-        
+    
+    
         if (estaciones.isEmpty()) {
             estaciones.add(new Station("Calle 53", 2));
             estaciones.add(new Station("CYT", 2));
@@ -95,22 +100,12 @@ public class MenuAdmin extends javax.swing.JFrame {
             estaciones.add(new Station("Calle 45", 15));
         }
         
-       /* // Tu código existente del logo de la UN
-        ImageIcon icon = new ImageIcon(getClass().getResource("/imagenes/universidad-nacional-de-colombia-sede-bogota-logo.png"));
-        Image img = icon.getImage();
-        Image imgEscalada = img.getScaledInstance(400, 80, Image.SCALE_SMOOTH);
-        UNlogo.setIcon(new ImageIcon(imgEscalada));
+       
         
-        setResizable(false);
-        setLocationRelativeTo(null);
-        getContentPane().setBackground(Color.WHITE);
-        
-        // Cargamos el primer panel por defecto (Administrar Bicicletas) al abrir la app
-        Adminadministrarbicicleta panelBici = new Adminadministrarbicicleta();
-        */
+      
     }
     
-    // ... El resto de tus métodos (SetDate, etc.) se quedan exactamente igual
+    
         private void SetDate() {
     LocalDate now = LocalDate.now();
     int year = now.getYear();
@@ -120,7 +115,16 @@ public class MenuAdmin extends javax.swing.JFrame {
         "Octubre","Noviembre","Diciembre"};
     jLabel2.setText("Hoy es "+dia+" de "+meses[month - 1]+" de "+year);
 }
-        
+        private void configurarImagenes() {
+            
+            if (Penalizar_button.getIcon() != null) {
+            
+            Image img = ((javax.swing.ImageIcon) Penalizar_button.getIcon()).getImage();
+            Image imgEscalada = img.getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH);
+            Penalizar_button.setIcon(new javax.swing.ImageIcon(imgEscalada));
+            
+        }   
+        }
         
     
     /**
@@ -163,6 +167,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel2.setPreferredSize(new java.awt.Dimension(873, 190));
 
         AgregarCicla_button.setBackground(new java.awt.Color(56, 182, 255));
+        AgregarCicla_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregar_bicicleta.png"))); // NOI18N
         AgregarCicla_button.setText("agregar cicla");
         AgregarCicla_button.addActionListener(this::AgregarCicla_buttonActionPerformed);
 
@@ -172,14 +177,17 @@ public class MenuAdmin extends javax.swing.JFrame {
         Penalizar_button.addActionListener(this::Penalizar_buttonActionPerformed);
 
         Reglas_button.setBackground(new java.awt.Color(56, 182, 255));
+        Reglas_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/reglas.png"))); // NOI18N
         Reglas_button.setText("Reglas");
         Reglas_button.addActionListener(this::Reglas_buttonActionPerformed);
 
         Reportes_button.setBackground(new java.awt.Color(56, 182, 255));
+        Reportes_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/reportes_de_estudiantes.png"))); // NOI18N
         Reportes_button.setText("reportes");
         Reportes_button.addActionListener(this::Reportes_buttonActionPerformed);
 
         QuitarEstudiante_button.setBackground(new java.awt.Color(56, 182, 255));
+        QuitarEstudiante_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/quitar_acceso_estudiante.png"))); // NOI18N
         QuitarEstudiante_button.setText("quitar acceso");
         QuitarEstudiante_button.addActionListener(this::QuitarEstudiante_buttonActionPerformed);
 
@@ -187,6 +195,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         CerrarSesion_button.setText("Cerrar sesión");
 
         AdminCiclas_button.setBackground(new java.awt.Color(56, 182, 255));
+        AdminCiclas_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/administrar_bicicleta.png"))); // NOI18N
         AdminCiclas_button.setText("Admin ciclas");
         AdminCiclas_button.addActionListener(this::AdminCiclas_buttonActionPerformed);
 
