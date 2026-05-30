@@ -134,13 +134,13 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
+        AgregarCicla_button = new javax.swing.JButton();
+        Penalizar_button = new javax.swing.JButton();
+        Reglas_button = new javax.swing.JButton();
+        Reportes_button = new javax.swing.JButton();
+        QuitarEstudiante_button = new javax.swing.JButton();
+        CerrarSesion_button = new javax.swing.JButton();
+        AdminCiclas_button = new javax.swing.JButton();
         panel_superior = new javax.swing.JPanel();
         exit = new javax.swing.JPanel();
         CERRAR = new javax.swing.JLabel();
@@ -162,32 +162,33 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(19, 134, 201));
         jPanel2.setPreferredSize(new java.awt.Dimension(873, 190));
 
-        jButton7.setBackground(new java.awt.Color(56, 182, 255));
-        jButton7.setText("agregar cicla");
-        jButton7.addActionListener(this::jButton7ActionPerformed);
+        AgregarCicla_button.setBackground(new java.awt.Color(56, 182, 255));
+        AgregarCicla_button.setText("agregar cicla");
+        AgregarCicla_button.addActionListener(this::AgregarCicla_buttonActionPerformed);
 
-        jButton8.setBackground(new java.awt.Color(56, 182, 255));
-        jButton8.setText("penalizar");
-        jButton8.addActionListener(this::jButton8ActionPerformed);
+        Penalizar_button.setBackground(new java.awt.Color(56, 182, 255));
+        Penalizar_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/penalizar_estudiante.png"))); // NOI18N
+        Penalizar_button.setText("penalizar");
+        Penalizar_button.addActionListener(this::Penalizar_buttonActionPerformed);
 
-        jButton9.setBackground(new java.awt.Color(56, 182, 255));
-        jButton9.setText("Reglas");
-        jButton9.addActionListener(this::jButton9ActionPerformed);
+        Reglas_button.setBackground(new java.awt.Color(56, 182, 255));
+        Reglas_button.setText("Reglas");
+        Reglas_button.addActionListener(this::Reglas_buttonActionPerformed);
 
-        jButton10.setBackground(new java.awt.Color(56, 182, 255));
-        jButton10.setText("reportes");
-        jButton10.addActionListener(this::jButton10ActionPerformed);
+        Reportes_button.setBackground(new java.awt.Color(56, 182, 255));
+        Reportes_button.setText("reportes");
+        Reportes_button.addActionListener(this::Reportes_buttonActionPerformed);
 
-        jButton11.setBackground(new java.awt.Color(56, 182, 255));
-        jButton11.setText("quitar acceso");
-        jButton11.addActionListener(this::jButton11ActionPerformed);
+        QuitarEstudiante_button.setBackground(new java.awt.Color(56, 182, 255));
+        QuitarEstudiante_button.setText("quitar acceso");
+        QuitarEstudiante_button.addActionListener(this::QuitarEstudiante_buttonActionPerformed);
 
-        jButton6.setBackground(new java.awt.Color(56, 182, 255));
-        jButton6.setText("Cerrar sesión");
+        CerrarSesion_button.setBackground(new java.awt.Color(56, 182, 255));
+        CerrarSesion_button.setText("Cerrar sesión");
 
-        jButton12.setBackground(new java.awt.Color(56, 182, 255));
-        jButton12.setText("Admin ciclas");
-        jButton12.addActionListener(this::jButton12ActionPerformed);
+        AdminCiclas_button.setBackground(new java.awt.Color(56, 182, 255));
+        AdminCiclas_button.setText("Admin ciclas");
+        AdminCiclas_button.addActionListener(this::AdminCiclas_buttonActionPerformed);
 
         panel_superior.setBackground(new java.awt.Color(19, 134, 201));
         panel_superior.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -247,18 +248,18 @@ public class MenuAdmin extends javax.swing.JFrame {
                         .addComponent(UNlogo)
                         .addGap(48, 48, 48)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Penalizar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AgregarCicla_button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(44, 44, 44)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Reglas_button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Reportes_button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(47, 47, 47)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(QuitarEstudiante_button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AdminCiclas_button, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(34, 34, 34)
-                        .addComponent(jButton6))
+                        .addComponent(CerrarSesion_button))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(panel_superior, javax.swing.GroupLayout.PREFERRED_SIZE, 756, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -266,7 +267,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton10, jButton11, jButton12, jButton7, jButton8, jButton9});
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {AdminCiclas_button, AgregarCicla_button, Penalizar_button, QuitarEstudiante_button, Reglas_button, Reportes_button});
 
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -283,30 +284,30 @@ public class MenuAdmin extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(Penalizar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(QuitarEstudiante_button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Reglas_button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(AgregarCicla_button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(8, Short.MAX_VALUE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(AdminCiclas_button, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Reportes_button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(CerrarSesion_button, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
         );
 
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton10, jButton11, jButton12, jButton7, jButton8, jButton9});
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {AdminCiclas_button, AgregarCicla_button, Penalizar_button, QuitarEstudiante_button, Reglas_button, Reportes_button});
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 0, 830, -1));
 
@@ -389,7 +390,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         this.setLocation(x-xMouse, y-yMouse);
     }//GEN-LAST:event_panel_superiorMouseDragged
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+    private void AdminCiclas_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminCiclas_buttonActionPerformed
         Adminadministrarbicicleta vistaAdminBici = new Adminadministrarbicicleta();
 
         // 2. Le asignamos el tamaño exacto del contenedor principal (jPanel4)
@@ -403,9 +404,9 @@ public class MenuAdmin extends javax.swing.JFrame {
         // 4. Forzamos a Java a redibujar los componentes en pantalla
         jPanel4.revalidate();
         jPanel4.repaint();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton12ActionPerformed
+    }//GEN-LAST:event_AdminCiclas_buttonActionPerformed
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+    private void QuitarEstudiante_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuitarEstudiante_buttonActionPerformed
         // 1. Creamos la instancia del panel para eliminar estudiantes
         AdminQuitarEstudiante vistaQuitarEstudiante = new AdminQuitarEstudiante();
 
@@ -420,9 +421,9 @@ public class MenuAdmin extends javax.swing.JFrame {
         // 4. Forzamos a Java a redibujar los componentes en pantalla
         jPanel4.revalidate();
         jPanel4.repaint();
-    }//GEN-LAST:event_jButton11ActionPerformed
+    }//GEN-LAST:event_QuitarEstudiante_buttonActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void Reportes_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reportes_buttonActionPerformed
 
         AdminReportes vistaReportes = new AdminReportes();
 
@@ -438,9 +439,9 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel4.revalidate();
         jPanel4.repaint();
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton10ActionPerformed
+    }//GEN-LAST:event_Reportes_buttonActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void Reglas_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reglas_buttonActionPerformed
         Reglas vistaReglas = new Reglas();
 
         // 2. Le asignamos el tamaño exacto del contenedor (jPanel4)
@@ -455,9 +456,9 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel4.revalidate();
         jPanel4.repaint();
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_Reglas_buttonActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void Penalizar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Penalizar_buttonActionPerformed
         // 1. Creamos la instancia de tu panel de penalizaciones
         adminPenalizar vistaPenalizar = new adminPenalizar();
 
@@ -474,9 +475,9 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel4.repaint();
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_Penalizar_buttonActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void AgregarCicla_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarCicla_buttonActionPerformed
         // 1. Creamos la instancia del panel para agregar bicicletas
         AdminAgregarcicla vistaAgregarCicla = new AdminAgregarcicla();
 
@@ -492,23 +493,23 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel4.revalidate();
         jPanel4.repaint();
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_AgregarCicla_buttonActionPerformed
 
     /**
      * @param args the command line arguments
      */
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AdminCiclas_button;
+    private javax.swing.JButton AgregarCicla_button;
     private javax.swing.JLabel CERRAR;
+    private javax.swing.JButton CerrarSesion_button;
+    private javax.swing.JButton Penalizar_button;
+    private javax.swing.JButton QuitarEstudiante_button;
+    private javax.swing.JButton Reglas_button;
+    private javax.swing.JButton Reportes_button;
     private javax.swing.JLabel UNlogo;
     private javax.swing.JPanel exit;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

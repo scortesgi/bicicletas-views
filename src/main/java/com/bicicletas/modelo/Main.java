@@ -615,7 +615,6 @@ public class Main {
 }*/
 
 
-/*
 package com.bicicletas.modelo;
 import java.util.ArrayList;
 import com.bicicletas.views.Bienvenida; // Asegúrate de que apunte al paquete de tus vistas
@@ -653,4 +652,4 @@ public class Main {
     java.awt.EventQueue.invokeLater(() -> new Bienvenida().setVisible(true));
    
 }
-}*/
+}

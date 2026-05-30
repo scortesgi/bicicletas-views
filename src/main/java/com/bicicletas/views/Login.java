@@ -3,8 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.bicicletas.views;
+import com.bicicletas.modelo.*;
 
 import java.awt.Color;
+import static java.lang.System.exit;
 
 
 /**
@@ -426,7 +428,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_enterUserMousePressed
 
     private void enterUserFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_enterUserFocusLost
-        if (enterUser1.getText().isEmpty()) {
+        if (enterUser.getText().isEmpty()) {
         enterUser.setText("Ingrese su identificación");
         enterUser.setForeground(new java.awt.Color(0, 0, 0, 50)); // El color gris transparente que tenías
     }   // TODO add your handling code here:

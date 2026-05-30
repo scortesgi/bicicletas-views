@@ -1,15 +1,16 @@
 package com.bicicletas.modelo;
-
 //clase madre user
 public abstract class User {
     //Atributos
     private String username, correo;
     private long cedula, numPersonal; 
+    private final String password;
 
     //Constructor
-    public User (String username, long cedula){
+    public User (String username, long cedula, String password){
         this.username = username;
         this.cedula = cedula;
+        this.password = password;
     }
     //Get
     public String getUserName(){
@@ -26,7 +27,10 @@ public abstract class User {
     public long getNumPersonal(){
         return numPersonal;
     }
-
+    
+    public String getPassword() {
+        return password;
+    }
     //Set
 
     //verificacion de que ingrese un valor nombre correcto.

@@ -1,6 +1,5 @@
-package com.bicicletas.modelo;
-
  //clase hija  de madre para estudiante
+package com.bicicletas.modelo;
 
 import java.time.LocalDateTime; // Para capturar la fecha y hora exacta
 import java.util.ArrayList;
@@ -19,8 +18,8 @@ public class Student extends User {
     
 
     //Constructor
-    public Student (String username, long cedula, long tiun){
-        super(username, cedula);
+    public Student (String username, long cedula, long tiun ,String password){
+        super(username, cedula,  password );
         this.tiun = tiun;
     }
 
@@ -41,7 +40,7 @@ public class Student extends User {
     public Reservar getReserva(){
         return reserva;
     }
-
+    
         //Set
     public void setReserva(Reservar reserva) {
         this.reserva = reserva;

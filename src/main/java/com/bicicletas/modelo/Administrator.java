@@ -10,8 +10,8 @@ public class Administrator extends User{
 
 
     //constructor
-    public Administrator (String username, long cedula){
-        super(username, cedula);
+    public Administrator (String username, long cedula, String password){
+        super(username, cedula, password);
     }
 
 
@@ -60,10 +60,6 @@ public class Administrator extends User{
         listaComentariosAdmin.add(comentario);
         System.out.println("Motivo registrado correctamente.");
 
-    }
-
-    public Object getPassword() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }
