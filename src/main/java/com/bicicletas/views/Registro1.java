@@ -173,11 +173,17 @@ public Registro1() {
 
     private void nextPage_textMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nextPage_textMouseClicked
    //ATRIBUTOSS
-    String username = enterUser.getText();
+    Main.tempNombre = enterUser.getText();
+    Main.tempCedula = Long.parseLong(enterID.getText());
+    Main.tempTiun = Long.parseLong(enterTIUN.getText());
+    Main.tempContrasena = new String(enterPswrd.getPassword());
+    
+    //las dejo para la validación, pero el estudiante se crea con las temporales en registro 2
     long cedula = Long.parseLong(enterID.getText());
     long tiun = Long.parseLong(enterTIUN.getText());
     String password = new String(enterPswrd.getPassword());
-    
+    String username = enterUser.getText();
+     
     //VAALIDACION PREVIA DE QUE NO SE ENCUENTRE EN LA LISTA DE BLOQUEDOS
     for (Student bloqueado : Main.listaEstudiantesBloqueados) {
         if (bloqueado.getCedula() == cedula && bloqueado.getTiun() == tiun && bloqueado.getUserName().equals(username)) {
@@ -189,12 +195,8 @@ public Registro1() {
         }
     }
     
-    //CREACION DE ESTUDIANTE SIN DATOS
-    Student estudiante = new Student(username, cedula, tiun, null, password); 
-
-    // SE GUARDA EN GLOBAL
-    Main.estudianteActual = estudiante;
-    Main.listaEstudiante.add(estudiante);
+    
+    
     
     //SE ABRE REGISTRO 2
     Registro2 registro2 = new Registro2();

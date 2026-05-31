@@ -20,7 +20,7 @@ public class Student extends User {
     
 
     //Constructor
-    public Student (String username, long cedula, long tiun, PerEmergencia perEmergencias, String contraseña ){
+    public Student (String username, long cedula, long tiun,String contraseña, PerEmergencia perEmergencias){
         super(username, cedula);
         this.tiun = tiun;
         this.contraseña = contraseña;

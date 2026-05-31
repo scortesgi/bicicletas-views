@@ -17,7 +17,11 @@ public class Main {
     public static Bike bicicleta;
     public static Reservar reserva;
     
-    
+    //estos son temporales para el registro
+    public static String tempNombre;
+    public static long tempCedula;
+    public static long tempTiun;
+    public static String tempContrasena;
 
    public static void main(String[] args) {
         
