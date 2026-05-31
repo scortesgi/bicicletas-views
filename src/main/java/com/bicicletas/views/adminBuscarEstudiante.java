@@ -157,21 +157,21 @@ public class adminBuscarEstudiante extends javax.swing.JPanel {
 
         String info =
                 
-            "------------------------\n" +
-            "        INFORMACIÓN DEL ESTUDIANTE\n" +
-            "------------------------\n" +
+            "----------------------------\n" +
+            "INFORMACIÓN DEL ESTUDIANTE\n" +
+            "----------------------------\n" +
             "Usuario:       " + objetivo.getUserName()  + "\n" +
             "Cédula:        " + objetivo.getCedula()    + "\n" +
             "TIUN:          " + objetivo.getTiun()      + "\n" +
             "Estado:        " + objetivo.getState()     + "\n" +
             "Penalizaciones:" + objetivo.getContadorPenalizaciones() + "\n" +
             "Penalización:  " + penalizacion            + "\n" +
-            "-------------------------\n" +
-            "     CONTACTO DE EMERGENCIA\n" +
-            "-------------------------\n" +
+            "---------------------------\n" +
+            "CONTACTO DE EMERGENCIA\n" +
+            "---------------------------\n" +
             "Nombre:        " + nombreEmerg             + "\n" +
             "Teléfono:      " + telEmerg                + "\n" +
-            "+-------------------------\n";
+            "+---------------------------\n";
 
         javax.swing.JOptionPane.showMessageDialog(this,
             info,
