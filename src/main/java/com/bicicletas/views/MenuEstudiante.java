@@ -106,14 +106,14 @@ public class MenuEstudiante extends javax.swing.JFrame {
 
         inicio_image.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         inicio_image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/inicio.png"))); // NOI18N
-        inicio_image.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        inicio_image.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(inicio_image, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 70, 70));
 
         UNlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/universidad-nacional-de-colombia-sede-bogota-logo.png"))); // NOI18N
         getContentPane().add(UNlogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 7, 300, 130));
 
         Inicio_button.setBackground(new java.awt.Color(56, 182, 255));
-        Inicio_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Inicio_button.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Inicio_button.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(Inicio_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 70, 70));
 
@@ -178,7 +178,7 @@ public class MenuEstudiante extends javax.swing.JFrame {
         logout_text.setFont(new java.awt.Font("Ancizar Sans Medium", 0, 14)); // NOI18N
         logout_text.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         logout_text.setText("Cerrar Sesión");
-        logout_text.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        logout_text.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         logout_text.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 logout_textMouseClicked(evt);
@@ -193,7 +193,7 @@ public class MenuEstudiante extends javax.swing.JFrame {
 
         reservar_image.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         reservar_image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bicicletas.png"))); // NOI18N
-        reservar_image.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        reservar_image.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Reserva_button.add(reservar_image, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 70, 70));
 
         menuBarra.add(Reserva_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, 70, 70));
@@ -203,7 +203,7 @@ public class MenuEstudiante extends javax.swing.JFrame {
 
         tiempo_image.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tiempo_image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/historial.png"))); // NOI18N
-        tiempo_image.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tiempo_image.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Tiempo_button.add(tiempo_image, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 70, 70));
 
         menuBarra.add(Tiempo_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 30, 70, 70));
@@ -224,7 +224,7 @@ public class MenuEstudiante extends javax.swing.JFrame {
         pqr_image.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         pqr_image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pqr.png"))); // NOI18N
         pqr_image.setToolTipText("");
-        pqr_image.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pqr_image.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         pqr_image.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 pqr_imageMouseEntered(evt);
@@ -236,7 +236,6 @@ public class MenuEstudiante extends javax.swing.JFrame {
         pqrs_button1.add(pqr_image, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 70, 70));
 
         menuBarra.add(pqrs_button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 30, 70, 70));
-        pqrs_button1.getAccessibleContext().setAccessibleParent(null);
 
         Reservar_text1.setFont(new java.awt.Font("Ancizar Sans SemiBold", 0, 18)); // NOI18N
         Reservar_text1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
