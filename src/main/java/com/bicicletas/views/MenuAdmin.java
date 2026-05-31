@@ -168,7 +168,9 @@ Image buscarNEscalado = buscarNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH)
 
 //------------------------------------------------------------------------------------------
    
-   public MenuAdmin(ArrayList<Student> listaEstudiante, ArrayList<Station> estaciones, ArrayList<Comment> listaComentarios, Administrator administrador) {
+//
+   public MenuAdmin(ArrayList<Student> listaEstudiante, ArrayList<Station> estaciones, 
+                 ArrayList<Comment> listaComentarios, Administrator administrador) {
        
     this.listaEstudiante = listaEstudiante;
     this.estaciones = estaciones;
@@ -177,20 +179,15 @@ Image buscarNEscalado = buscarNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH)
        
         initComponents();
         SetDate();
-    
-    
-        
-    
-    
-        if (estaciones.isEmpty()) {
-            estaciones.add(new Station("Calle 53", 2));
-            estaciones.add(new Station("CYT", 2));
-            estaciones.add(new Station("Uriel", 15));   
-            estaciones.add(new Station("Calle 45", 15));
-        }
-        
        
-        
+    Administrar.setIcon(new ImageIcon(administrarEscalado));
+    quitar.setIcon(new ImageIcon(quitarEscalado));
+    Report.setIcon(new ImageIcon(reportEscalado));
+    reglass.setIcon(new ImageIcon(reglasEscalado));
+    Penalizarr.setIcon(new ImageIcon(penalizarEscalado));
+    AgregarC.setIcon(new ImageIcon(agregarCEscalado));
+    Buscar.setIcon(new ImageIcon(buscarEscalado));
+    CerrarSesion.setIcon(new ImageIcon(cerrarSesionEscalado));
       
     }
     
@@ -259,6 +256,7 @@ Image buscarNEscalado = buscarNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH)
         Administrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Administrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/administrar_bicicleta.png"))); // NOI18N
         Administrar.setText("jLabel3");
+        Administrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Administrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 AdministrarMouseClicked(evt);
@@ -275,6 +273,7 @@ Image buscarNEscalado = buscarNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH)
         quitar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         quitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/quitar_acceso_estudiante.png"))); // NOI18N
         quitar.setText("jLabel3");
+        quitar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         quitar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 quitarMouseClicked(evt);
@@ -291,6 +290,7 @@ Image buscarNEscalado = buscarNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH)
         Report.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Report.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/reportes_de_estudiantes.png"))); // NOI18N
         Report.setText("jLabel3");
+        Report.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Report.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ReportMouseClicked(evt);
@@ -307,6 +307,7 @@ Image buscarNEscalado = buscarNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH)
         reglass.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         reglass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/reglas.png"))); // NOI18N
         reglass.setText("jLabel3");
+        reglass.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         reglass.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 reglassMouseClicked(evt);
@@ -323,6 +324,7 @@ Image buscarNEscalado = buscarNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH)
         Penalizarr.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Penalizarr.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/penalizar_estudiante.png"))); // NOI18N
         Penalizarr.setText("jLabel3");
+        Penalizarr.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Penalizarr.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 PenalizarrMouseClicked(evt);
@@ -339,6 +341,7 @@ Image buscarNEscalado = buscarNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH)
         CerrarSesion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         CerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cerrar_sesion.png"))); // NOI18N
         CerrarSesion.setText("jLabel3");
+        CerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         CerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 CerrarSesionMouseClicked(evt);
@@ -355,6 +358,7 @@ Image buscarNEscalado = buscarNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH)
         AgregarC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         AgregarC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregar_bicicleta.png"))); // NOI18N
         AgregarC.setText("jLabel3");
+        AgregarC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         AgregarC.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 AgregarCMouseClicked(evt);
@@ -371,6 +375,7 @@ Image buscarNEscalado = buscarNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH)
         Buscar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar_estudiante.png"))); // NOI18N
         Buscar.setText("jLabel3");
+        Buscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Buscar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BuscarMouseClicked(evt);
@@ -585,13 +590,6 @@ Image buscarNEscalado = buscarNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH)
         // TODO add your handling code here:
     }//GEN-LAST:event_Reglas_buttonActionPerformed
 
-    private void Penalizar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Penalizar_buttonActionPerformed
-        
-      
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Penalizar_buttonActionPerformed
-
     private void AgregarCicla_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarCicla_buttonActionPerformed
       
         
@@ -600,7 +598,9 @@ Image buscarNEscalado = buscarNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH)
 
     private void AdministrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AdministrarMouseEntered
     Administrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-    Administrar.setIcon(new ImageIcon(administrarNEscalado));        // TODO add your handling code here:
+    Administrar.setIcon(new ImageIcon(administrarNEscalado)); 
+    Administrar.setToolTipText("Administrar bicicletas");
+// TODO add your handling code here:
     }//GEN-LAST:event_AdministrarMouseEntered
 
     private void AdministrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AdministrarMouseExited
@@ -612,7 +612,9 @@ Image buscarNEscalado = buscarNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH)
 
     private void quitarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_quitarMouseEntered
     quitar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-    quitar.setIcon(new ImageIcon(quitarNEscalado));        // TODO add your handling code here:
+    quitar.setIcon(new ImageIcon(quitarNEscalado));  
+    quitar.setToolTipText("Quitar acceso a estudiante");    
+// TODO add your handling code here:
     }//GEN-LAST:event_quitarMouseEntered
 
     private void quitarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_quitarMouseExited
@@ -623,6 +625,7 @@ Image buscarNEscalado = buscarNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH)
     private void ReportMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReportMouseEntered
     Report.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
     Report.setIcon(new ImageIcon(reportNEscalado));
+    Report.setToolTipText("Ver reportes de ciclas");
     // TODO add your handling code here:
     }//GEN-LAST:event_ReportMouseEntered
 
@@ -633,7 +636,9 @@ Report.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 
     private void reglassMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reglassMouseEntered
     reglass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-    reglass.setIcon(new ImageIcon(reglasNEscalado));        // TODO add your handling code here:
+    reglass.setIcon(new ImageIcon(reglasNEscalado));  
+    reglass.setToolTipText("Reglas del sistema");
+// TODO add your handling code here:
     }//GEN-LAST:event_reglassMouseEntered
 
     private void reglassMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reglassMouseExited
@@ -643,7 +648,9 @@ Report.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 
     private void PenalizarrMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PenalizarrMouseEntered
     Penalizarr.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-    Penalizarr.setIcon(new ImageIcon(penalizarNEscalado));        // TODO add your handling code here:
+    Penalizarr.setIcon(new ImageIcon(penalizarNEscalado));    
+    Penalizarr.setToolTipText("Penalizar estudiante");
+        // TODO add your handling code here:
     }//GEN-LAST:event_PenalizarrMouseEntered
 
     private void PenalizarrMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PenalizarrMouseExited
@@ -653,7 +660,9 @@ Report.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 
     private void AgregarCMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarCMouseEntered
     AgregarC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-    AgregarC.setIcon(new ImageIcon(agregarCNEscalado));        // TODO add your handling code here:
+    AgregarC.setIcon(new ImageIcon(agregarCNEscalado));  
+    AgregarC.setToolTipText("Agregar bicicleta");
+// TODO add your handling code here:
     }//GEN-LAST:event_AgregarCMouseEntered
 
     private void AgregarCMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarCMouseExited
@@ -663,7 +672,9 @@ Report.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 
     private void BuscarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscarMouseEntered
     Buscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-    Buscar.setIcon(new ImageIcon(buscarNEscalado));        // TODO add your handling code here:
+    Buscar.setIcon(new ImageIcon(buscarNEscalado));   
+    Buscar.setToolTipText("Buscar estudiante");
+// TODO add your handling code here:
     }//GEN-LAST:event_BuscarMouseEntered
 
     private void BuscarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscarMouseExited
@@ -673,7 +684,9 @@ Report.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 
     private void CerrarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CerrarSesionMouseEntered
     CerrarSesion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-    CerrarSesion.setIcon(new ImageIcon(cerrarSesionNEscalado));        // TODO add your handling code here:
+    CerrarSesion.setIcon(new ImageIcon(cerrarSesionNEscalado));  
+    CerrarSesion.setToolTipText("Cerrar sesión");
+// TODO add your handling code here:
     }//GEN-LAST:event_CerrarSesionMouseEntered
 
     private void CerrarSesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CerrarSesionMouseExited
@@ -791,10 +804,17 @@ Report.setBorder(javax.swing.BorderFactory.createEmptyBorder());
     }//GEN-LAST:event_BuscarMouseClicked
 
     private void CerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CerrarSesionMouseClicked
+        Main.administradorActual = null;
+
         Bienvenida welcome = new Bienvenida();
         this.dispose();
         welcome.setVisible(true);
     }//GEN-LAST:event_CerrarSesionMouseClicked
+
+    private void Penalizar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Penalizar_buttonActionPerformed
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Penalizar_buttonActionPerformed
 
     /**
      * @param args the command line arguments

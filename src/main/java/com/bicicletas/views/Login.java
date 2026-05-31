@@ -282,7 +282,7 @@ public class Login extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
     String rolSeleccionado = jComboBox2.getSelectedItem().toString().trim();
-    String nombreIngresado = enterUser1.getText().trim().toLowerCase();
+    String nombreIngresado = enterUser1.getText().trim();
     String idString = enterUser.getText().trim();
     String passwordIngresado = new String(enterPswrd.getPassword()).trim();
 
@@ -292,9 +292,9 @@ public class Login extends javax.swing.JFrame {
         return;
     }
     //-------------------------------------------------------------
-    int idIngresado = 0;
+    long idIngresado = 0; 
     try {
-        idIngresado = Integer.parseInt(idString);
+    idIngresado = Long.parseLong(idString);
     } catch (NumberFormatException e) {
         javax.swing.JOptionPane.showMessageDialog(this, "La identificación debe contener solo números.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
         return;
@@ -308,13 +308,13 @@ public class Login extends javax.swing.JFrame {
     if (rolSeleccionado.equals("Administrador")) {
         for (com.bicicletas.modelo.Administrator admin : com.bicicletas.modelo.Main.adminsAutorizados) {
             // Verifica si todo anda bien
-           if (admin.getUserName().equals(nombreIngresado) && 
+           if (admin.getUserName().equalsIgnoreCase(nombreIngresado) && 
                 admin.getCedula() == idIngresado && 
                 admin.getContraseña().equals(passwordIngresado)) {
                
                 usuarioEncontrado = true;
                 javax.swing.JOptionPane.showMessageDialog(this, "Bienvenido Administrador: " + admin.getUserName());
-                
+                com.bicicletas.modelo.Main.administradorActual = admin; //le da permisos de admin ahorita
                 // Redirigir al MenuAdmin
                 MenuAdmin menuA = new MenuAdmin();
                 menuA.setVisible(true);

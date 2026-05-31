@@ -176,7 +176,50 @@ public class adminPenalizar extends javax.swing.JPanel {
     }//GEN-LAST:event_enterTelActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
+
+    
+    String tiunStr = enterID.getText();
+
+    if (tiunStr.isEmpty() || tiunStr.equals("TIUN del estudiante")) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Ingrese el TIUN del estudiante.");
+        return;
+    }
+
+    try {
+        long tiun = Long.parseLong(tiunStr.trim());
+
+        com.bicicletas.modelo.Student objetivo = null;
+        for (com.bicicletas.modelo.Student s : com.bicicletas.modelo.Main.listaEstudiante) {
+            if (s.getTiun() == tiun) {
+                objetivo = s;
+                break;
+            }
+        }
+
+        if (objetivo == null) {
+            javax.swing.JOptionPane.showMessageDialog(this, "No se encontró ningún estudiante con ese TIUN.");
+            return;
+        }
+
+        if (!objetivo.getState().equals("bloqueado")) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Este estudiante no está bloqueado.");
+            return;
+        }
+
+        //quitar penalización
+        objetivo.setState("activo");
+        objetivo.setFechaFinPenalizacion(null);
+
+        javax.swing.JOptionPane.showMessageDialog(this,
+            "Estudiante " + objetivo.getUserName() + " despenalizado correctamente.");
+
+
+    } catch (NumberFormatException e) {
+        javax.swing.JOptionPane.showMessageDialog(this, "El TIUN debe ser numérico.");
+    }
+       
+    
+// TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void enterIDFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_enterIDFocusLost
@@ -206,7 +249,54 @@ public class adminPenalizar extends javax.swing.JPanel {
     }//GEN-LAST:event_enterTelFocusLost
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
+    
+    String tiunStr = enterID.getText();
+    String motivo  = enterTel.getText();
+    
+   
+    if (tiunStr.isEmpty() || tiunStr.equals("TIUN del estudiante")) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Ingrese el TIUN del estudiante.");
+        return;
+    }
+    
+    //buscar el estudainte
+    try {
+        long tiun = Long.parseLong(tiunStr.trim());
+        com.bicicletas.modelo.Student objetivo = null;
+        for (com.bicicletas.modelo.Student s : com.bicicletas.modelo.Main.listaEstudiante) {
+            if (s.getTiun() == tiun) {
+                objetivo = s;
+                break;
+            }
+        }
+        //si no está
+        if (objetivo == null) {
+            javax.swing.JOptionPane.showMessageDialog(this, "No se encontró ningún estudiante con ese TIUN.");
+            return;
+        }
+        
+        objetivo.setState("bloqueado");
+        objetivo.setContadorPenalizaciones();
+        objetivo.setFechaFinPenalizacion(java.time.LocalDateTime.now().plusDays(15));
+
+        //comentario opcional
+        if (!motivo.isEmpty() && !motivo.equals("(opcional)")) {
+            com.bicicletas.modelo.Comment comentario = new com.bicicletas.modelo.Comment(
+                motivo,
+                com.bicicletas.modelo.Main.administradorActual,
+                tiun
+            );
+            com.bicicletas.modelo.Main.listaComentariosAdmin.add(comentario);
+        }
+
+        javax.swing.JOptionPane.showMessageDialog(this,
+            "Estudiante " + objetivo.getUserName() + " penalizado por 15 días.");
+
+        } catch (NumberFormatException e) {
+        javax.swing.JOptionPane.showMessageDialog(this, "El TIUN debe ser numérico.");
+    }
+
+// TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
 
 

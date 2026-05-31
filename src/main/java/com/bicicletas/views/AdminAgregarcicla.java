@@ -136,7 +136,11 @@ public class AdminAgregarcicla extends javax.swing.JPanel {
         boolean fueAgregada = Main.estaciones.get(indexEstacion).alertaMaxBicicleta();
 
         if (!fueAgregada){
-            Main.estaciones.get(indexEstacion).agregarBicicleta(newBike);
+            
+            Station estacionSeleccionada = Main.estaciones.get(indexEstacion);
+
+            estacionSeleccionada.agregarBicicleta(newBike);
+            com.bicicletas.modelo.Archivo.guardarBike(estacionSeleccionada.getArchivo(), newBike); //agregar en archivo
 
             JOptionPane.showMessageDialog(this,"La cicla fue agregada correctamente","Éxito", JOptionPane.INFORMATION_MESSAGE);
 

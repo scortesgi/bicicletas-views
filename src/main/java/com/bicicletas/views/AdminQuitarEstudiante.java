@@ -118,10 +118,18 @@ public class AdminQuitarEstudiante extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-                                            
+                        
+          String tiunStr = enterID.getText();
+          //revisa si si escribo
+          if (tiunStr.isEmpty() || tiunStr.equals("Tiun del estudiante a remover")) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Ingrese el TIUN del estudiante.");
+        return;
+    }
+          
+          
         try {
             //ATRIBUTOS
-            long tiun = Long.parseLong(enterID.getText());
+            long tiun = Long.parseLong(tiunStr.trim());
             boolean encontrado = false;
 
             // BUSCA ESTUDIANTE EN LA LISTA DE ESTUDIANTES
@@ -132,21 +140,35 @@ public class AdminQuitarEstudiante extends javax.swing.JPanel {
                     // Preguntar si es de por vida o temporal
                     int opcion = javax.swing.JOptionPane.showConfirmDialog(
                         this,
-                        "¿Desea quitarle el acceso de por vida?",
+                        "¿Desea quitarle el acceso de por vida a" + student.getUserName() + "?",
                         "Confirmar bloqueo",
                         javax.swing.JOptionPane.YES_NO_OPTION
                     );
 
+                    
+                    
                     if (opcion == javax.swing.JOptionPane.YES_OPTION) {
                         // Bloqueo de por vida
                         Main.listaEstudiantesBloqueados.add(student);
+                        Main.listaEstudiante.remove(student);
+                        
+                        com.bicicletas.modelo.DocReader.crearArchivo("bloqueados.txt");
+                        com.bicicletas.modelo.DocReader.guardarEstudianteEnArchivo("bloqueados.txt", student);
+                        reescribirEstudiantes();
+                    
+                    
                         javax.swing.JOptionPane.showMessageDialog(this,
-                            "Se quitó el acceso al estudiante de por vida.",
+                            "Se quitó el acceso al estudiante" + student.getUserName() + " de por vida.",
                             "Bloqueo permanente",
                             javax.swing.JOptionPane.INFORMATION_MESSAGE);
                     } else {
+                        
                         // Bloqueo temporal → remover de la lista
+                        student.setState("bloqueado");
+                        student.setFechaFinPenalizacion(java.time.LocalDateTime.now().plusDays(30));
+                        reescribirEstudiantes();
                         Main.listaEstudiante.remove(student);
+                    
                         javax.swing.JOptionPane.showMessageDialog(this,
                             "Se quitó el acceso temporalmente.",
                             "Bloqueo temporal",
@@ -170,7 +192,27 @@ public class AdminQuitarEstudiante extends javax.swing.JPanel {
                 javax.swing.JOptionPane.ERROR_MESSAGE);
         }
         
+    }
+        
+    //metodo para leer el archivo y reescribir los estudiantes. Si se quitan o no en el txt
+        private void reescribirEstudiantes() {
+    String archivo = "estudiantes.txt";
+    try (java.io.PrintWriter pw = new java.io.PrintWriter(new java.io.FileWriter(archivo, false))) {
+        for (Student s : Main.listaEstudiante) {
+            pw.println(
+                s.getTiun() + ":" +
+                s.getUserName() + ":" +
+                s.getCedula() + ":" +
+                s.getContraseña() + ":" +
+                s.getPerEmergencia().getNumEmergencia()
+            );
+        }
+    } catch (java.io.IOException e) {
+        e.printStackTrace();
+    }
 
+        
+        
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void enterIDFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_enterIDFocusLost

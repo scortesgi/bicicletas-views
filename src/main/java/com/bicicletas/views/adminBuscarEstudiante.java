@@ -115,7 +115,79 @@ public class adminBuscarEstudiante extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
+          
+         String tiunStr = enterID.getText();
+
+    if (tiunStr.isEmpty() || tiunStr.equals("TIUN del estudiante")) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Ingrese el TIUN del estudiante.");
+        return;
+    }
+    
+    try {
+        long tiun = Long.parseLong(tiunStr.trim());
+        com.bicicletas.modelo.Student objetivo = null;
+
+        for (com.bicicletas.modelo.Student s : com.bicicletas.modelo.Main.listaEstudiante) {
+            if (s.getTiun() == tiun) {
+                objetivo = s;
+                break;
+            }
+        }
+
+        if (objetivo == null) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "No existé ningún estudiante con TIUN: " + tiun,
+                "No encontrado", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        // Contacto de emergencia
+        String telEmerg = "No registrado";
+        String nombreEmerg = "No registrado";
+        if (objetivo.getPerEmergencia() != null) {
+            telEmerg    = String.valueOf(objetivo.getPerEmergencia().getNumEmergencia());//se convierte en string
+            nombreEmerg = objetivo.getPerEmergencia().getUserName();
+        }
+
+        // Penalización
+        String penalizacion = "Ninguna";
+        if (objetivo.getFechaFinPenalizacion() != null) {
+            penalizacion = "Hasta: " + objetivo.getFechaFinPenalizacion().toString();
+        }
+
+        String info =
+                
+            "------------------------\n" +
+            "        INFORMACIÓN DEL ESTUDIANTE\n" +
+            "------------------------\n" +
+            "Usuario:       " + objetivo.getUserName()  + "\n" +
+            "Cédula:        " + objetivo.getCedula()    + "\n" +
+            "TIUN:          " + objetivo.getTiun()      + "\n" +
+            "Estado:        " + objetivo.getState()     + "\n" +
+            "Penalizaciones:" + objetivo.getContadorPenalizaciones() + "\n" +
+            "Penalización:  " + penalizacion            + "\n" +
+            "-------------------------\n" +
+            "     CONTACTO DE EMERGENCIA\n" +
+            "-------------------------\n" +
+            "Nombre:        " + nombreEmerg             + "\n" +
+            "Teléfono:      " + telEmerg                + "\n" +
+            "+-------------------------\n";
+
+        javax.swing.JOptionPane.showMessageDialog(this,
+            info,
+            "Estudiante encontrado",
+            javax.swing.JOptionPane.INFORMATION_MESSAGE);
+
+
+    } catch (NumberFormatException e) {
+        javax.swing.JOptionPane.showMessageDialog(this,
+            "El TIUN debe ser numérico.",
+            "Error de formato", javax.swing.JOptionPane.ERROR_MESSAGE);
+    }
+
+        
+
+// TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void enterIDFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_enterIDFocusLost

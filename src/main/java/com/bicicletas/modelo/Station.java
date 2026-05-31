@@ -7,11 +7,15 @@ public class Station {
     private String name_station;
     private int maxBicicletas; 
     private ArrayList<Bike> bicis = new ArrayList<>();
-
+    private String archivo;
     //Constructor
-    public Station (String name_station, int maxBicicletas){
+
+
+
+    public Station (String name_station, int maxBicicletas, String archivo){
         this.name_station=name_station;
         this.maxBicicletas = maxBicicletas;
+        this.archivo = archivo;
     }
 
      //get
@@ -26,7 +30,9 @@ public class Station {
     public ArrayList<Bike> getBicis() {
         return bicis;
     }
-
+    public String getArchivo() {
+    return archivo;
+}
 
 
     //metodos
@@ -111,4 +117,9 @@ public class Station {
         }
         return false;
     }
+    
+    public void agregarBikeMemoria(Bike bicicleta) {
+    bicis.add(bicicleta);
+}
+    
 }
