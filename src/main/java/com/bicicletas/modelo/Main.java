@@ -626,6 +626,7 @@ public class Main {
     public static ArrayList<Station> estaciones = new ArrayList<>();
     public static ArrayList<Comment> listaComentarios = new ArrayList<>();
     public static ArrayList<Comment> listaComentariosAdmin = new ArrayList<>();
+    public static Student estudianteActual;
 
    public static void main(String[] args) {
        
