@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.bicicletas.views;
-
+import com.bicicletas.modelo.Main;
+import com.bicicletas.modelo.Student;
 import java.awt.Color;
 
 /**
@@ -171,6 +172,16 @@ public Registro1() {
     }// </editor-fold>//GEN-END:initComponents
 
     private void nextPage_textMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nextPage_textMouseClicked
+    String username = enterUser.getText();
+    long cedula = Integer.parseInt(enterID.getText());
+    long tiun = Integer.parseInt(enterTIUN.getText());
+    String password = enterPswrd.getPassword().toString();
+    
+    Student estudiante = new Student(enterUser.getText(),cedula,tiun,new String(enterPswrd.getPassword()));
+// GLOBAL
+    Main.listaEstudiante.add(estudiante);
+    Main.estudianteActual = estudiante;
+    
     Registro2 registro2 = new Registro2();
 
     Signup ventana = (Signup) javax.swing.SwingUtilities.getWindowAncestor(this);
