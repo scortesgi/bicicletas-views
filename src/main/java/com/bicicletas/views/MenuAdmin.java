@@ -61,7 +61,28 @@ public class MenuAdmin extends javax.swing.JFrame {
     
     initComponents();
     SetDate();
-    configurarImagenes();
+   
+    
+    Administrar.setIcon(new ImageIcon(administrarEscalado));
+    quitar.setIcon(new ImageIcon(quitarEscalado));
+    Report.setIcon(new ImageIcon(reportEscalado));
+    reglass.setIcon(new ImageIcon(reglasEscalado));
+    Penalizarr.setIcon(new ImageIcon(penalizarEscalado));
+    AgregarC.setIcon(new ImageIcon(agregarCEscalado));
+    Buscar.setIcon(new ImageIcon(buscarEscalado));
+    CerrarSesion.setIcon(new ImageIcon(cerrarSesionEscalado));
+    
+    /*
+    Administrar.setIcon(new ImageIcon(administrarNEscalado));
+    quitar.setIcon(new ImageIcon(quitarNEscalado));
+    Report.setIcon(new ImageIcon(reportNEscalado));
+    reglass.setIcon(new ImageIcon(reglasNEscalado));
+    Penalizarr.setIcon(new ImageIcon(penalizarNEscalado));
+    AgregarC.setIcon(new ImageIcon(agregarCNEscalado));
+    Buscar.setIcon(new ImageIcon(buscarNEscalado));
+    */
+    
+    
     
    
 }
@@ -76,8 +97,76 @@ public class MenuAdmin extends javax.swing.JFrame {
     private Administrator administrador;
 
     int xMouse, yMouse; 
+    
+    ImageIcon administrarIcon = new ImageIcon(getClass().getResource("/imagenes/administrar_bicicleta.png"));
+    Image administrarImg = administrarIcon.getImage();
+    Image administrarEscalado = administrarImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH);
 
-   
+    ImageIcon quitarIcon = new ImageIcon(getClass().getResource("/imagenes/quitar_acceso_estudiante.png"));
+    Image quitarImg = quitarIcon.getImage();
+    Image quitarEscalado = quitarImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH);
+
+ImageIcon reportIcon = new ImageIcon(getClass().getResource("/imagenes/reportes_de_estudiantes.png"));
+Image reportImg = reportIcon.getImage();
+Image reportEscalado = reportImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH);
+
+ImageIcon reglasIcon = new ImageIcon(getClass().getResource("/imagenes/reglas.png"));
+Image reglasImg = reglasIcon.getImage();
+Image reglasEscalado = reglasImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH);
+
+ImageIcon penalizarrIcon = new ImageIcon(getClass().getResource("/imagenes/penalizar_estudiante.png"));
+Image penalizarImg = penalizarrIcon.getImage();
+Image penalizarEscalado = penalizarImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH);
+
+ImageIcon cerrarSesionIcon = new ImageIcon(getClass().getResource("/imagenes/cerrar_sesion.png"));
+Image cerrarSesionImg = cerrarSesionIcon.getImage();
+Image cerrarSesionEscalado = cerrarSesionImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH);
+
+ImageIcon agregarCIcon = new ImageIcon(getClass().getResource("/imagenes/agregar_bicicleta.png"));
+Image agregarCImg = agregarCIcon.getImage();
+Image agregarCEscalado = agregarCImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH);
+
+ImageIcon buscarIcon = new ImageIcon(getClass().getResource("/imagenes/buscar_estudiante.png"));
+Image buscarImg = buscarIcon.getImage();
+Image buscarEscalado = buscarImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH);
+
+
+   //negras
+ImageIcon administrarNIcon = new ImageIcon(getClass().getResource("/imagenes/administrar_bicicleta_negro.png"));
+Image administrarNImg = administrarNIcon.getImage();
+Image administrarNEscalado = administrarNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH);
+
+ImageIcon quitarNIcon = new ImageIcon(getClass().getResource("/imagenes/quitar_acceso_estudiante_negro.png"));
+Image quitarNImg = quitarNIcon.getImage();
+Image quitarNEscalado = quitarNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH);
+
+ImageIcon reportNIcon = new ImageIcon(getClass().getResource("/imagenes/reportes_de_estudiantes_negro.png"));
+Image reportNImg = reportNIcon.getImage();
+Image reportNEscalado = reportNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH);
+
+ImageIcon reglasNIcon = new ImageIcon(getClass().getResource("/imagenes/reglas_negro.png"));
+Image reglasNImg = reglasNIcon.getImage();
+Image reglasNEscalado = reglasNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH);
+
+ImageIcon penalizarNIcon = new ImageIcon(getClass().getResource("/imagenes/penalizar_estudiante_negro.png"));
+Image penalizarNImg = penalizarNIcon.getImage();
+Image penalizarNEscalado = penalizarNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH);
+
+ImageIcon cerrarSesionNIcon = new ImageIcon(getClass().getResource("/imagenes/cerrar_sesion_negro.png"));
+Image cerrarSesionNImg = cerrarSesionNIcon.getImage();
+Image cerrarSesionNEscalado = cerrarSesionNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH);
+
+
+ImageIcon agregarCNIcon = new ImageIcon(getClass().getResource("/imagenes/agregar_bicicleta_negro.png"));
+Image agregarCNImg = agregarCNIcon.getImage();
+Image agregarCNEscalado = agregarCNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH);
+
+ImageIcon buscarNIcon = new ImageIcon(getClass().getResource("/imagenes/buscar_estudiante_negro.png"));
+Image buscarNImg = buscarNIcon.getImage();
+Image buscarNEscalado = buscarNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH);
+
+
+//------------------------------------------------------------------------------------------
    
    public MenuAdmin(ArrayList<Student> listaEstudiante, ArrayList<Station> estaciones, ArrayList<Comment> listaComentarios, Administrator administrador) {
        
@@ -115,16 +204,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         "Octubre","Noviembre","Diciembre"};
     jLabel2.setText("Hoy es "+dia+" de "+meses[month - 1]+" de "+year);
 }
-        private void configurarImagenes() {
             
-            if (Penalizar_button.getIcon() != null) {
-            
-            Image img = ((javax.swing.ImageIcon) Penalizar_button.getIcon()).getImage();
-            Image imgEscalada = img.getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH);
-            Penalizar_button.setIcon(new javax.swing.ImageIcon(imgEscalada));
-            
-        }   
-        }
         
     
     /**
@@ -138,13 +218,22 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        Administrar = new javax.swing.JLabel();
+        quitar = new javax.swing.JLabel();
+        Report = new javax.swing.JLabel();
+        reglass = new javax.swing.JLabel();
+        Penalizarr = new javax.swing.JLabel();
+        CerrarSesion = new javax.swing.JLabel();
+        AgregarC = new javax.swing.JLabel();
+        Buscar = new javax.swing.JLabel();
         AgregarCicla_button = new javax.swing.JButton();
         Penalizar_button = new javax.swing.JButton();
         Reglas_button = new javax.swing.JButton();
         Reportes_button = new javax.swing.JButton();
         QuitarEstudiante_button = new javax.swing.JButton();
-        CerrarSesion_button = new javax.swing.JButton();
+        Buscar_button = new javax.swing.JButton();
         AdminCiclas_button = new javax.swing.JButton();
+        CerrarSesion_button1 = new javax.swing.JButton();
         panel_superior = new javax.swing.JPanel();
         exit = new javax.swing.JPanel();
         CERRAR = new javax.swing.JLabel();
@@ -165,39 +254,179 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(19, 134, 201));
         jPanel2.setPreferredSize(new java.awt.Dimension(873, 190));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Administrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Administrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/administrar_bicicleta.png"))); // NOI18N
+        Administrar.setText("jLabel3");
+        Administrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AdministrarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                AdministrarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                AdministrarMouseExited(evt);
+            }
+        });
+        jPanel2.add(Administrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, 70, 70));
+
+        quitar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        quitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/quitar_acceso_estudiante.png"))); // NOI18N
+        quitar.setText("jLabel3");
+        quitar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                quitarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                quitarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                quitarMouseExited(evt);
+            }
+        });
+        jPanel2.add(quitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 20, 70, 70));
+
+        Report.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Report.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/reportes_de_estudiantes.png"))); // NOI18N
+        Report.setText("jLabel3");
+        Report.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ReportMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ReportMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ReportMouseExited(evt);
+            }
+        });
+        jPanel2.add(Report, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 110, 70, 70));
+
+        reglass.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        reglass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/reglas.png"))); // NOI18N
+        reglass.setText("jLabel3");
+        reglass.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                reglassMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                reglassMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                reglassMouseExited(evt);
+            }
+        });
+        jPanel2.add(reglass, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 20, 70, 70));
+
+        Penalizarr.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Penalizarr.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/penalizar_estudiante.png"))); // NOI18N
+        Penalizarr.setText("jLabel3");
+        Penalizarr.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PenalizarrMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                PenalizarrMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                PenalizarrMouseExited(evt);
+            }
+        });
+        jPanel2.add(Penalizarr, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 70, 70));
+
+        CerrarSesion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        CerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cerrar_sesion.png"))); // NOI18N
+        CerrarSesion.setText("jLabel3");
+        CerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                CerrarSesionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                CerrarSesionMouseExited(evt);
+            }
+        });
+        jPanel2.add(CerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 110, 70, 70));
+
+        AgregarC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        AgregarC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregar_bicicleta.png"))); // NOI18N
+        AgregarC.setText("jLabel3");
+        AgregarC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AgregarCMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                AgregarCMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                AgregarCMouseExited(evt);
+            }
+        });
+        jPanel2.add(AgregarC, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, 70, 70));
+
+        Buscar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar_estudiante.png"))); // NOI18N
+        Buscar.setText("jLabel3");
+        Buscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BuscarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BuscarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BuscarMouseExited(evt);
+            }
+        });
+        jPanel2.add(Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, 70, 70));
 
         AgregarCicla_button.setBackground(new java.awt.Color(56, 182, 255));
-        AgregarCicla_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregar_bicicleta.png"))); // NOI18N
-        AgregarCicla_button.setText("agregar cicla");
+        AgregarCicla_button.setBorder(null);
+        AgregarCicla_button.setBorderPainted(false);
         AgregarCicla_button.addActionListener(this::AgregarCicla_buttonActionPerformed);
+        jPanel2.add(AgregarCicla_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, 70, 70));
 
         Penalizar_button.setBackground(new java.awt.Color(56, 182, 255));
-        Penalizar_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/penalizar_estudiante.png"))); // NOI18N
-        Penalizar_button.setText("penalizar");
+        Penalizar_button.setBorder(null);
+        Penalizar_button.setBorderPainted(false);
+        Penalizar_button.setPreferredSize(new java.awt.Dimension(70, 70));
         Penalizar_button.addActionListener(this::Penalizar_buttonActionPerformed);
+        jPanel2.add(Penalizar_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 70, 70));
 
         Reglas_button.setBackground(new java.awt.Color(56, 182, 255));
-        Reglas_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/reglas.png"))); // NOI18N
-        Reglas_button.setText("Reglas");
+        Reglas_button.setBorder(null);
+        Reglas_button.setBorderPainted(false);
         Reglas_button.addActionListener(this::Reglas_buttonActionPerformed);
+        jPanel2.add(Reglas_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 20, 70, 70));
 
         Reportes_button.setBackground(new java.awt.Color(56, 182, 255));
-        Reportes_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/reportes_de_estudiantes.png"))); // NOI18N
-        Reportes_button.setText("reportes");
+        Reportes_button.setBorder(null);
+        Reportes_button.setBorderPainted(false);
         Reportes_button.addActionListener(this::Reportes_buttonActionPerformed);
+        jPanel2.add(Reportes_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 110, 70, 70));
 
         QuitarEstudiante_button.setBackground(new java.awt.Color(56, 182, 255));
-        QuitarEstudiante_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/quitar_acceso_estudiante.png"))); // NOI18N
-        QuitarEstudiante_button.setText("quitar acceso");
+        QuitarEstudiante_button.setBorder(null);
+        QuitarEstudiante_button.setBorderPainted(false);
         QuitarEstudiante_button.addActionListener(this::QuitarEstudiante_buttonActionPerformed);
+        jPanel2.add(QuitarEstudiante_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 20, 70, 70));
 
-        CerrarSesion_button.setBackground(new java.awt.Color(56, 182, 255));
-        CerrarSesion_button.setText("Cerrar sesión");
+        Buscar_button.setBackground(new java.awt.Color(56, 182, 255));
+        Buscar_button.setBorder(null);
+        Buscar_button.setBorderPainted(false);
+        jPanel2.add(Buscar_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, 70, 70));
 
         AdminCiclas_button.setBackground(new java.awt.Color(56, 182, 255));
-        AdminCiclas_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/administrar_bicicleta.png"))); // NOI18N
-        AdminCiclas_button.setText("Admin ciclas");
+        AdminCiclas_button.setBorder(null);
+        AdminCiclas_button.setBorderPainted(false);
         AdminCiclas_button.addActionListener(this::AdminCiclas_buttonActionPerformed);
+        jPanel2.add(AdminCiclas_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, 70, 70));
+
+        CerrarSesion_button1.setBackground(new java.awt.Color(56, 182, 255));
+        CerrarSesion_button1.setBorder(null);
+        CerrarSesion_button1.setBorderPainted(false);
+        jPanel2.add(CerrarSesion_button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 110, 70, 70));
 
         panel_superior.setBackground(new java.awt.Color(19, 134, 201));
         panel_superior.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -211,6 +440,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 panel_superiorMousePressed(evt);
             }
         });
+        jPanel2.add(panel_superior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 2, 756, 30));
 
         exit.setBackground(new java.awt.Color(19, 134, 201));
         exit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -244,79 +474,10 @@ public class MenuAdmin extends javax.swing.JFrame {
         });
         exit.add(CERRAR, java.awt.BorderLayout.CENTER);
 
+        jPanel2.add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(762, 0, 53, -1));
+
         UNlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/universidad-nacional-de-colombia-sede-bogota-logo.png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(UNlogo)
-                        .addGap(48, 48, 48)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Penalizar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(AgregarCicla_button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(44, 44, 44)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Reglas_button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Reportes_button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(47, 47, 47)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(QuitarEstudiante_button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(AdminCiclas_button, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(34, 34, 34)
-                        .addComponent(CerrarSesion_button))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(panel_superior, javax.swing.GroupLayout.PREFERRED_SIZE, 756, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {AdminCiclas_button, AgregarCicla_button, Penalizar_button, QuitarEstudiante_button, Reglas_button, Reportes_button});
-
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panel_superior, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(UNlogo)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(Penalizar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(QuitarEstudiante_button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Reglas_button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(AgregarCicla_button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(8, Short.MAX_VALUE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(AdminCiclas_button, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Reportes_button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CerrarSesion_button, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
-        );
-
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {AdminCiclas_button, AgregarCicla_button, Penalizar_button, QuitarEstudiante_button, Reglas_button, Reportes_button});
+        jPanel2.add(UNlogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 47, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 0, 830, -1));
 
@@ -377,11 +538,11 @@ public class MenuAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMouseClicked
 
     private void CERRARMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CERRARMouseExited
-        exit.setBackground(new Color(255,255,255));        // TODO add your handling code here:
+             // TODO add your handling code here:
     }//GEN-LAST:event_CERRARMouseExited
 
     private void CERRARMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CERRARMouseEntered
-        exit.setBackground(new Color(19,134,201));        // TODO add your handling code here:
+           // TODO add your handling code here:
     }//GEN-LAST:event_CERRARMouseEntered
 
     private void CERRARMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CERRARMouseClicked
@@ -400,109 +561,229 @@ public class MenuAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_panel_superiorMouseDragged
 
     private void AdminCiclas_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminCiclas_buttonActionPerformed
-        Adminadministrarbicicleta vistaAdminBici = new Adminadministrarbicicleta();
-
-        // 2. Le asignamos el tamaño exacto del contenedor principal (jPanel4)
-        vistaAdminBici.setSize(jPanel4.getWidth(), jPanel4.getHeight());
-        vistaAdminBici.setLocation(0, 0);
-
-        // 3. Limpiamos el panel contenedor e insertamos la nueva vista
-        jPanel4.removeAll();
-        jPanel4.add(vistaAdminBici, java.awt.BorderLayout.CENTER);
-
-        // 4. Forzamos a Java a redibujar los componentes en pantalla
-        jPanel4.revalidate();
-        jPanel4.repaint();        // TODO add your handling code here:
+                // TODO add your handling code here:
     }//GEN-LAST:event_AdminCiclas_buttonActionPerformed
 
     private void QuitarEstudiante_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuitarEstudiante_buttonActionPerformed
-        // 1. Creamos la instancia del panel para eliminar estudiantes
-        AdminQuitarEstudiante vistaQuitarEstudiante = new AdminQuitarEstudiante();
-
-        // 2. Le asignamos el tamaño exacto del contenedor principal (jPanel4)
-        vistaQuitarEstudiante.setSize(jPanel4.getWidth(), jPanel4.getHeight());
-        vistaQuitarEstudiante.setLocation(0, 0);
-
-        // 3. Limpiamos el panel contenedor e insertamos la nueva vista
-        jPanel4.removeAll();
-        jPanel4.add(vistaQuitarEstudiante, java.awt.BorderLayout.CENTER);
-
-        // 4. Forzamos a Java a redibujar los componentes en pantalla
-        jPanel4.revalidate();
-        jPanel4.repaint();
+       
+      
     }//GEN-LAST:event_QuitarEstudiante_buttonActionPerformed
 
     private void Reportes_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reportes_buttonActionPerformed
 
-        AdminReportes vistaReportes = new AdminReportes();
-
-        // 2. Le asignamos el tamaño exacto del contenedor blanco (jPanel4)
-        vistaReportes.setSize(jPanel4.getWidth(), jPanel4.getHeight());
-        vistaReportes.setLocation(0, 0);
-
-        // 3. Vaciamos el contenedor y metemos el nuevo panel de reportes
-        jPanel4.removeAll();
-        jPanel4.add(vistaReportes, java.awt.BorderLayout.CENTER);
-
-        // 4. Refrescamos la interfaz gráfica para pintar los nuevos componentes
-        jPanel4.revalidate();
-        jPanel4.repaint();
+       
         // TODO add your handling code here:
     }//GEN-LAST:event_Reportes_buttonActionPerformed
 
     private void Reglas_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reglas_buttonActionPerformed
-        Reglas vistaReglas = new Reglas();
-
-        // 2. Le asignamos el tamaño exacto del contenedor (jPanel4)
-        vistaReglas.setSize(jPanel4.getWidth(), jPanel4.getHeight());
-        vistaReglas.setLocation(0, 0);
-
-        // 3. Vaciamos el contenedor y metemos el nuevo panel
-        jPanel4.removeAll();
-        jPanel4.add(vistaReglas, java.awt.BorderLayout.CENTER);
-
-        // 4. Refrescamos la interfaz para aplicar los cambios
-        jPanel4.revalidate();
-        jPanel4.repaint();
+      
         // TODO add your handling code here:
     }//GEN-LAST:event_Reglas_buttonActionPerformed
 
     private void Penalizar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Penalizar_buttonActionPerformed
-        // 1. Creamos la instancia de tu panel de penalizaciones
-        adminPenalizar vistaPenalizar = new adminPenalizar();
-
-        // 2. Le asignamos el tamaño exacto del contenedor blanco de abajo
-        vistaPenalizar.setSize(jPanel4.getWidth(), jPanel4.getHeight());
-        vistaPenalizar.setLocation(0, 0);
-
-        // 3. Vaciamos lo que haya en la zona blanca y metemos el nuevo panel
-        jPanel4.removeAll();
-        jPanel4.add(vistaPenalizar, java.awt.BorderLayout.CENTER);
-
-        // 4. Le avisamos a Java que redibuje la interfaz para que se vea el cambio
-        jPanel4.revalidate();
-        jPanel4.repaint();
+        
+      
 
         // TODO add your handling code here:
     }//GEN-LAST:event_Penalizar_buttonActionPerformed
 
     private void AgregarCicla_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarCicla_buttonActionPerformed
-        // 1. Creamos la instancia del panel para agregar bicicletas
-        AdminAgregarcicla vistaAgregarCicla = new AdminAgregarcicla();
+      
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AgregarCicla_buttonActionPerformed
 
-        // 2. Le asignamos el tamaño exacto del contenedor (jPanel4)
-        vistaAgregarCicla.setSize(jPanel4.getWidth(), jPanel4.getHeight());
-        vistaAgregarCicla.setLocation(0, 0);
+    private void AdministrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AdministrarMouseEntered
+    Administrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+    Administrar.setIcon(new ImageIcon(administrarNEscalado));        // TODO add your handling code here:
+    }//GEN-LAST:event_AdministrarMouseEntered
 
-        // 3. Vaciamos el contenedor y metemos el nuevo panel
+    private void AdministrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AdministrarMouseExited
+
+    Administrar.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+    Administrar.setIcon(new ImageIcon(administrarEscalado));  
+    // TODO add your handling code here:
+    }//GEN-LAST:event_AdministrarMouseExited
+
+    private void quitarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_quitarMouseEntered
+    quitar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+    quitar.setIcon(new ImageIcon(quitarNEscalado));        // TODO add your handling code here:
+    }//GEN-LAST:event_quitarMouseEntered
+
+    private void quitarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_quitarMouseExited
+    quitar.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+    quitar.setIcon(new ImageIcon(quitarEscalado));        // TODO add your handling code here:
+    }//GEN-LAST:event_quitarMouseExited
+
+    private void ReportMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReportMouseEntered
+    Report.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+    Report.setIcon(new ImageIcon(reportNEscalado));
+    // TODO add your handling code here:
+    }//GEN-LAST:event_ReportMouseEntered
+
+    private void ReportMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReportMouseExited
+Report.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+    Report.setIcon(new ImageIcon(reportEscalado));        // TODO add your handling code here:
+    }//GEN-LAST:event_ReportMouseExited
+
+    private void reglassMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reglassMouseEntered
+    reglass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+    reglass.setIcon(new ImageIcon(reglasNEscalado));        // TODO add your handling code here:
+    }//GEN-LAST:event_reglassMouseEntered
+
+    private void reglassMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reglassMouseExited
+    reglass.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+    reglass.setIcon(new ImageIcon(reglasEscalado));        // TODO add your handling code here:
+    }//GEN-LAST:event_reglassMouseExited
+
+    private void PenalizarrMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PenalizarrMouseEntered
+    Penalizarr.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+    Penalizarr.setIcon(new ImageIcon(penalizarNEscalado));        // TODO add your handling code here:
+    }//GEN-LAST:event_PenalizarrMouseEntered
+
+    private void PenalizarrMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PenalizarrMouseExited
+    Penalizarr.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+    Penalizarr.setIcon(new ImageIcon(penalizarEscalado));        // TODO add your handling code here:
+    }//GEN-LAST:event_PenalizarrMouseExited
+
+    private void AgregarCMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarCMouseEntered
+    AgregarC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+    AgregarC.setIcon(new ImageIcon(agregarCNEscalado));        // TODO add your handling code here:
+    }//GEN-LAST:event_AgregarCMouseEntered
+
+    private void AgregarCMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarCMouseExited
+    AgregarC.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+    AgregarC.setIcon(new ImageIcon(agregarCEscalado));        // TODO add your handling code here:
+    }//GEN-LAST:event_AgregarCMouseExited
+
+    private void BuscarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscarMouseEntered
+    Buscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+    Buscar.setIcon(new ImageIcon(buscarNEscalado));        // TODO add your handling code here:
+    }//GEN-LAST:event_BuscarMouseEntered
+
+    private void BuscarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscarMouseExited
+     Buscar.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+    Buscar.setIcon(new ImageIcon(buscarEscalado));        // TODO add your handling code here:
+    }//GEN-LAST:event_BuscarMouseExited
+
+    private void CerrarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CerrarSesionMouseEntered
+    CerrarSesion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+    CerrarSesion.setIcon(new ImageIcon(cerrarSesionNEscalado));        // TODO add your handling code here:
+    }//GEN-LAST:event_CerrarSesionMouseEntered
+
+    private void CerrarSesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CerrarSesionMouseExited
+    CerrarSesion.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+    CerrarSesion.setIcon(new ImageIcon(cerrarSesionEscalado));
+    
+// TODO add your handling code here:
+    }//GEN-LAST:event_CerrarSesionMouseExited
+
+    private void PenalizarrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PenalizarrMouseClicked
+     adminPenalizar vistaPenalizar = new adminPenalizar();
+
+        vistaPenalizar.setSize(jPanel4.getWidth(), jPanel4.getHeight());
+        vistaPenalizar.setLocation(0, 0);
+
+     
         jPanel4.removeAll();
-        jPanel4.add(vistaAgregarCicla, java.awt.BorderLayout.CENTER);
+        jPanel4.add(vistaPenalizar, java.awt.BorderLayout.CENTER);
 
-        // 4. Refrescamos la interfaz para aplicar los cambios
+   
         jPanel4.revalidate();
         jPanel4.repaint();
         // TODO add your handling code here:
-    }//GEN-LAST:event_AgregarCicla_buttonActionPerformed
+    }//GEN-LAST:event_PenalizarrMouseClicked
+
+    private void AdministrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AdministrarMouseClicked
+    Adminadministrarbicicleta vistaAdminBici = new Adminadministrarbicicleta();
+
+      
+        vistaAdminBici.setSize(jPanel4.getWidth(), jPanel4.getHeight());
+        vistaAdminBici.setLocation(0, 0);
+
+        jPanel4.removeAll();
+        jPanel4.add(vistaAdminBici, java.awt.BorderLayout.CENTER);
+
+        jPanel4.revalidate();
+        jPanel4.repaint();        // TODO add your handling code here:
+    }//GEN-LAST:event_AdministrarMouseClicked
+
+    private void AgregarCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarCMouseClicked
+    AdminAgregarcicla vistaAgregarCicla = new AdminAgregarcicla();
+
+        vistaAgregarCicla.setSize(jPanel4.getWidth(), jPanel4.getHeight());
+        vistaAgregarCicla.setLocation(0, 0);
+
+        jPanel4.removeAll();
+        jPanel4.add(vistaAgregarCicla, java.awt.BorderLayout.CENTER);
+
+        jPanel4.revalidate();
+        jPanel4.repaint();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AgregarCMouseClicked
+
+    private void reglassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reglassMouseClicked
+     Reglas vistaReglas = new Reglas();
+
+        vistaReglas.setSize(jPanel4.getWidth(), jPanel4.getHeight());
+        vistaReglas.setLocation(0, 0);
+
+        jPanel4.removeAll();
+        jPanel4.add(vistaReglas, java.awt.BorderLayout.CENTER);
+
+        jPanel4.revalidate();
+        jPanel4.repaint();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_reglassMouseClicked
+
+    private void ReportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReportMouseClicked
+     AdminReportes vistaReportes = new AdminReportes();
+
+        vistaReportes.setSize(jPanel4.getWidth(), jPanel4.getHeight());
+        vistaReportes.setLocation(0, 0);
+
+        jPanel4.removeAll();
+        jPanel4.add(vistaReportes, java.awt.BorderLayout.CENTER);
+
+        jPanel4.revalidate();
+        jPanel4.repaint();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ReportMouseClicked
+
+    private void quitarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_quitarMouseClicked
+      AdminQuitarEstudiante vistaQuitarEstudiante = new AdminQuitarEstudiante();
+
+        vistaQuitarEstudiante.setSize(jPanel4.getWidth(), jPanel4.getHeight());
+        vistaQuitarEstudiante.setLocation(0, 0);
+
+        jPanel4.removeAll();
+        jPanel4.add(vistaQuitarEstudiante, java.awt.BorderLayout.CENTER);
+
+        jPanel4.revalidate();
+        jPanel4.repaint();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_quitarMouseClicked
+
+    private void BuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscarMouseClicked
+   
+        adminBuscarEstudiante vistaBuscarEstudiante = new adminBuscarEstudiante();
+
+        vistaBuscarEstudiante.setSize(jPanel4.getWidth(), jPanel4.getHeight());
+        vistaBuscarEstudiante.setLocation(0, 0);
+
+     
+        jPanel4.removeAll();
+        jPanel4.add(vistaBuscarEstudiante, java.awt.BorderLayout.CENTER);
+
+   
+        jPanel4.revalidate();
+        jPanel4.repaint();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BuscarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -510,12 +791,19 @@ public class MenuAdmin extends javax.swing.JFrame {
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AdminCiclas_button;
+    private javax.swing.JLabel Administrar;
+    private javax.swing.JLabel AgregarC;
     private javax.swing.JButton AgregarCicla_button;
+    private javax.swing.JLabel Buscar;
+    private javax.swing.JButton Buscar_button;
     private javax.swing.JLabel CERRAR;
-    private javax.swing.JButton CerrarSesion_button;
+    private javax.swing.JLabel CerrarSesion;
+    private javax.swing.JButton CerrarSesion_button1;
     private javax.swing.JButton Penalizar_button;
+    private javax.swing.JLabel Penalizarr;
     private javax.swing.JButton QuitarEstudiante_button;
     private javax.swing.JButton Reglas_button;
+    private javax.swing.JLabel Report;
     private javax.swing.JButton Reportes_button;
     private javax.swing.JLabel UNlogo;
     private javax.swing.JPanel exit;
@@ -526,6 +814,8 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel panel_superior;
+    private javax.swing.JLabel quitar;
+    private javax.swing.JLabel reglass;
     // End of variables declaration//GEN-END:variables
 
    

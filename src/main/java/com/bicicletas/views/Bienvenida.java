@@ -2,6 +2,8 @@ package com.bicicletas.views;
 import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import com.bicicletas.modelo.*;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -185,6 +187,8 @@ public class Bienvenida extends javax.swing.JFrame {
         
         //cerrar el jframe de signup
         javax.swing.SwingUtilities.getWindowAncestor(this).dispose();
+        this.dispose();
+        
         
     }//GEN-LAST:event_IniciarSesion_textMouseClicked
 
