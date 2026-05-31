@@ -180,13 +180,15 @@ public class Bienvenida extends javax.swing.JFrame {
         
         
         
+        
+        
         Login login=new Login();
         login.setLocation(x, y);
         login.setVisible(true);
         
         
         //cerrar el jframe de signup
-        javax.swing.SwingUtilities.getWindowAncestor(this).dispose();
+        
         this.dispose();
         
         

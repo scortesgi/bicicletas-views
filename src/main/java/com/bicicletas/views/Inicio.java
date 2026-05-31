@@ -72,7 +72,7 @@ public class Inicio extends javax.swing.JPanel {
         add(reglamento_text1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bicicleta_azul.png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 120, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 80, -1, -1));
 
         reglamento_text2.setFont(new java.awt.Font("Ancizar Serif", 1, 24)); // NOI18N
         reglamento_text2.setText("Reservas:");

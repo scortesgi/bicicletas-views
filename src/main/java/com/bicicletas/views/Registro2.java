@@ -4,6 +4,9 @@
  */
 package com.bicicletas.views;
 
+import com.bicicletas.modelo.DocReader;
+import com.bicicletas.modelo.Main;
+import com.bicicletas.modelo.PerEmergencia;
 import java.awt.Color;
 
 /**
@@ -129,7 +132,78 @@ public class Registro2 extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void enterMenu_textMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterMenu_textMouseClicked
-      
+      /*
+        // Validar si el estudiante actual está bloqueado
+        if (Main.listaEstudiantesBloqueados.contains(Main.estudianteActual)) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "⚠️ Este estudiante está bloqueado de por vida. No puede completar el registro.",
+                "Acceso denegado",
+                javax.swing.JOptionPane.ERROR_MESSAGE);
+            return; // corta el flujo, no guarda contacto ni abre Login
+        }
+      */  
+        
+        
+        //ATRIBUTOS
+        String nombreEmergencia = enterUser.getText();
+        String idEmergenciaStr  = enterID.getText();
+        String numEmergencia = enterTel.getText();
+        
+        
+    if (nombreEmergencia.isEmpty() || nombreEmergencia.equals("Ingrese el nombre") ||
+        idEmergenciaStr.isEmpty()  || idEmergenciaStr.equals("Identificación sin puntos") ||
+        numEmergencia.isEmpty()    || numEmergencia.equals("Ingrese número de teléfono")) {
+
+        javax.swing.JOptionPane.showMessageDialog(this, "Por favor, completa todos los campos.");
+        return;
+    }
+
+    try {
+    long cedulaEmergencia = Long.parseLong(idEmergenciaStr);
+    
+        //CREACION DE CONTACTO DE EMERGENCIA
+        PerEmergencia contactoEmergencia = new PerEmergencia(nombreEmergencia, cedulaEmergencia, numEmergencia);
+        
+        
+    if (!contactoEmergencia.setNumEmergencia(numEmergencia)) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Número de emergencia inválido. Debe tener 10 dígitos.");
+        return;
+    }
+    
+    
+    com.bicicletas.modelo.Student nuevoEstudiante = new com.bicicletas.modelo.Student(
+    Main.tempNombre,
+    Main.tempCedula,
+    Main.tempTiun,
+    Main.tempContrasena,
+    contactoEmergencia
+);
+    
+    Main.estudianteActual = nuevoEstudiante;
+    Main.listaEstudiante.add(nuevoEstudiante);
+    Main.perEmergencia = contactoEmergencia;
+    
+    String nombreArchivo = "estudiantes.txt";
+    
+    DocReader.crearArchivo(nombreArchivo);
+        DocReader.guardarEstudianteEnArchivo(nombreArchivo, Main.estudianteActual);
+        
+    
+    System.out.println("Estudiante guardado permanentemente en: " + nombreArchivo);
+
+} catch (NumberFormatException e) {
+    javax.swing.JOptionPane.showMessageDialog(this, "Error: La cédula debe ser numérica.");
+    return;
+} catch (Exception e) {
+    javax.swing.JOptionPane.showMessageDialog(this, "Error inesperado: " + e.getMessage());
+    return;
+}
+    
+    
+    
+       
+        
+        
         java.awt.Window ventanaActual = javax.swing.SwingUtilities.getWindowAncestor(this);
         int x = ventanaActual.getX();
         int y = ventanaActual.getY();

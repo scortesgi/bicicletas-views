@@ -24,6 +24,8 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         
+        DocReader.cargarEstudiantesDesdeArchivo("estudiantes.txt");
+        
         //para q no coja ni admin ni estudiante
         jComboBox2.setSelectedIndex(-1);
         
@@ -308,7 +310,7 @@ public class Login extends javax.swing.JFrame {
             // Verifica si todo anda bien
            if (admin.getUserName().equals(nombreIngresado) && 
                 admin.getCedula() == idIngresado && 
-                admin.getPassword().equals(passwordIngresado)) {
+                admin.getContraseña().equals(passwordIngresado)) {
                
                 usuarioEncontrado = true;
                 javax.swing.JOptionPane.showMessageDialog(this, "Bienvenido Administrador: " + admin.getUserName());
@@ -330,13 +332,13 @@ public class Login extends javax.swing.JFrame {
 System.out.println("INPUT USER: [" + nombreIngresado + "]");
 System.out.println("DB ID: " + student.getCedula());
 System.out.println("INPUT ID: " + idIngresado);
-System.out.println("DB PASS: [" + student.getPassword() + "]");
+System.out.println("DB PASS: [" + student.getContraseña() + "]");
 System.out.println("INPUT PASS: [" + passwordIngresado + "]");
 System.out.println("-----");
 
             if (student.getUserName().trim().equalsIgnoreCase(nombreIngresado.trim()) &&
                 student.getCedula() == idIngresado &&
-                student.getPassword().trim().equals(passwordIngresado.trim()))
+                student.getContraseña().trim().equals(passwordIngresado.trim()))
             
             {
                 usuarioEncontrado = true;

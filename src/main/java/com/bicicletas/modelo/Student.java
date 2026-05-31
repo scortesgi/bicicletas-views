@@ -1,5 +1,6 @@
- //clase hija  de madre para estudiante
 package com.bicicletas.modelo;
+
+ //clase hija  de madre para estudiante
 
 import java.time.LocalDateTime; // Para capturar la fecha y hora exacta
 import java.util.ArrayList;
@@ -8,19 +9,22 @@ import java.time.Duration;      // Para calcular la diferencia de tiempo entre d
 
 public class Student extends User {
     //Atributos
-    private long tiun, numEmergencia;
-    private String state = "activo";
+    private long tiun;
+    private String state = "activo", contraseña;
     public boolean TieneReserva = false; 
     public Bike bicicletaAsignada = null;
     private LocalDateTime fechaFinPenalizacion;
     private int contadorPenalizaciones = 0;
     private Reservar reserva;
+    private PerEmergencia perEmergencias;
     
 
     //Constructor
-    public Student (String username, long cedula, long tiun ,String password){
-        super(username, cedula,  password );
+    public Student (String username, long cedula, long tiun,String contraseña, PerEmergencia perEmergencias){
+        super(username, cedula);
         this.tiun = tiun;
+        this.contraseña = contraseña;
+        this.perEmergencias = perEmergencias;
     }
 
     //Get
@@ -40,11 +44,32 @@ public class Student extends User {
     public Reservar getReserva(){
         return reserva;
     }
-    
-        //Set
+    public PerEmergencia getPerEmergencia(){
+        return perEmergencias;
+    }
+    public String getContraseña(){
+        return contraseña;
+    }
+//Set
+    public boolean setContraseña(String contraseña){
+        if (contraseña!= null && !contraseña.isEmpty()){   
+            this.contraseña=contraseña;
+            return true;      
+        }else {
+            System.out.println("contraseña invalido");
+            return false;
+        }
+    }
+
+        
     public void setReserva(Reservar reserva) {
         this.reserva = reserva;
     }
+    
+    public void setPerEmergencia(PerEmergencia perEmergencia) {
+        this.perEmergencias = perEmergencia;
+    }
+
 
         
     //verificacion de tiun
@@ -58,17 +83,7 @@ public class Student extends User {
             return false;   
         }
     }
-    //verificacion de numuero de emergencia
-    public boolean setNumEmergencia(long numEmergencia){
-        String numEmergenciaS = String.valueOf(numEmergencia);
-        if (numEmergenciaS.length() == 10 ){  
-            this.numEmergencia = numEmergencia;
-            return true;
-        }else {
-            System.out.println("Numero de emergencia invalido");
-            return false;   
-        }
-    }
+    
 
     public void setFechaFinPenalizacion( LocalDateTime fechaFinPenalizacion){
         this.fechaFinPenalizacion=  fechaFinPenalizacion;
@@ -165,8 +180,16 @@ public class Student extends User {
             }
         }
     }
+    public void informacionEmergencia(){
+        System.out.println("Nombre: " + this.getUserName());
+        System.out.println("C.C o ID: " + this.getCedula());
+        System.out.println("Tiun: " + this.getTiun());    
+        System.out.println("Nombre de persona de EMERGENCIA: " + perEmergencias.getUserName());
+        System.out.println("C.C de persona de EMERGENCIA: " + perEmergencias.getCedula());
+        System.out.println("Numero de persona de EMERGENCIA: " + perEmergencias.getNumEmergencia());
+    }
+
   
 }
-
 
     

@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.bicicletas.views;
-
+import com.bicicletas.modelo.Main;
+import com.bicicletas.modelo.Student;
 import java.awt.Color;
 
 /**
@@ -171,8 +172,34 @@ public Registro1() {
     }// </editor-fold>//GEN-END:initComponents
 
     private void nextPage_textMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nextPage_textMouseClicked
+   //ATRIBUTOSS
+    Main.tempNombre = enterUser.getText();
+    Main.tempCedula = Long.parseLong(enterID.getText());
+    Main.tempTiun = Long.parseLong(enterTIUN.getText());
+    Main.tempContrasena = new String(enterPswrd.getPassword());
+    
+    //las dejo para la validación, pero el estudiante se crea con las temporales en registro 2
+    long cedula = Long.parseLong(enterID.getText());
+    long tiun = Long.parseLong(enterTIUN.getText());
+    String password = new String(enterPswrd.getPassword());
+    String username = enterUser.getText();
+     
+    //VAALIDACION PREVIA DE QUE NO SE ENCUENTRE EN LA LISTA DE BLOQUEDOS
+    for (Student bloqueado : Main.listaEstudiantesBloqueados) {
+        if (bloqueado.getCedula() == cedula && bloqueado.getTiun() == tiun && bloqueado.getUserName().equals(username)) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "⚠️ Este estudiante está bloqueado de por vida. No puede registrarse.",
+                "Acceso denegado",
+                javax.swing.JOptionPane.ERROR_MESSAGE);
+            return; //CORTA EL FLUJO Y NO DEJA QUE PASE AL REGISTRO 2
+        }
+    }
+    
+    
+    
+    
+    //SE ABRE REGISTRO 2
     Registro2 registro2 = new Registro2();
-
     Signup ventana = (Signup) javax.swing.SwingUtilities.getWindowAncestor(this);
 
     registro2.setSize(ventana.BLANK.getWidth(), ventana.BLANK.getHeight());

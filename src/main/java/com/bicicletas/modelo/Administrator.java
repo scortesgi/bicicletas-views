@@ -7,12 +7,19 @@ import java.util.ArrayList;
 
 public class Administrator extends User{
     //atributos
+    private String contraseña;
 
 
     //constructor
-    public Administrator (String username, long cedula, String password){
-        super(username, cedula, password);
+    public Administrator (String username, long cedula, String contraseña){
+        super(username, cedula);
+        this.contraseña = contraseña;
     }
+
+    public String getContraseña(){
+        return contraseña;
+    }
+
 
 
     //metodos
@@ -42,6 +49,25 @@ public class Administrator extends User{
         return false;
     }
     
+     public boolean despenalizeStudent(ArrayList<Student> listaEstudiante, long tiun) {
+        
+        for (Student student : listaEstudiante) {
+            if (student.getTiun() == tiun) {
+                if(student.getState().equals("bloqueado")){
+                    student.setState("activo");
+                    System.out.println("DESPENALIZACION MANUAL APLICADA POR EL ADMINISTRADOR.");
+                    System.out.println("El estudiante " + student.getUserName() + " ya no cuenta con penalizaciones");
+                    return true;
+                }else{
+                    System.out.println("El estudiante " + student.getUserName() + " no cuenta con penalizaciones, no se puede DESPENALIZAR");
+                    return true;
+                }
+    
+            }
+        }
+        System.out.println("Ese TIUN no pertenece a ningún estudiante registrado.");
+        return false;
+    }
     public boolean removeStudent(ArrayList<Student> listaEstudiante, long tiun){
         
         for(int i = 0; i < listaEstudiante.size(); i++){  

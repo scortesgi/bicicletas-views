@@ -1,36 +1,27 @@
 package com.bicicletas.modelo;
+
 //clase madre user
 public abstract class User {
     //Atributos
-    private String username, correo;
-    private long cedula, numPersonal; 
-    private final String password;
+    private String username;
+    private long cedula; 
 
     //Constructor
-    public User (String username, long cedula, String password){
+    public User (String username, long cedula){
         this.username = username;
         this.cedula = cedula;
-        this.password = password;
     }
     //Get
     public String getUserName(){
         return username;
     }
+    
 
     public long getCedula(){
         return cedula;
     }
-    public String getCorreo(){
-        return correo;
-    }
+   
 
-    public long getNumPersonal(){
-        return numPersonal;
-    }
-    
-    public String getPassword() {
-        return password;
-    }
     //Set
 
     //verificacion de que ingrese un valor nombre correcto.
@@ -55,27 +46,9 @@ public abstract class User {
             return false;   
         }
     }
-    //verificacion de que ingrese un valor de correo correcto.
-    public boolean setCorreo(String correo){
-        if (correo!= null && !correo.isEmpty()){   
-            this.correo =correo;
-            return true;      
-        }else {
-            System.out.println("Correo invalido");
-            return false;
-        }
-    }
-    //verificacion de numero personal
-    public boolean setNumPersonal(long numPersonal){
-        String numPersonalString =String.valueOf(numPersonal);
-        if (numPersonalString.length() == 10  ){  
-            this.numPersonal = numPersonal;
-            return true;
-        }else {
-            System.out.println("Numero personal invalido");
-            return false;   
-        }
-    }
+
+    
+   
 
 
     //Metodos
@@ -108,3 +81,4 @@ public abstract class User {
         System.out.println("- - - -- - - - -- - - -- - - - -- - - - -- - - - -- ");   
     }
 }
+

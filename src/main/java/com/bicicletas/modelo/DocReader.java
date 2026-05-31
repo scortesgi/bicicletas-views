@@ -1,11 +1,10 @@
 package com.bicicletas.modelo;
 import java.io.*;
-
+import java.util.ArrayList;
 
 public class DocReader {
-       String nombre_st;
-        public static boolean dupli= false;
-       int tiun;
+    
+    public static boolean dupli = false;
         //constructor
 
 
@@ -27,25 +26,20 @@ public class DocReader {
     }
 }
 
-        public static void contenidoArchivo(String nombreArchivo, String nombre_st,  int tiun) {
+       
+       
+        public static void contenidoArchivo(String nombreArchivo, String nombre_st,  int cedula, long tiun, String contraseña) {
 
         File archivo = new File(nombreArchivo);
 
         try {
-           if(dupli!=true){
+           if(dupli !=true ){
             PrintWriter salida = new PrintWriter(new FileWriter(archivo , true));
            // PrintWriter salida2 = new PrintWriter(new FileWriter(tiun , true));
-            salida.print(tiun);
-            salida.println(":"+nombre_st);
-              
-             
-             
-              
-              
-            salida.close();
-          
-
-            System.out.println("Se actualizo el historial");
+            salida.println(nombre_st + "," + cedula + "," + tiun + "," + contraseña);
+                salida.close();
+                System.out.println("Se actualizó el historial");
+        
            }
         } catch(FileNotFoundException ex) {
             ex.printStackTrace(System.out);
@@ -54,6 +48,9 @@ public class DocReader {
         }
     }
 
+        
+        
+        
         public static void leerArchivo(String nombreArchivo) {
 
         File archivo = new File(nombreArchivo);
@@ -98,14 +95,14 @@ public class DocReader {
                             String[] partes = lectura.split(",");
 
                             // Verificar formato correcto
-                            if(partes.length < 3){
+                            if(partes.length < 4){
                                 continue;
                             }
 
-                            // nombre, cedula, clave
-                            int identificacion = Integer.parseInt(partes[1]);
+                            
+                            int identificacion = Integer.parseInt(partes[2].trim());
 
-                            if (tiun == identificacion) {
+                            if (tiun == identificacion ) {
 
                                 System.out.println("Ya existe el user");
 
@@ -117,25 +114,23 @@ public class DocReader {
 
                         openHistorial.close();
 
-                    } catch(FileNotFoundException ex) {
+                    } catch(FileNotFoundException | NumberFormatException ex) {
+                        
+            System.out.println("Error al verificar duplicados: " + ex.getMessage());
+            
+        } catch(IOException ex) {
+            
+            ex.printStackTrace(System.out);
+        } 
+    }
 
-                        ex.printStackTrace(System.out);
-
-                    } catch(IOException ex) {
-
-                        ex.printStackTrace(System.out);
-
-                    } catch(NumberFormatException ex){
-
-                        System.out.println("Error en formato del archivo.");
-                    }
-                }
-
+                
+                
 public static void guardarAdministrador(
         String nombreArchivo,
         String nombre,
         int cedula,
-        int clave) {
+        String contraseña) {
 
     File archivo = new File(nombreArchivo);
 
@@ -159,7 +154,7 @@ public static void guardarAdministrador(
 
         PrintWriter pw = new PrintWriter(new FileWriter(archivo, true));
 
-        pw.println(nombre + "," + cedula + "," + clave);
+        pw.println(nombre + "," + cedula + "," + contraseña );
 
         pw.close();
 
@@ -170,12 +165,76 @@ public static void guardarAdministrador(
     }
 }
 
+public static void guardarEstudianteEnArchivo(String nombreArchivo, Student estudiante) {
+    File archivo = new File(nombreArchivo);
+    try (PrintWriter salida = new PrintWriter(new FileWriter(archivo, true))) {
+        
+        salida.println(
+            estudiante.getTiun()     + ":" +
+            estudiante.getUserName() + ":" +
+            estudiante.getCedula()   + ":" +
+            estudiante.getContraseña() + ":" +
+            estudiante.getPerEmergencia().getNumEmergencia()
+                    
+        );
+        System.out.println("Estudiante guardado en archivo.");
+    } catch (IOException ex) {
+        ex.printStackTrace();
+
+    }
+}
+
+    public static void cargarEstudiantesDesdeArchivo(String nombreArchivo) {
+    File archivo = new File(nombreArchivo);
+    if (!archivo.exists()) {
+        System.out.println("Archivo de estudiantes no encontrado: " + nombreArchivo);
+        return;
+    }
+
+    try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+        String linea;
+        while ((linea = br.readLine()) != null) {
+            if (linea.trim().isEmpty()) continue;
+
+            String[] partes = linea.split(":");
+            if (partes.length < 5) continue; // línea incompleta, la salta
+
+            try {
+                long   tiun       = Long.parseLong(partes[0].trim());
+                String userName   = partes[1].trim();
+                long   cedula     = Long.parseLong(partes[2].trim());
+                String contraseña = partes[3].trim();
+                String telEmerg   = partes[4].trim();
+
+                // Evitar duplicados: si ya está en la lista, no lo agrega
+                boolean yaExiste = false;
+                for (Student s : Main.listaEstudiante) {
+                    if (s.getTiun() == tiun) { yaExiste = true; break; }
+                }
+                if (yaExiste) continue;
+
+                PerEmergencia pe = new PerEmergencia("", 0, telEmerg);
+                Student estudiante = new Student(userName, cedula, tiun, contraseña, pe);
+
+                Main.listaEstudiante.add(estudiante);
+                System.out.println("Estudiante cargado: " + userName);
+
+            } catch (NumberFormatException e) {
+                System.out.println("Línea con formato inválido, omitida: " + linea);
+            }
+        }
+    } catch (IOException ex) {
+        ex.printStackTrace();
+    }
+}
+
+
 public static boolean cambiarClaveAdministrador(
         String nombreArchivo,
         String nombreBuscar,
         int cedulaBuscar,
-        int claveActual,
-        int nuevaClave) {
+        int contraseñaActual,
+        int Nuevacontraseña) {
 
     File archivo = new File(nombreArchivo);
     File temporal = new File("temp.txt");
@@ -209,19 +268,19 @@ public static boolean cambiarClaveAdministrador(
 
             int cedula = Integer.parseInt(datos[1].trim());
 
-            int claveGuardada =
+            int contraseñaGuardada =
                     Integer.parseInt(datos[2].trim());
 
             // Verifica admin correcto
             if(nombre.equalsIgnoreCase(nombreBuscar.trim())
             && cedula == cedulaBuscar
-            && claveGuardada == claveActual){
+            && contraseñaGuardada == contraseñaActual){
 
                 // 🔥 ESCRIBE NUEVA CLAVE
                 pw.println(
                         nombre + "," +
                         cedula + "," +
-                        nuevaClave
+                        Nuevacontraseña
                 );
 
                 cambioRealizado = true;
@@ -253,11 +312,15 @@ public static boolean cambiarClaveAdministrador(
 
     return cambioRealizado;
 }   
-        public static boolean verificarClaveAdministrador(
+
+
+
+
+        public static boolean verificarContraseñaAdministrador(
         String nombreArchivo,
         String nombreBuscar,
         int cedulaBuscar,
-        int claveAdmi) {
+        int contraseñaAdministrador) {
 
     File archivo = new File(nombreArchivo);
 
@@ -286,12 +349,14 @@ public static boolean cambiarClaveAdministrador(
 
             int cedula = Integer.parseInt(datos[1]);
 
-            int claveGuardada = Integer.parseInt(datos[2]);
+            int contraseñaGuardada = Integer.parseInt(datos[2]);
 
+            
+            
             // Comparar datos
             if(nombre.trim().equalsIgnoreCase(nombreBuscar.trim())
             && cedula == cedulaBuscar
-            && claveGuardada == claveAdmi){
+            && contraseñaGuardada == contraseñaAdministrador){
 
                 br.close();
 
@@ -301,14 +366,9 @@ public static boolean cambiarClaveAdministrador(
 
         br.close();
 
-    } catch(IOException ex){
-
-        ex.printStackTrace(System.out);
-
-    } catch(NumberFormatException ex){
-
-        System.out.println("Error en formato del archivo.");
-    }
+    } catch(IOException | NumberFormatException ex){
+            System.out.println("Error al verificar clave: " + ex.getMessage());
+        }
 
     return false;
 }

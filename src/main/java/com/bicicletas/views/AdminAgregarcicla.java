@@ -3,7 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.bicicletas.views;
-
+import javax.swing.JOptionPane;
+import com.bicicletas.modelo.Main;
+import com.bicicletas.modelo.Station;
+import com.bicicletas.modelo.Bike;
 /**
  *
  * @author sammu
@@ -94,7 +97,56 @@ public class AdminAgregarcicla extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
+    try {
+        // JTextField para leer el ID
+        String textoID = enterID.getText().trim();
+        // Validar que no este vacio
+        if (textoID.equals("ID de la bicicleta") || textoID.isEmpty()) {
+            JOptionPane.showMessageDialog(this,"Ingrese un ID válido","Error",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        int id = Integer.parseInt(textoID);
+
+        // Validación de 3 dígitos
+        if (textoID.length() != 3) {
+            JOptionPane.showMessageDialog(this, "El ID debe tener 3 dígitos", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Indice de la estación de acuerdo al comboBox
+        int indexEstacion = jComboBox2.getSelectedIndex();
+
+        if (indexEstacion < 0) { 
+            JOptionPane.showMessageDialog(this, "Seleccione una estación", "Error",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        //Verifica si ya existe la bicicleta
+        for (Station estacion : Main.estaciones){
+            if (estacion.existeBicicleta(id)){
+                JOptionPane.showMessageDialog(this,"El ID ya existe, porfavor ingrese uno distinto.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        }
+
+        Bike newBike = new Bike(id, "disponible");
+
+        // Verificar la capacidad de la estación
+        boolean fueAgregada = Main.estaciones.get(indexEstacion).alertaMaxBicicleta();
+
+        if (!fueAgregada){
+            Main.estaciones.get(indexEstacion).agregarBicicleta(newBike);
+
+            JOptionPane.showMessageDialog(this,"La cicla fue agregada correctamente","Éxito", JOptionPane.INFORMATION_MESSAGE);
+
+        }else{
+            JOptionPane.showMessageDialog(this,"La estación está llena, intente otra", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "ID incorrecto", "Error", JOptionPane.ERROR_MESSAGE);
+    }
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void enterIDFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_enterIDFocusLost

@@ -10,6 +10,8 @@ import java.awt.Color;
  */
 public class adminPenalizar extends javax.swing.JPanel {
 
+    
+    
     /**
      * Creates new form adminPenalizar
      */
