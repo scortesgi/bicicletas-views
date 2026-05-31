@@ -26,11 +26,11 @@ public class Main {
    public static void main(String[] args) {
         
        //ADMINISTRADORES
-       adminsAutorizados.add(new Administrator("santiago gonzalez", 1032443188, "1032443188"));
-        adminsAutorizados.add(new Administrator("laura valderrama", 1052841022, "1052841022"));
-        adminsAutorizados.add(new Administrator("sammuel cortes", 1013602884, "1013602884"));
-        adminsAutorizados.add(new Administrator("valery torres", 1141326715, "1141326715"));
-        adminsAutorizados.add(new Administrator("xiomara malagon", 1021666771, "1021666771"));
+       adminsAutorizados.add(new Administrator("Santiago Gonzalez", 1032443188, "1032443188"));
+        adminsAutorizados.add(new Administrator("Laura Valderrama", 1052841022, "1052841022"));
+        adminsAutorizados.add(new Administrator("Sammuel Cortes", 1013602884, "1013602884"));
+        adminsAutorizados.add(new Administrator("Valery Torres", 1141326715, "1141326715"));
+        adminsAutorizados.add(new Administrator("Xiomara Malagon", 1021666771, "1021666771"));
         //ESTACIONES
         estaciones.add(new Station("Calle 53", 2));
         estaciones.add(new Station("CYT", 2));
