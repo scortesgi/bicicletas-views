@@ -648,8 +648,7 @@ public class Main {
         estaciones.add(new Station("Calle 30", 40));
         
     // para ver como es sn registrarse
-    listaEstudiante.add(new Student("estudiante prueba", 12345, 10101010, "12345"));
-
+    
     java.awt.EventQueue.invokeLater(() -> new Bienvenida().setVisible(true));
    
 }
