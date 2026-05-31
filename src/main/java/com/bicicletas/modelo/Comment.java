@@ -11,10 +11,12 @@ public class Comment{
     private Student autor;
     private Administrator admin;
     private long tiun; 
+    private String type;
     //Constructor
-    public Comment(String mensaje, Student autor) {
+    public Comment(String mensaje, Student autor, String type) {
             this.mensaje = mensaje;
             this.autor = autor;
+            this.type = type;
             //Se asigna la fecha de manera automática
             this.fecha = LocalDateTime.now();
     }
@@ -29,6 +31,9 @@ public class Comment{
     }
 
     //Get
+    public String getType(){
+        return type;
+    }
     public String getMensaje(){
         return mensaje;
     }
