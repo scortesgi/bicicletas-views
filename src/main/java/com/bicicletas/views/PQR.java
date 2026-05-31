@@ -81,7 +81,7 @@ public class PQR extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 410, 150));
 
-        pqr_select.setBackground(new Color(56,182,255,20));
+        pqr_select.setBackground(new java.awt.Color(196, 231, 251));
         pqr_select.setFont(new java.awt.Font("Ancizar Serif Light", 0, 18)); // NOI18N
         pqr_select.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Petición", "Queja", "Reclamo" }));
         pqr_select.addActionListener(new java.awt.event.ActionListener() {

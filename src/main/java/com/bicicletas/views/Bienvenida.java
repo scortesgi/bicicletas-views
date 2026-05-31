@@ -78,7 +78,7 @@ public class Bienvenida extends javax.swing.JFrame {
                 sinCuenta_textMouseExited(evt);
             }
         });
-        getContentPane().add(sinCuenta_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 380, 310, -1));
+        getContentPane().add(sinCuenta_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 380, 300, -1));
 
         Bienvenido.setFont(new java.awt.Font("Ancizar Sans ExtraBold", 1, 60)); // NOI18N
         Bienvenido.setForeground(new java.awt.Color(19, 134, 201));

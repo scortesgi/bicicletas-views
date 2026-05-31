@@ -56,6 +56,8 @@ public Registro1() {
         tiun_text = new javax.swing.JLabel();
         nextPage_button = new javax.swing.JPanel();
         nextPage_text = new javax.swing.JLabel();
+        back_button = new javax.swing.JPanel();
+        back_text = new javax.swing.JLabel();
         enterUser = new javax.swing.JTextField();
         enterID = new javax.swing.JTextField();
         enterTIUN = new javax.swing.JTextField();
@@ -104,6 +106,30 @@ public Registro1() {
 
         add(nextPage_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 350, 300, 60));
 
+        back_button.setBackground(new java.awt.Color(56, 182, 255));
+        back_button.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        back_button.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        back_text.setBackground(new java.awt.Color(56, 182, 255));
+        back_text.setFont(new java.awt.Font("Ancizar Sans ExtraBold", 0, 36)); // NOI18N
+        back_text.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        back_text.setText("<");
+        back_text.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        back_text.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                back_textMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                back_textMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                back_textMouseExited(evt);
+            }
+        });
+        back_button.add(back_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 60));
+
+        add(back_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 90, 60));
+
         enterUser.setBackground(new java.awt.Color(56, 182, 255, 9));
         enterUser.setFont(new java.awt.Font("Ancizar Serif Medium", 0, 18)); // NOI18N
         enterUser.setForeground(new java.awt.Color(0,0,0,50));
@@ -118,7 +144,6 @@ public Registro1() {
                 enterUsermousePressed(evt);
             }
         });
-        enterUser.addActionListener(this::enterUserActionPerformed);
         add(enterUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 420, -1));
 
         enterID.setBackground(new java.awt.Color(56, 182, 255, 9));
@@ -300,12 +325,27 @@ public Registro1() {
                 }  
     }//GEN-LAST:event_enterPswrdFocusLost
 
-    private void enterUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterUserActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_enterUserActionPerformed
+    private void back_textMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_back_textMouseClicked
+        Signup ventana = (Signup) javax.swing.SwingUtilities.getWindowAncestor(this);
+        ventana.dispose();
+        Bienvenida welcome = new Bienvenida();
+        welcome.setVisible(true);
+    }//GEN-LAST:event_back_textMouseClicked
+
+    private void back_textMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_back_textMouseEntered
+        back_button.setBackground(new Color(19,134,201));
+        back_text.setForeground(Color.WHITE);
+    }//GEN-LAST:event_back_textMouseEntered
+
+    private void back_textMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_back_textMouseExited
+        back_button.setBackground(new Color(56,182,255));
+        back_text.setForeground(Color.BLACK);
+    }//GEN-LAST:event_back_textMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel back_button;
+    private javax.swing.JLabel back_text;
     private javax.swing.JTextField enterID;
     private javax.swing.JPasswordField enterPswrd;
     private javax.swing.JTextField enterTIUN;
