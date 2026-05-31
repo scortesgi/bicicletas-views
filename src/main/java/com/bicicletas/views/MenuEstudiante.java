@@ -16,6 +16,7 @@ public class MenuEstudiante extends javax.swing.JFrame {
 
      /* Creates new form Login
      */
+    private String panelActivo = "inicio";
     int xMouse, yMouse;
     ImageIcon pqrIcon = new ImageIcon(getClass().getResource("/imagenes/pqr.png"));
     Image pqrImg = pqrIcon.getImage();
@@ -37,9 +38,17 @@ public class MenuEstudiante extends javax.swing.JFrame {
     Image reservarImg = reservarIcon.getImage();
     Image reservarEscalado = reservarImg.getScaledInstance(60, 60, Image.SCALE_SMOOTH);
     
+    ImageIcon reservarNIcon = new ImageIcon(getClass().getResource("/imagenes/bicicletas_negro.png"));
+    Image reservarNImg = reservarNIcon.getImage();
+    Image reservarNEscalado = reservarNImg.getScaledInstance(60, 60, Image.SCALE_SMOOTH);
+    
     ImageIcon inicioIcon = new ImageIcon(getClass().getResource("/imagenes/inicio.png"));
     Image inicioImg = inicioIcon.getImage();
     Image inicioEscalado = inicioImg.getScaledInstance(60, 60, Image.SCALE_SMOOTH);
+    
+    ImageIcon inicioNIcon = new ImageIcon(getClass().getResource("/imagenes/inicio_negro.png"));
+    Image inicioNImg = inicioNIcon.getImage();
+    Image inicioNEscalado = inicioNImg.getScaledInstance(60, 60, Image.SCALE_SMOOTH);
         
     public MenuEstudiante() {
         initComponents();
@@ -55,12 +64,13 @@ public class MenuEstudiante extends javax.swing.JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
         getContentPane().setBackground(Color.WHITE);
-        Inicio home=new Inicio();
+        //Inicio home=new Inicio();
         BLANK.setLayout(new BorderLayout());
-        BLANK.removeAll();
+        /*BLANK.removeAll();
         BLANK.add(home, BorderLayout.CENTER);
         BLANK.revalidate();
-        BLANK.repaint();
+        BLANK.repaint();*/
+        mostrarInicio();
         
         pqr_image.setIcon(new ImageIcon(pqrEscalado));
        
@@ -68,7 +78,7 @@ public class MenuEstudiante extends javax.swing.JFrame {
         
         reservar_image.setIcon(new ImageIcon(reservarEscalado));
         
-        inicio_image.setIcon(new ImageIcon(inicioEscalado));
+        //inicio_image.setIcon(new ImageIcon(inicioNEscalado));
         
     }
     /**
@@ -80,9 +90,9 @@ public class MenuEstudiante extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Inicio_button = new javax.swing.JPanel();
         inicio_image = new javax.swing.JLabel();
         UNlogo = new javax.swing.JLabel();
-        Inicio_button = new javax.swing.JPanel();
         exit = new javax.swing.JPanel();
         CERRAR = new javax.swing.JLabel();
         panel_superior = new javax.swing.JPanel();
@@ -107,18 +117,34 @@ public class MenuEstudiante extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Inicio_button.setBackground(new java.awt.Color(56, 182, 255));
+        Inicio_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Inicio_button.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         inicio_image.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         inicio_image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/inicio.png"))); // NOI18N
-        inicio_image.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        getContentPane().add(inicio_image, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 70, 70));
+        inicio_image.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        inicio_image.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                inicio_imageMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                inicio_imageMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                inicio_imageMouseExited(evt);
+            }
+        });
+        /*
+        Inicio_button.add(inicio_image, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 70, 70));
+        */
+        Inicio_button.add(inicio_image,
+            new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 70, 70));
+
+        getContentPane().add(Inicio_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 70, 70));
 
         UNlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/universidad-nacional-de-colombia-sede-bogota-logo.png"))); // NOI18N
         getContentPane().add(UNlogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 7, 300, 130));
-
-        Inicio_button.setBackground(new java.awt.Color(56, 182, 255));
-        Inicio_button.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Inicio_button.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(Inicio_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 70, 70));
 
         exit.setBackground(new java.awt.Color(19, 134, 201));
         exit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -181,7 +207,7 @@ public class MenuEstudiante extends javax.swing.JFrame {
         logout_text.setFont(new java.awt.Font("Ancizar Sans Medium", 0, 14)); // NOI18N
         logout_text.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         logout_text.setText("Cerrar Sesión");
-        logout_text.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        logout_text.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         logout_text.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 logout_textMouseClicked(evt);
@@ -196,7 +222,18 @@ public class MenuEstudiante extends javax.swing.JFrame {
 
         reservar_image.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         reservar_image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bicicletas.png"))); // NOI18N
-        reservar_image.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        reservar_image.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        reservar_image.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                reservar_imageMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                reservar_imageMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                reservar_imageMouseExited(evt);
+            }
+        });
         Reserva_button.add(reservar_image, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 70, 70));
 
         menuBarra.add(Reserva_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, 70, 70));
@@ -206,10 +243,16 @@ public class MenuEstudiante extends javax.swing.JFrame {
 
         tiempo_image.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tiempo_image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/historial.png"))); // NOI18N
-        tiempo_image.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tiempo_image.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tiempo_image.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tiempo_imageMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 tiempo_imageMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                tiempo_imageMouseExited(evt);
             }
         });
         Tiempo_button.add(tiempo_image, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 70, 70));
@@ -232,7 +275,7 @@ public class MenuEstudiante extends javax.swing.JFrame {
         pqr_image.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         pqr_image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pqr.png"))); // NOI18N
         pqr_image.setToolTipText("");
-        pqr_image.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        pqr_image.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         pqr_image.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pqr_imageMouseClicked(evt);
@@ -252,6 +295,7 @@ public class MenuEstudiante extends javax.swing.JFrame {
         Reservar_text1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Reservar_text1.setText("Reservar");
         menuBarra.add(Reservar_text1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 70, -1));
+        Reservar_text1.getAccessibleContext().setAccessibleParent(Reserva_button);
 
         getContentPane().add(menuBarra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 140));
 
@@ -306,22 +350,81 @@ public class MenuEstudiante extends javax.swing.JFrame {
     }//GEN-LAST:event_pqr_imageMouseEntered
 
     private void pqr_imageMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pqr_imageMouseExited
-        pqrs_button1.setBorder(javax.swing.BorderFactory.createEmptyBorder());
-        pqr_image.setIcon(new ImageIcon(pqrEscalado));
+        if(!panelActivo.equals("pqr")){
+            pqrs_button1.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+            pqr_image.setIcon(new ImageIcon(pqrEscalado));
+    }
     }//GEN-LAST:event_pqr_imageMouseExited
 
     private void pqr_imageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pqr_imageMouseClicked
-        PQR pqr=new PQR();
+        panelActivo = "pqr";
+        PQR pqr = new PQR();
         BLANK.removeAll();
         BLANK.add(pqr, BorderLayout.CENTER);
         BLANK.revalidate();
         BLANK.repaint();
+        actualizarIconos();
     }//GEN-LAST:event_pqr_imageMouseClicked
 
     private void tiempo_imageMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tiempo_imageMouseEntered
         Tiempo_button.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         tiempo_image.setIcon(new ImageIcon(tiempoNEscalado));
     }//GEN-LAST:event_tiempo_imageMouseEntered
+
+    private void tiempo_imageMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tiempo_imageMouseExited
+        if(!panelActivo.equals("tiempo")){
+            Tiempo_button.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+            tiempo_image.setIcon(new ImageIcon(tiempoEscalado));
+    }
+    }//GEN-LAST:event_tiempo_imageMouseExited
+
+    private void tiempo_imageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tiempo_imageMouseClicked
+        panelActivo="tiempo";
+        actualizarIconos();
+        Tiempo time =new Tiempo();
+        BLANK.removeAll();
+        BLANK.add(time, BorderLayout.CENTER);
+        BLANK.revalidate();
+        BLANK.repaint();
+    }//GEN-LAST:event_tiempo_imageMouseClicked
+
+    private void inicio_imageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicio_imageMouseClicked
+        mostrarInicio();
+    }//GEN-LAST:event_inicio_imageMouseClicked
+
+    private void reservar_imageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reservar_imageMouseClicked
+        panelActivo="reservar";
+        Reservar reservation=new Reservar();
+        BLANK.removeAll();
+        BLANK.add(reservation, BorderLayout.CENTER);
+        BLANK.revalidate();
+        BLANK.repaint();
+        actualizarIconos();
+    }//GEN-LAST:event_reservar_imageMouseClicked
+
+    private void inicio_imageMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicio_imageMouseEntered
+        Inicio_button.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0 , 0, 0), 3));
+        inicio_image.setIcon(new ImageIcon(inicioNEscalado));
+    }//GEN-LAST:event_inicio_imageMouseEntered
+
+    private void inicio_imageMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicio_imageMouseExited
+        if(!panelActivo.equals("inicio")){
+            Inicio_button.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+            inicio_image.setIcon(new ImageIcon(inicioEscalado));
+    }
+    }//GEN-LAST:event_inicio_imageMouseExited
+
+    private void reservar_imageMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reservar_imageMouseEntered
+        Reserva_button.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        reservar_image.setIcon(new ImageIcon(reservarNEscalado));
+    }//GEN-LAST:event_reservar_imageMouseEntered
+
+    private void reservar_imageMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reservar_imageMouseExited
+        if(!panelActivo.equals("reservar")){
+            Reserva_button.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+            reservar_image.setIcon(new ImageIcon(reservarEscalado));
+        }
+    }//GEN-LAST:event_reservar_imageMouseExited
 
     /**
      * @param args the command line arguments
@@ -370,4 +473,61 @@ public class MenuEstudiante extends javax.swing.JFrame {
     private javax.swing.JLabel reservar_image;
     private javax.swing.JLabel tiempo_image;
     // End of variables declaration//GEN-END:variables
+
+    private void mostrarInicio() {
+        panelActivo = "inicio";
+        Inicio home = new Inicio();
+        BLANK.removeAll();
+        BLANK.add(home, BorderLayout.CENTER);
+        BLANK.revalidate();
+        BLANK.repaint();
+        actualizarIconos(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    private void actualizarIconos(){
+
+        Inicio_button.setBorder(
+            panelActivo.equals("inicio")
+            ? javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0,0,0), 3)
+            : javax.swing.BorderFactory.createEmptyBorder()
+        );
+
+        Tiempo_button.setBorder(
+            panelActivo.equals("tiempo")
+            ? javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0,0,0), 3)
+            : javax.swing.BorderFactory.createEmptyBorder()
+        );
+
+        pqrs_button1.setBorder(
+            panelActivo.equals("pqr")
+            ? javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0,0,0), 3)
+            : javax.swing.BorderFactory.createEmptyBorder()
+        );
+        
+        Reserva_button.setBorder(
+            panelActivo.equals("reservar")
+            ? javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0,0,0), 3)
+            : javax.swing.BorderFactory.createEmptyBorder()
+        );
+        
+        inicio_image.setIcon(new ImageIcon(
+            panelActivo.equals("inicio")
+            ? inicioNEscalado
+            : inicioEscalado));
+
+        tiempo_image.setIcon(new ImageIcon(
+            panelActivo.equals("tiempo")
+            ? tiempoNEscalado
+            : tiempoEscalado));
+
+        pqr_image.setIcon(new ImageIcon(
+            panelActivo.equals("pqr")
+            ? pqrNEscalado
+            : pqrEscalado));
+        
+        reservar_image.setIcon(new ImageIcon(
+            panelActivo.equals("reservar")
+            ? reservarNEscalado
+            : reservarEscalado));
+    }
 }
+
