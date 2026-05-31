@@ -2,7 +2,6 @@ package com.bicicletas.views;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Image;
-import java.time.LocalDate;
 import javax.swing.ImageIcon;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -29,6 +28,10 @@ public class MenuEstudiante extends javax.swing.JFrame {
     ImageIcon tiempoIcon = new ImageIcon(getClass().getResource("/imagenes/historial.png"));
     Image tiempoImg = tiempoIcon.getImage();
     Image tiempoEscalado = tiempoImg.getScaledInstance(60, 60, Image.SCALE_SMOOTH);
+    
+    ImageIcon tiempoNIcon = new ImageIcon(getClass().getResource("/imagenes/historial_negro.png"));
+    Image tiempoNImg = tiempoNIcon.getImage();
+    Image tiempoNEscalado = tiempoNImg.getScaledInstance(60, 60, Image.SCALE_SMOOTH);
     
     ImageIcon reservarIcon = new ImageIcon(getClass().getResource("/imagenes/bicicletas.png"));
     Image reservarImg = reservarIcon.getImage();
@@ -204,6 +207,11 @@ public class MenuEstudiante extends javax.swing.JFrame {
         tiempo_image.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tiempo_image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/historial.png"))); // NOI18N
         tiempo_image.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tiempo_image.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                tiempo_imageMouseEntered(evt);
+            }
+        });
         Tiempo_button.add(tiempo_image, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 70, 70));
 
         menuBarra.add(Tiempo_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 30, 70, 70));
@@ -226,6 +234,9 @@ public class MenuEstudiante extends javax.swing.JFrame {
         pqr_image.setToolTipText("");
         pqr_image.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         pqr_image.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pqr_imageMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 pqr_imageMouseEntered(evt);
             }
@@ -298,6 +309,19 @@ public class MenuEstudiante extends javax.swing.JFrame {
         pqrs_button1.setBorder(javax.swing.BorderFactory.createEmptyBorder());
         pqr_image.setIcon(new ImageIcon(pqrEscalado));
     }//GEN-LAST:event_pqr_imageMouseExited
+
+    private void pqr_imageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pqr_imageMouseClicked
+        PQR pqr=new PQR();
+        BLANK.removeAll();
+        BLANK.add(pqr, BorderLayout.CENTER);
+        BLANK.revalidate();
+        BLANK.repaint();
+    }//GEN-LAST:event_pqr_imageMouseClicked
+
+    private void tiempo_imageMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tiempo_imageMouseEntered
+        Tiempo_button.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        tiempo_image.setIcon(new ImageIcon(tiempoNEscalado));
+    }//GEN-LAST:event_tiempo_imageMouseEntered
 
     /**
      * @param args the command line arguments

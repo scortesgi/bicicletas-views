@@ -4,6 +4,7 @@
  */
 package com.bicicletas.views;
 
+import java.awt.Color;
 import java.time.LocalDate;
 
 /**
@@ -19,6 +20,7 @@ public class PQR extends javax.swing.JPanel {
         initComponents();
         setSize(800,460);
         SetDate();
+        setTextdefault();
     }
 
  public void SetDate(){
@@ -29,6 +31,7 @@ public class PQR extends javax.swing.JPanel {
     String[] meses = {"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre",
         "Octubre","Noviembre","Diciembre"};
     fecha_text.setText(dia+"/"+meses[month - 1]+"/"+year);
+    
  }   
     /**
      * This method is called from within the constructor to initialize the form.
@@ -41,6 +44,13 @@ public class PQR extends javax.swing.JPanel {
 
         fecha_panel = new javax.swing.JPanel();
         fecha_text = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        commentUser = new javax.swing.JTextArea();
+        pqr_select = new javax.swing.JComboBox<>();
+        escriba_text = new javax.swing.JLabel();
+        select_text = new javax.swing.JLabel();
+        sendPQR_button = new javax.swing.JPanel();
+        sendPQR_text = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -63,11 +73,120 @@ public class PQR extends javax.swing.JPanel {
         );
 
         add(fecha_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 430, 120, 30));
+
+        commentUser.setColumns(20);
+        commentUser.setFont(new java.awt.Font("Ancizar Sans Medium", 0, 18)); // NOI18N
+        commentUser.setRows(5);
+        jScrollPane1.setViewportView(commentUser);
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 410, 150));
+
+        pqr_select.setBackground(new Color(56,182,255,20));
+        pqr_select.setFont(new java.awt.Font("Ancizar Sans Light", 0, 18)); // NOI18N
+        pqr_select.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Petición", "Queja", "Reclamo" }));
+        pqr_select.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                setTextdefault();
+            }
+        });
+        add(pqr_select, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 390, 40));
+
+        escriba_text.setFont(new java.awt.Font("Ancizar Sans SemiBold", 0, 36)); // NOI18N
+        escriba_text.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        escriba_text.setText("Escriba aquí");
+        add(escriba_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 450, -1));
+
+        select_text.setFont(new java.awt.Font("Ancizar Sans SemiBold", 0, 36)); // NOI18N
+        select_text.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        select_text.setText("¿Qué desea realizar?");
+        add(select_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, -1, -1));
+
+        sendPQR_button.setBackground(new java.awt.Color(56, 182, 255));
+        sendPQR_button.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        sendPQR_text.setFont(new java.awt.Font("Ancizar Sans Medium", 0, 20)); // NOI18N
+        sendPQR_text.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sendPQR_text.setText("Enviar");
+        sendPQR_text.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        sendPQR_text.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sendPQR_textMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                sendPQR_textMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                sendPQR_textMouseExited(evt);
+            }
+        });
+        sendPQR_button.add(sendPQR_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 60));
+
+        add(sendPQR_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, 240, 60));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void sendPQR_textMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sendPQR_textMouseEntered
+        sendPQR_text.setForeground(Color.WHITE);
+        sendPQR_button.setBackground(new Color(19,134,201));
+    }//GEN-LAST:event_sendPQR_textMouseEntered
 
+    private void sendPQR_textMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sendPQR_textMouseExited
+        sendPQR_text.setForeground(Color.BLACK);
+        sendPQR_button.setBackground(new Color(56,182,255));
+    }//GEN-LAST:event_sendPQR_textMouseExited
+
+    private void sendPQR_textMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sendPQR_textMouseClicked
+
+        String selectedOption=pqr_select.getSelectedItem().toString().toLowerCase();
+        String mensaje="";
+        if (selectedOption.equals(" ")||commentUser.getText().isEmpty()){
+            mensaje = "<html><body style='width: 250px;'>"
+                + "No se pudo procesar su comentario <br><br>"
+                + "Intente nuevamente"
+                + "</body></html>";
+            javax.swing.JOptionPane.showMessageDialog(null, mensaje, "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }else{
+            if(pqr_select.getSelectedIndex()==3){
+            mensaje="<html><body style='width: 250px;'>"
+                + "Su " +  selectedOption +" fue procesado CORRECTAMENTE"
+                + "</body></html>";
+            javax.swing.JOptionPane.showMessageDialog(null, mensaje, "Envío exitoso", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            }else{            
+                mensaje="<html><body style='width: 250px;'>"
+                + "Su " +  selectedOption +" fue procesada CORRECTAMENTE"
+                + "</body></html>";
+            javax.swing.JOptionPane.showMessageDialog(null, mensaje, "Envío exitoso", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            }
+            
+        }
+                
+        
+    
+
+        
+    }//GEN-LAST:event_sendPQR_textMouseClicked
+
+    public void setTextdefault(){
+        String selectedOption=pqr_select.getSelectedItem().toString().toLowerCase();
+        if (" ".equals(selectedOption)){
+            escriba_text.setText("Escriba aquí");
+            sendPQR_text.setText("Enviar");
+        }else{
+            
+            escriba_text.setText("Escriba aquí su " + selectedOption);
+            sendPQR_text.setText("Enviar " + selectedOption);
+        }
+    }
+     
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea commentUser;
+    private javax.swing.JLabel escriba_text;
     private javax.swing.JPanel fecha_panel;
     private javax.swing.JLabel fecha_text;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JComboBox<String> pqr_select;
+    private javax.swing.JLabel select_text;
+    private javax.swing.JPanel sendPQR_button;
+    private javax.swing.JLabel sendPQR_text;
     // End of variables declaration//GEN-END:variables
 }
