@@ -226,6 +226,9 @@ public class MenuEstudiante extends javax.swing.JFrame {
         pqr_image.setToolTipText("");
         pqr_image.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         pqr_image.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pqr_imageMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 pqr_imageMouseEntered(evt);
             }
@@ -236,7 +239,6 @@ public class MenuEstudiante extends javax.swing.JFrame {
         pqrs_button1.add(pqr_image, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 70, 70));
 
         menuBarra.add(pqrs_button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 30, 70, 70));
-        pqrs_button1.getAccessibleContext().setAccessibleParent(null);
 
         Reservar_text1.setFont(new java.awt.Font("Ancizar Sans SemiBold", 0, 18)); // NOI18N
         Reservar_text1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -299,6 +301,14 @@ public class MenuEstudiante extends javax.swing.JFrame {
         pqrs_button1.setBorder(javax.swing.BorderFactory.createEmptyBorder());
         pqr_image.setIcon(new ImageIcon(pqrEscalado));
     }//GEN-LAST:event_pqr_imageMouseExited
+
+    private void pqr_imageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pqr_imageMouseClicked
+        PQR pqr=new PQR();
+        BLANK.removeAll();
+        BLANK.add(pqr, BorderLayout.CENTER);
+        BLANK.revalidate();
+        BLANK.repaint();
+    }//GEN-LAST:event_pqr_imageMouseClicked
 
     /**
      * @param args the command line arguments
