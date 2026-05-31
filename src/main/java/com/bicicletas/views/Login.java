@@ -326,14 +326,26 @@ public class Login extends javax.swing.JFrame {
     else if (rolSeleccionado.equals("Estudiante")) {
         for (com.bicicletas.modelo.Student student : com.bicicletas.modelo.Main.listaEstudiante) {
             // Verifica nsi todo está bienn
-            if (student.getUserName().equals(nombreIngresado) && 
-                student.getCedula() == idIngresado && 
-                student.getPassword().equals(passwordIngresado))
+            System.out.println("DB USER: [" + student.getUserName() + "]");
+System.out.println("INPUT USER: [" + nombreIngresado + "]");
+System.out.println("DB ID: " + student.getCedula());
+System.out.println("INPUT ID: " + idIngresado);
+System.out.println("DB PASS: [" + student.getPassword() + "]");
+System.out.println("INPUT PASS: [" + passwordIngresado + "]");
+System.out.println("-----");
+
+            if (student.getUserName().trim().equalsIgnoreCase(nombreIngresado.trim()) &&
+                student.getCedula() == idIngresado &&
+                student.getPassword().trim().equals(passwordIngresado.trim()))
             
             {
                 usuarioEncontrado = true;
+                Main.estudianteActual = student;
+            
                 javax.swing.JOptionPane.showMessageDialog(this, "Bienvenido Estudiante: " + student.getUserName());
-                
+                MenuEstudiante menuE = new MenuEstudiante();
+                menuE.setVisible(true);
+
                 this.dispose(); // Cerrar el login
                 break;
                 
