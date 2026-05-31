@@ -340,6 +340,9 @@ Image buscarNEscalado = buscarNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH)
         CerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cerrar_sesion.png"))); // NOI18N
         CerrarSesion.setText("jLabel3");
         CerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CerrarSesionMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 CerrarSesionMouseEntered(evt);
             }
@@ -534,7 +537,9 @@ Image buscarNEscalado = buscarNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH)
     }//GEN-LAST:event_exitMouseEntered
 
     private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
-        System.exit(0);
+        Bienvenida welcome = new Bienvenida();
+        this.dispose();
+        welcome.setVisible(true);
     }//GEN-LAST:event_exitMouseClicked
 
     private void CERRARMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CERRARMouseExited
@@ -784,6 +789,12 @@ Report.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 
         // TODO add your handling code here:
     }//GEN-LAST:event_BuscarMouseClicked
+
+    private void CerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CerrarSesionMouseClicked
+        Bienvenida welcome = new Bienvenida();
+        this.dispose();
+        welcome.setVisible(true);
+    }//GEN-LAST:event_CerrarSesionMouseClicked
 
     /**
      * @param args the command line arguments

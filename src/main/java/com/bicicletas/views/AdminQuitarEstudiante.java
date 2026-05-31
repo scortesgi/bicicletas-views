@@ -4,6 +4,9 @@
  */
 package com.bicicletas.views;
 
+import com.bicicletas.modelo.Main;
+import com.bicicletas.modelo.Student;
+
 /**
  *
  * @author sammu
@@ -115,7 +118,59 @@ public class AdminQuitarEstudiante extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
+                                            
+        try {
+            //ATRIBUTOS
+            long tiun = Long.parseLong(enterID.getText());
+            boolean encontrado = false;
+
+            // BUSCA ESTUDIANTE EN LA LISTA DE ESTUDIANTES
+            for (Student student : Main.listaEstudiante) {
+                if (student.getTiun() == tiun) {
+                    encontrado = true;
+
+                    // Preguntar si es de por vida o temporal
+                    int opcion = javax.swing.JOptionPane.showConfirmDialog(
+                        this,
+                        "¿Desea quitarle el acceso de por vida?",
+                        "Confirmar bloqueo",
+                        javax.swing.JOptionPane.YES_NO_OPTION
+                    );
+
+                    if (opcion == javax.swing.JOptionPane.YES_OPTION) {
+                        // Bloqueo de por vida
+                        Main.listaEstudiantesBloqueados.add(student);
+                        javax.swing.JOptionPane.showMessageDialog(this,
+                            "Se quitó el acceso al estudiante de por vida.",
+                            "Bloqueo permanente",
+                            javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        // Bloqueo temporal → remover de la lista
+                        Main.listaEstudiante.remove(student);
+                        javax.swing.JOptionPane.showMessageDialog(this,
+                            "Se quitó el acceso temporalmente.",
+                            "Bloqueo temporal",
+                            javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                    }
+                    break;
+                }
+            }
+
+            if (!encontrado) {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                    "El TIUN no pertenece a ningún estudiante registrado.",
+                    "Error",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+            }
+
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "Ingrese un TIUN válido (solo números).",
+                "Error de formato",
+                javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+        
+
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void enterIDFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_enterIDFocusLost

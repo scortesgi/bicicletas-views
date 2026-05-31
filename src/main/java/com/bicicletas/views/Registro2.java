@@ -4,6 +4,8 @@
  */
 package com.bicicletas.views;
 
+import com.bicicletas.modelo.Main;
+import com.bicicletas.modelo.PerEmergencia;
 import java.awt.Color;
 
 /**
@@ -130,6 +132,28 @@ public class Registro2 extends javax.swing.JPanel {
 
     private void enterMenu_textMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterMenu_textMouseClicked
       
+        // Validar si el estudiante actual está bloqueado
+        if (Main.listaEstudiantesBloqueados.contains(Main.estudianteActual)) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "⚠️ Este estudiante está bloqueado de por vida. No puede completar el registro.",
+                "Acceso denegado",
+                javax.swing.JOptionPane.ERROR_MESSAGE);
+            return; // corta el flujo, no guarda contacto ni abre Login
+        }
+        
+        //ATRIBUTOS
+        String nombreEmergencia = enterUser.getText();
+        long cedulaEmergencia = Long.parseLong(enterID.getText());
+        String numEmergencia = enterTel.getText();
+        
+        //CREACION DE CONTACTO DE EMERGENCIA
+        PerEmergencia contactoEmergencia = new PerEmergencia(nombreEmergencia, cedulaEmergencia, numEmergencia);
+        
+        //SE GUARDA EN GLOBAL
+        Main.perEmergencia = contactoEmergencia;
+        Main.estudianteActual.setPerEmergencia(contactoEmergencia);
+        
+        
         java.awt.Window ventanaActual = javax.swing.SwingUtilities.getWindowAncestor(this);
         int x = ventanaActual.getX();
         int y = ventanaActual.getY();

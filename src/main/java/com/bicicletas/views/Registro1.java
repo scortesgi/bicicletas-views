@@ -172,18 +172,32 @@ public Registro1() {
     }// </editor-fold>//GEN-END:initComponents
 
     private void nextPage_textMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nextPage_textMouseClicked
+   //ATRIBUTOSS
     String username = enterUser.getText();
-    long cedula = Integer.parseInt(enterID.getText());
-    long tiun = Integer.parseInt(enterTIUN.getText());
-    String password = enterPswrd.getPassword().toString();
+    long cedula = Long.parseLong(enterID.getText());
+    long tiun = Long.parseLong(enterTIUN.getText());
+    String password = new String(enterPswrd.getPassword());
     
-    Student estudiante = new Student(enterUser.getText(),cedula,tiun,new String(enterPswrd.getPassword()));
-// GLOBAL
-    Main.listaEstudiante.add(estudiante);
-    Main.estudianteActual = estudiante;
+    //VAALIDACION PREVIA DE QUE NO SE ENCUENTRE EN LA LISTA DE BLOQUEDOS
+    for (Student bloqueado : Main.listaEstudiantesBloqueados) {
+        if (bloqueado.getCedula() == cedula && bloqueado.getTiun() == tiun && bloqueado.getUserName().equals(username)) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "⚠️ Este estudiante está bloqueado de por vida. No puede registrarse.",
+                "Acceso denegado",
+                javax.swing.JOptionPane.ERROR_MESSAGE);
+            return; //CORTA EL FLUJO Y NO DEJA QUE PASE AL REGISTRO 2
+        }
+    }
     
-    Registro2 registro2 = new Registro2();
+    //CREACION DE ESTUDIANTE SIN DATOS
+    Student estudiante = new Student(username, cedula, tiun, null, password); 
 
+    // SE GUARDA EN GLOBAL
+    Main.estudianteActual = estudiante;
+    Main.listaEstudiante.add(estudiante);
+    
+    //SE ABRE REGISTRO 2
+    Registro2 registro2 = new Registro2();
     Signup ventana = (Signup) javax.swing.SwingUtilities.getWindowAncestor(this);
 
     registro2.setSize(ventana.BLANK.getWidth(), ventana.BLANK.getHeight());

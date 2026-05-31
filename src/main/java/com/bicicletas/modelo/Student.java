@@ -65,6 +65,11 @@ public class Student extends User {
     public void setReserva(Reservar reserva) {
         this.reserva = reserva;
     }
+    
+    public void setPerEmergencia(PerEmergencia perEmergencia) {
+        this.perEmergencias = perEmergencia;
+    }
+
 
         
     //verificacion de tiun
@@ -183,6 +188,7 @@ public class Student extends User {
         System.out.println("C.C de persona de EMERGENCIA: " + perEmergencias.getCedula());
         System.out.println("Numero de persona de EMERGENCIA: " + perEmergencias.getNumEmergencia());
     }
+
   
 }
 
