@@ -8,6 +8,7 @@ public class DocReader {
     public static boolean dupli = false;
         //constructor
 
+    
 
     public static void guardarComentario(String nombreArchivo, Comment comentario) {
 
@@ -33,6 +34,38 @@ public class DocReader {
     }
 }
     
+    
+    public static void cargarComentariosDesdeArchivo(String nombreArchivo) {
+    File archivo = new File(nombreArchivo);
+    if (!archivo.exists()) return;
+    try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+        String linea;
+        while ((linea = br.readLine()) != null) {
+            if (linea.trim().isEmpty()) continue;
+            String[] partes = linea.split(":", 4);
+            if (partes.length < 4) continue;
+            
+    try {
+                long tiun      = Long.parseLong(partes[0].trim());
+                String tipo    = partes[1].trim();
+                String mensaje = partes[3].trim();
+                Student autor = null;
+                for (Student s : Main.listaEstudiante) {
+                    if (s.getTiun() == tiun) { autor = s; break; }
+                }
+                if (autor == null) continue;
+
+                Comment c = new Comment(mensaje, autor, tipo);
+                Main.listaComentarios.add(c);
+
+            } catch (NumberFormatException e) {
+                System.out.println("Línea inválida omitida: " + linea);
+            }
+        }
+    } catch (IOException ex) {
+        ex.printStackTrace();
+    }
+}
     
 
        public static void crearArchivo(String nombreArchivo) {

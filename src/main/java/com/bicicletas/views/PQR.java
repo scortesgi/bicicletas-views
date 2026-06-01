@@ -140,6 +140,7 @@ public class PQR extends javax.swing.JPanel {
 
     private void sendPQR_textMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sendPQR_textMouseClicked
 
+            
         String selectedOption=pqr_select.getSelectedItem().toString().toLowerCase();
         String mensaje="";
         if (selectedOption.equals(" ")||commentUser.getText().isEmpty()){
