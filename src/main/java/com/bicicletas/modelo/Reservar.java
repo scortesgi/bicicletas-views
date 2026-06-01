@@ -2,6 +2,7 @@ package com.bicicletas.modelo;
 
 import java.time.LocalDateTime; // Para capturar la fecha y hora exacta
 import java.time.Duration;      // Para calcular la diferencia de tiempo entre dos momentos
+import javax.swing.JOptionPane;
 
 public class Reservar {
     private Station estacionRecogida,estacionEntrega;
@@ -107,7 +108,10 @@ public class Reservar {
     public void activacionUso(){ //este lo activaria el administrador cuando el estudiante llegue fisicamente a retirar la reserva 
          //validacion previa de que si cuente con una reserva
         if (estadoReserva == null || !estadoReserva.equals("reservada")) {
-        System.out.println("No hay ninguna reserva activa para poder activar el uso.");
+            JOptionPane.showMessageDialog(null,
+                "No hay ninguna reserva activa para poder activar el uso.",
+                "Activación fallida",
+                JOptionPane.ERROR_MESSAGE);
         }else{
             boolean expiro = verificarExcesoReserva();
             if (!expiro) {
@@ -115,9 +119,15 @@ public class Reservar {
                 tiempoInicioUso = LocalDateTime.now();
                 tiempoFinReserva = LocalDateTime.now();
                 estadoReserva = "en_uso";
-                System.out.println("Uso activado con exito, para el estudiante " + estudiante.getUserName());
+                JOptionPane.showMessageDialog(null,
+                    "Uso activado con éxito para el estudiante " + estudiante.getUserName(),
+                    "Activación de uso",
+                    JOptionPane.INFORMATION_MESSAGE);
             } else {
-                System.out.println("Acceso denegado: El estudiante tardó más de 20 minutos en llegar atomar el servicio.");
+                JOptionPane.showMessageDialog(null,
+                    "Acceso denegado: El estudiante tardó más de 20 minutos en llegar a tomar el servicio.",
+                    "Activación denegada",
+                    JOptionPane.WARNING_MESSAGE);
             } 
         }    
     }
@@ -129,7 +139,10 @@ public class Reservar {
         bicicletaReservada.desReservar();
         estudiante.devolverBicicleta(bicicletaReservada);
         estadoReserva = "finalizado";
-        System.out.println("Se finaliza el uso con exito, para el estudiante " + estudiante.getUserName());
+        JOptionPane.showMessageDialog(null,
+            "Se finaliza el uso con éxito para el estudiante " + estudiante.getUserName(),
+            "Finalización de uso",
+            JOptionPane.INFORMATION_MESSAGE);
         calcularPenalizacionUso();   
     }
 
@@ -142,14 +155,24 @@ public class Reservar {
             estadoReserva = "cancelada";
             estudiante.devolverBicicleta(bicicletaReservada);
             bicicletaReservada.desReservar();
-            System.out.println("La reserva expiro. La cicla quedara de nuevo libre");
+            JOptionPane.showMessageDialog(null,
+                "La reserva expiró. La cicla quedará de nuevo libre.",
+                "Reserva cancelada",
+                JOptionPane.WARNING_MESSAGE);
             return true;
         }else{
-            System.out.println("La reserva aún está activa. Tiempo restante: " + (tiempoReservaMax - (Duration.between(tiempoInicioReserva, LocalDateTime.now()).toMinutes())) + " minutos.");
+             
+            JOptionPane.showMessageDialog(null,
+                "La reserva aún está activa. Tiempo restante: " + (tiempoReservaMax - (Duration.between(tiempoInicioReserva, LocalDateTime.now()).toMinutes())) + " minutos.",
+                "Reserva activa",
+                JOptionPane.INFORMATION_MESSAGE);
             return false;
         }
         }else{
-            System.out.println("Usted no cuenta con ninguna reserva activa en este momento.");
+            JOptionPane.showMessageDialog(null,
+                "Usted no cuenta con ninguna reserva activa en este momento.",
+                "Sin reserva",
+                JOptionPane.INFORMATION_MESSAGE);
             return false;
         }
         
@@ -159,16 +182,25 @@ public class Reservar {
         if(estudiante.getContadorPenalizaciones() >= 2){//esta es por si cuenta con 2 o mas penalizaciones
             estudiante.setFechaFinPenalizacion(LocalDateTime.now().plusDays(30));
             estudiante.setState("bloqueado");
-            System.out.println("Cuenta con mas de una penalizacion. \nSe bloqueara por 30 dias");
+            JOptionPane.showMessageDialog(null,
+                "Cuenta con más de una penalización.\nSe bloqueará por 30 días.",
+                "Penalización",
+                JOptionPane.WARNING_MESSAGE);
         }else{
             if( (Duration.between(tiempoInicioUso, tiempoFinalUso).toMinutes()) > tiempoUsoMAx){
             // Si se pasó, le metemos 15 días de castigo a partir de hoy:
             estudiante.setFechaFinPenalizacion(LocalDateTime.now().plusDays(15));
             estudiante.setState("bloqueado");
-            System.out.println("SE PASO DEL TIEMPO DE USO. \nSe bloqueara por 15 dias");
             estudiante.setContadorPenalizaciones();
+            JOptionPane.showMessageDialog(null,
+                "Se pasó del tiempo de uso.\nSe bloqueará por 15 días.",
+                "Penalización",
+                JOptionPane.WARNING_MESSAGE);
             }else{
-                System.out.println("Felicitaciones por buen uso del sistema. \nGracias por usar el servicio");
+               JOptionPane.showMessageDialog(null,
+                "Felicitaciones por buen uso del sistema.\nGracias por usar el servicio.",
+                "Buen uso",
+                JOptionPane.INFORMATION_MESSAGE);
             }
         }   
     }

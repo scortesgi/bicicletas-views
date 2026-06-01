@@ -78,65 +78,75 @@ public class Adminadministrarbicicleta extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        String idStr = javax.swing.JOptionPane.showInputDialog(this,
-        "Ingrese el ID de la bicicleta a desactivar:");
-    if (idStr == null || idStr.trim().isEmpty()) return;
+                                            
+      String tiunStr = javax.swing.JOptionPane.showInputDialog(this,
+          "Ingrese el TIUN del estudiante para desactivar el uso:");
+      if (tiunStr == null || tiunStr.trim().isEmpty()) return;
 
-    try {
-        int id = Integer.parseInt(idStr.trim());
-        boolean encontrada = false;
+      try {
+          long tiun = Long.parseLong(tiunStr.trim());
+          boolean encontrado = false;
 
-        for (com.bicicletas.modelo.Station estacion : com.bicicletas.modelo.Main.estaciones) {
-            if (estacion.existeBicicleta(id)) {
-                estacion.cambiarEstadoBici(id, "mantenimiento");
-                com.bicicletas.modelo.Archivo.reescribirArchivo(estacion);
-                javax.swing.JOptionPane.showMessageDialog(this,
-                    "Bicicleta " + id + " en mantenimiento ");
-                encontrada = true;
-                break;
-            }
-        }
-        if (!encontrada)
-            javax.swing.JOptionPane.showMessageDialog(this, "No se encontró bicicleta con ID: " + id);
+          for (com.bicicletas.modelo.Student student : com.bicicletas.modelo.Main.listaEstudiante) {
+              if (student.getTiun() == tiun) {
+                  student.finalizacionDeUso();
+                  /*javax.swing.JOptionPane.showMessageDialog(this,
+                      "Uso finalizado con éxito para el estudiante " + student.getUserName(),
+                      "Finalización de uso",
+                      javax.swing.JOptionPane.INFORMATION_MESSAGE);*/
+                  encontrado = true;
+                  break;
+              }
+          }
 
-    } catch (NumberFormatException e) {
-        javax.swing.JOptionPane.showMessageDialog(this, "ID debe ser numérico.");
-    }
+          if (!encontrado) {
+              javax.swing.JOptionPane.showMessageDialog(this,
+                  "Ese TIUN no pertenece a ningún estudiante registrado.",
+                  "Error",
+                  javax.swing.JOptionPane.ERROR_MESSAGE);
+          }
 
-        // TODO add your handling code here:
+      } catch (NumberFormatException e) {
+          javax.swing.JOptionPane.showMessageDialog(this, "El TIUN debe ser numérico.");
+      }
+  
+
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        String idStr = javax.swing.JOptionPane.showInputDialog(this, 
-        "Ingrese el ID de la bicicleta a activar:");
-    if (idStr == null || idStr.trim().isEmpty()) return;
+                                             
+        String tiunStr = javax.swing.JOptionPane.showInputDialog(this, 
+            "Ingrese el TIUN del estudiante para activar el uso:");
+        if (tiunStr == null || tiunStr.trim().isEmpty()) return;
 
-    try {
-        int id = Integer.parseInt(idStr.trim());
-        boolean encontrada = false;
+        try {
+            long tiun = Long.parseLong(tiunStr.trim());
+            boolean encontrado = false;
 
-        for (com.bicicletas.modelo.Station estacion : com.bicicletas.modelo.Main.estaciones) {
-            if (estacion.existeBicicleta(id)) {
-                estacion.cambiarEstadoBici(id, "disponible");
-                com.bicicletas.modelo.Archivo.reescribirArchivo(estacion);
-                javax.swing.JOptionPane.showMessageDialog(this,
-                    "Bicicleta " + id + " activada" );
-                encontrada = true;
-                break;
+            for (com.bicicletas.modelo.Student student : com.bicicletas.modelo.Main.listaEstudiante) {
+                if (student.getTiun() == tiun) {
+                    student.activacionDeUso();
+                   /* javax.swing.JOptionPane.showMessageDialog(this,
+                        "Uso activado con éxito para el estudiante " + student.getUserName(),
+                        "Activación de uso",
+                        javax.swing.JOptionPane.INFORMATION_MESSAGE);*/
+                    encontrado = true;
+                    break;
+                }
             }
+
+            if (!encontrado) {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                    "Ese TIUN no pertenece a ningún estudiante registrado.",
+                    "Error",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+            }
+
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "El TIUN debe ser numérico.");
         }
-        if (!encontrada)
-            javax.swing.JOptionPane.showMessageDialog(this, "No se encontró bicicleta con ID: " + id);
 
-    } catch (NumberFormatException e) {
-        javax.swing.JOptionPane.showMessageDialog(this, "ID debe ser numérico.");
-    }
-    
-    
-    
-        
 
-        // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
 
 

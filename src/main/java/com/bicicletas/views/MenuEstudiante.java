@@ -212,6 +212,12 @@ public class MenuEstudiante extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 logout_textMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                logout_textMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                logout_textMouseExited(evt);
+            }
         });
         logout_button.add(logout_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 30));
 
@@ -425,6 +431,18 @@ public class MenuEstudiante extends javax.swing.JFrame {
             reservar_image.setIcon(new ImageIcon(reservarEscalado));
         }
     }//GEN-LAST:event_reservar_imageMouseExited
+
+    private void logout_textMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logout_textMouseEntered
+        logout_button.setBackground(new Color (19,134,201));
+        logout_text.setForeground(Color.WHITE);
+        logout_button.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+    }//GEN-LAST:event_logout_textMouseEntered
+
+    private void logout_textMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logout_textMouseExited
+        logout_button.setBackground(new Color(56,182,255));
+        logout_text.setForeground(Color.BLACK);
+        logout_button.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+    }//GEN-LAST:event_logout_textMouseExited
 
     /**
      * @param args the command line arguments

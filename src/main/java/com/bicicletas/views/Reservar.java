@@ -4,6 +4,7 @@
  */
 package com.bicicletas.views;
 
+import java.awt.Color;
 import java.time.LocalDate;
 
 /**
@@ -43,6 +44,12 @@ public class Reservar extends javax.swing.JPanel {
 
         fecha_panel = new javax.swing.JPanel();
         fecha_text = new javax.swing.JLabel();
+        estEntrega_select = new javax.swing.JComboBox<>();
+        estEntrega_text = new javax.swing.JLabel();
+        estRecogida_text = new javax.swing.JLabel();
+        estRecogida_select = new javax.swing.JComboBox<>();
+        reservar_button = new javax.swing.JPanel();
+        reservar_text = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -65,11 +72,77 @@ public class Reservar extends javax.swing.JPanel {
         );
 
         add(fecha_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 430, 120, 30));
+
+        estEntrega_select.setFont(new java.awt.Font("Ancizar Serif SemiBold", 0, 18)); // NOI18N
+        estEntrega_select.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Calle 53", "CyT", "Uriel", "Calle 45", "Calle 26", "Calle 30" }));
+        add(estEntrega_select, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, 250, 40));
+
+        estEntrega_text.setFont(new java.awt.Font("Ancizar Serif SemiBold", 1, 36)); // NOI18N
+        estEntrega_text.setText("Escoja la estación de entrega");
+        add(estEntrega_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, -1, -1));
+
+        estRecogida_text.setFont(new java.awt.Font("Ancizar Serif SemiBold", 1, 36)); // NOI18N
+        estRecogida_text.setText("Escoja la estación de recogida");
+        add(estRecogida_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, -1, -1));
+
+        estRecogida_select.setFont(new java.awt.Font("Ancizar Serif SemiBold", 0, 18)); // NOI18N
+        estRecogida_select.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Calle 53", "CyT", "Uriel", "Calle 45", "Calle 26", "Calle 30" }));
+        add(estRecogida_select, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 250, 40));
+
+        reservar_button.setBackground(new java.awt.Color(56, 182, 255));
+        reservar_button.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        reservar_button.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        reservar_text.setBackground(new java.awt.Color(56, 182, 255));
+        reservar_text.setFont(new java.awt.Font("Ancizar Sans ExtraBold", 0, 24)); // NOI18N
+        reservar_text.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        reservar_text.setText("Reservar");
+        reservar_text.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        reservar_text.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                reservar_textMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                reservar_textMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                reservar_textMouseExited(evt);
+            }
+        });
+        reservar_button.add(reservar_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 60));
+
+        add(reservar_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, 300, 60));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void reservar_textMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reservar_textMouseClicked
+
+        /*
+        AQUÍ IRÍA EL CÓDIGO PARA MOSTRAR QUE LA RESERVA SE ACTIVE
+        */
+
+    }//GEN-LAST:event_reservar_textMouseClicked
+
+    private void reservar_textMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reservar_textMouseEntered
+        reservar_button.setBackground(new Color(19,134,201));
+        reservar_text.setForeground(Color.WHITE);
+        //iniciarSesion_button.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(19, 134, 201), 10, true));
+    }//GEN-LAST:event_reservar_textMouseEntered
+
+    private void reservar_textMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reservar_textMouseExited
+        reservar_button.setBackground(new Color(56,182,255));
+        reservar_text.setForeground(Color.BLACK);
+        //iniciarSesion_button.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(56, 182, 255), 10, true));
+    }//GEN-LAST:event_reservar_textMouseExited
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> estEntrega_select;
+    private javax.swing.JLabel estEntrega_text;
+    private javax.swing.JComboBox<String> estRecogida_select;
+    private javax.swing.JLabel estRecogida_text;
     private javax.swing.JPanel fecha_panel;
     private javax.swing.JLabel fecha_text;
+    private javax.swing.JPanel reservar_button;
+    private javax.swing.JLabel reservar_text;
     // End of variables declaration//GEN-END:variables
 }
