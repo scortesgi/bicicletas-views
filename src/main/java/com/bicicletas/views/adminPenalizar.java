@@ -1,5 +1,6 @@
 
 package com.bicicletas.views;
+import com.bicicletas.modelo.DocReader;
 import java.awt.Color;
 
 public class adminPenalizar extends javax.swing.JPanel {
@@ -194,6 +195,8 @@ public class adminPenalizar extends javax.swing.JPanel {
         //quitar penalización
         objetivo.setState("activo");
         objetivo.setFechaFinPenalizacion(null);
+        DocReader.guardarPenalizacion("poo/archivoHistorial/penalizaciones.txt", objetivo);
+
 
         javax.swing.JOptionPane.showMessageDialog(this,
             "Estudiante " + objetivo.getUserName() + " despenalizado correctamente.");
@@ -234,7 +237,7 @@ public class adminPenalizar extends javax.swing.JPanel {
     }//GEN-LAST:event_enterTelFocusLost
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-    
+     
     String tiunStr = enterID.getText();
     String motivo  = enterTel.getText();
     
@@ -263,6 +266,8 @@ public class adminPenalizar extends javax.swing.JPanel {
         objetivo.setState("bloqueado");
         objetivo.setContadorPenalizaciones();
         objetivo.setFechaFinPenalizacion(java.time.LocalDateTime.now().plusDays(15));
+        DocReader.guardarPenalizacion("poo/archivoHistorial/penalizaciones.txt", objetivo);
+
 
         //comentario opcional
         if (!motivo.isEmpty() && !motivo.equals("(opcional)")) {
