@@ -115,8 +115,8 @@ public class Tiempo extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tiempoUso_textMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tiempoUso_textMouseClicked
-
-     /*   String selectedOption=pqr_select.getSelectedItem().toString().toLowerCase();
+/*
+        String selectedOption=pqr_select.getSelectedItem().toString().toLowerCase();
         String mensaje="";
         if (selectedOption.equals(" ")||commentUser.getText().isEmpty()){
             mensaje = "<html><body style='width: 250px;'>"
@@ -137,8 +137,8 @@ public class Tiempo extends javax.swing.JPanel {
                 javax.swing.JOptionPane.showMessageDialog(null, mensaje, "Envío exitoso", javax.swing.JOptionPane.INFORMATION_MESSAGE);
             }
 
-        }*/
-
+        }
+*/
     }//GEN-LAST:event_tiempoUso_textMouseClicked
 
     private void tiempoUso_textMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tiempoUso_textMouseEntered
