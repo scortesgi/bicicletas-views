@@ -4,7 +4,12 @@ package com.bicicletas.modelo;
 
 import java.time.LocalDateTime; 
 import java.util.ArrayList;
-import java.time.Duration;     
+
+import java.time.Duration;      // Para calcular la diferencia de tiempo entre dos momentos
+import java.util.List;
+import javax.swing.JOptionPane;
+    
+
 
 
 public class Student extends User {
@@ -108,48 +113,81 @@ public class Student extends User {
     }
     
     public void activacionDeUso(){
-        if (this.reserva != null) {
-            reserva.activacionUso();
-        }
+    if (this.reserva != null) {
+        reserva.activacionUso();
+    } else {
+        javax.swing.JOptionPane.showMessageDialog(null,
+            "El estudiante " + this.getUserName() + " no tiene ninguna reserva activa.",
+            "Activación fallida",
+            javax.swing.JOptionPane.ERROR_MESSAGE);
     }
+}
 
-    public void finalizacionDeUso(){
-        if (this.reserva != null) {
-            reserva.finalizarUso();
-        }
+public void finalizacionDeUso(){
+    if (this.reserva != null) {
+        reserva.finalizarUso();
+    } else {
+        javax.swing.JOptionPane.showMessageDialog(null,
+            "El estudiante " + this.getUserName() + " no tiene un uso activo para finalizar.",
+            "Finalización fallida",
+            javax.swing.JOptionPane.ERROR_MESSAGE);
     }
+}
 
-    public void estadoPenalizacion(){
-        
-        // VERIFICACIAR SI SE ENCUENTRA CONUNA PENALIZACION O SI NO
-        if (this.getState() != null && this.getState().equals("bloqueado")) {
-            LocalDateTime ahora = LocalDateTime.now();
-            LocalDateTime finCastigo = this.getFechaFinPenalizacion();
 
-            //VERIFIACAR SI LA EL BLOQUEO SIGUE ACTUALMENTE
-            if (finCastigo != null && ahora.isBefore(finCastigo)) {
-                Duration tiempoRestante = Duration.between(ahora, finCastigo);
-                
-                long dias = tiempoRestante.toDays();
-                long horas = tiempoRestante.toHoursPart();
-                long minutos = tiempoRestante.toMinutesPart();
+    public void estadoPenalizacionConComentario(List<Comment> comentariosAdmin){
+    StringBuilder mensaje = new StringBuilder();
 
-                System.out.println("Cuenta regresiva de tu sanción: "
-                        + dias + " días, "
-                        + horas + " horas y "
-                        + minutos + " minutos.");
-            } else {
-                // El tiempo ya paso se desbloque automaticamente
-                this.setState("activo");
-                this.setFechaFinPenalizacion(null);
-                System.out.println("El estudiante: " + this.getUserName() + " ya se encuentra activo.");
-            }
+    if (this.getState() != null && this.getState().equals("bloqueado")) {
+        LocalDateTime ahora = LocalDateTime.now();
+        LocalDateTime finCastigo = this.getFechaFinPenalizacion();
+
+        if (finCastigo != null && ahora.isBefore(finCastigo)) {
+            Duration tiempoRestante = Duration.between(ahora, finCastigo);
+
+            long dias = tiempoRestante.toDays();
+            long horas = tiempoRestante.toHoursPart();
+            long minutos = tiempoRestante.toMinutesPart();
+
+            mensaje.append("Cuenta regresiva de tu sanción:\n")
+                   .append(dias).append(" días, ")
+                   .append(horas).append(" horas y ")
+                   .append(minutos).append(" minutos.\n\n");
         } else {
-            // Si el estado es "activo" o null, significa que está limpio
-            System.out.println("El estudiante: " + this.getUserName() + " no se encuentra penalizado.");
+            this.setState("activo");
+            this.setFechaFinPenalizacion(null);
+            mensaje.append("El estudiante ").append(this.getUserName())
+                   .append(" ya se encuentra activo.\n\n");
         }
-   
+    } else {
+        mensaje.append("El estudiante ").append(this.getUserName())
+               .append(" no se encuentra penalizado.\n\n");
     }
+
+    // Buscar comentarios asociados a este estudiante
+    for (Comment c : comentariosAdmin) {
+        if (c.getTiun() == this.getTiun()) {
+            if (c.getAutor() != null) {
+                mensaje.append("Comentario del administrador:\n")
+                       .append("Autor: ").append(c.getAutor().getUserName()).append("\n")
+                       .append("Fecha: ").append(c.getFecha()).append("\n")
+                       .append("Mensaje: ").append(c.getMensaje()).append("\n");
+            } else {
+                mensaje.append("Comentario del administrador:\n")
+                       .append("Administrador: ").append(c.getAdmin().getUserName()).append("\n")
+                       .append("Fecha: ").append(c.getFecha()).append("\n")
+                       .append("Mensaje: ").append(c.getMensaje()).append("\n");
+            }
+        }
+    }
+
+    // Mostrar todo en una sola alerta
+    JOptionPane.showMessageDialog(null,
+        mensaje.toString(),
+        "Estado de penalización y comentarios",
+        JOptionPane.WARNING_MESSAGE);
+}
+
 
     public void tiempoDeUso(){
         //verificacion de que si cuente con la activacion del uso 
@@ -199,8 +237,7 @@ public class Student extends User {
         System.out.println("C.C de persona de EMERGENCIA: " + perEmergencias.getCedula());
         System.out.println("Numero de persona de EMERGENCIA: " + perEmergencias.getNumEmergencia());
     }
-
-  
+    
 }
 
     

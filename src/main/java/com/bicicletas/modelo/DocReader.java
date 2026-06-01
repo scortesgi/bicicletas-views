@@ -578,4 +578,26 @@ public static boolean cambiarClaveAdministrador(
 
     return false;
 }
+    //metodo para guardar las penalizacion
+
+    /**
+     *
+     * @param nombreArchivo
+     * @param estudiante
+     */
+    public static void guardarPenalizacion(String nombreArchivo, Student estudiante) {
+        File archivo = new File(nombreArchivo);
+        try (PrintWriter salida = new PrintWriter(new FileWriter(archivo, true))) {
+            salida.println(
+                estudiante.getTiun() + ":" +
+                estudiante.getUserName() + ":" +
+                estudiante.getState() + ":" +
+                (estudiante.getFechaFinPenalizacion() != null ? estudiante.getFechaFinPenalizacion().toString() : "sin penalización")
+            );
+            System.out.println("Penalización guardada en archivo.");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+   
 }

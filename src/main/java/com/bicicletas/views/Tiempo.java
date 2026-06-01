@@ -105,26 +105,14 @@ public class Tiempo extends javax.swing.JPanel {
     private void tiempoUso_textMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tiempoUso_textMouseClicked
 
 
-                                           
-                                                     
         if (Main.estudianteActual != null && Main.estudianteActual.getReserva() != null) {
-            Main.estudianteActual.getReserva().verificarExcesoReserva();
-        } else {
-                              
-                                                     
-       if (Main.estudianteActual != null && Main.estudianteActual.getReserva() != null) {
-            Main.estudianteActual.getReserva().verificarExcesoReserva();
-        } else {
-
-            javax.swing.JOptionPane.showMessageDialog(this,
-                "No cuenta con ninguna reserva activa en este momento.",
-                "Información",
-                javax.swing.JOptionPane.INFORMATION_MESSAGE);
-
-        }
-
-        }
-
+        Main.estudianteActual.tiempoDeUso(); 
+    } else {
+        javax.swing.JOptionPane.showMessageDialog(this,
+            "No cuenta con ningún uso activo en este momento.",
+            "Información",
+            javax.swing.JOptionPane.INFORMATION_MESSAGE);
+    }
 
 
     }//GEN-LAST:event_tiempoUso_textMouseClicked
@@ -140,8 +128,7 @@ public class Tiempo extends javax.swing.JPanel {
     }//GEN-LAST:event_tiempoUso_textMouseExited
 
     private void tiempoReserva_text1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tiempoReserva_text1MouseClicked
-       if (Main.estudianteActual != null && Main.estudianteActual.getReserva() != null) {
-        // Llamar al método verificarExcesoReserva de la reserva actual
+      if (Main.estudianteActual != null && Main.estudianteActual.getReserva() != null) {
         Main.estudianteActual.getReserva().verificarExcesoReserva();
     } else {
         javax.swing.JOptionPane.showMessageDialog(this,
