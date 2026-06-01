@@ -20,8 +20,10 @@ public class Bike {
     public String getState() {
         return state;
     }
-
-
+    
+    public String setState(String state){
+    return state;
+    }
     //Metodos
 
     //met reserva

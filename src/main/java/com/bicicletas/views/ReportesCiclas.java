@@ -118,6 +118,7 @@ public class ReportesCiclas extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        jTable2.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(jTable2);
         if (jTable2.getColumnModel().getColumnCount() > 0) {
             jTable2.getColumnModel().getColumn(0).setResizable(false);

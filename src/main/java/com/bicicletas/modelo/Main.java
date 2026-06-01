@@ -45,6 +45,10 @@ public class Main {
         for (Station estacion : estaciones) {
         Archivo.cargarBicicletas(estacion);
         }
+
+        DocReader.cargarComentarios("comentarios.txt");
+        DocReader.cargarReservas();
+
         DocReader.cargarEstudiantesDesdeArchivo("estudiantes.txt");
         DocReader.cargarComentariosDesdeArchivo("comentarios.txt");
   

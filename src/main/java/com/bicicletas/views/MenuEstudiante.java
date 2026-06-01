@@ -390,13 +390,26 @@ public class MenuEstudiante extends javax.swing.JFrame {
     }//GEN-LAST:event_inicio_imageMouseClicked
 
     private void reservar_imageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reservar_imageMouseClicked
-        panelActivo="reservar";
-        Reservar reservation=new Reservar();
-        BLANK.removeAll();
+
+    panelActivo = "reservar";
+
+    BLANK.removeAll();
+
+    if (com.bicicletas.modelo.Main.estudianteActual.getReserva() == null) {
+        // NO tiene reserva → mostrar formulario de reservar
+        Reservar reservation = new Reservar();
         BLANK.add(reservation, BorderLayout.CENTER);
-        BLANK.revalidate();
-        BLANK.repaint();
-        actualizarIconos();
+
+    } else {
+        // YA tiene reserva → mostrar cancelar
+        CancelarReserva cancelar = new CancelarReserva();
+        BLANK.add(cancelar, BorderLayout.CENTER);
+    }
+
+    BLANK.revalidate();
+    BLANK.repaint();
+
+    actualizarIconos();
     }//GEN-LAST:event_reservar_imageMouseClicked
 
     private void inicio_imageMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicio_imageMouseEntered

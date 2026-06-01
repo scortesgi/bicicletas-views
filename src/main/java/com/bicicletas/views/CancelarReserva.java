@@ -1,6 +1,6 @@
 
 package com.bicicletas.views;
-
+import com.bicicletas.modelo.Main;
 import java.awt.Color;
 import java.time.LocalDate;
 
@@ -17,7 +17,13 @@ public class CancelarReserva extends javax.swing.JPanel {
         /*String id=bici.getId().toString();
         String estRecogida=;
         String estEntrega=;*/
-        
+    var reserva = Main.estudianteActual.getReserva();
+
+    if (reserva == null) return;
+
+    cancelarReserva_text2.setText("Bicicleta: " + reserva.getBicicletaReservada().getId());
+    cancelarReserva_text3.setText("Estación de recogida: " + reserva.getEstacionRecogida().getName_station());
+    cancelarReserva_text.setText("Estación de entrega: " + reserva.getEstacionEntrega().getName_station());
         //Aquí toca poner esos atributos para los textos.
         
     }
@@ -120,10 +126,26 @@ public class CancelarReserva extends javax.swing.JPanel {
 
     private void cancel_textMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancel_textMouseClicked
 
-        /*
-        AQUÍ IRÍA EL CÓDIGO PARA MOSTRAR QUE LA RESERVA SE CANCELE
-        Es decir, se devuelve la bici al arreglo de la estación de recogida 
-        */
+    var estudiante = com.bicicletas.modelo.Main.estudianteActual;
+    var reserva = estudiante.getReserva();
+
+    if (reserva == null) {
+        javax.swing.JOptionPane.showMessageDialog(this, "No hay reserva activa.");
+        return;
+    }
+
+    // devolver bici a disponible
+    reserva.getBicicletaReservada().setState("disponible");
+
+    // limpiar reserva del estudiante
+    estudiante.setReserva(null);
+
+    javax.swing.JOptionPane.showMessageDialog(this, "Reserva cancelada.");
+
+    // volver a refrescar menú (opcional pero recomendado)
+    javax.swing.SwingUtilities.getWindowAncestor(this).dispose();
+    new MenuEstudiante().setVisible(true);
+
     }//GEN-LAST:event_cancel_textMouseClicked
 
     private void cancel_textMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancel_textMouseEntered

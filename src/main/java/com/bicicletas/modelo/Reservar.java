@@ -43,6 +43,9 @@ public class Reservar {
     public LocalDateTime getTiempoInicioUso(){
         return tiempoInicioUso;
     }
+    public LocalDateTime getTiempoInicioReserva() {
+        return tiempoInicioReserva;
+    }
 
     //set
     public boolean setEstacionEntrega(Station estacionEntrega) {

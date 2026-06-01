@@ -7,6 +7,155 @@ public class DocReader {
     
     public static boolean dupli = false;
         //constructor
+public static void guardarReserva(Reservar r) {
+
+    try (PrintWriter pw = new PrintWriter(new FileWriter("reservas.txt", true))) {
+
+        pw.println(
+            r.getEstudiante().getTiun() + "," +
+            r.getBicicletaReservada().getId() + "," +
+            r.getEstacionRecogida().getName_station() + "," +
+            r.getEstacionEntrega().getName_station() + "," +
+            r.getEstadoReserva() + "," +
+            r.getTiempoInicioReserva());
+
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
+public static void cargarReservas() {
+
+    File file = new File("reservas.txt");
+    if (!file.exists()) return;
+
+    try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+
+        String line;
+
+        while ((line = br.readLine()) != null) {
+
+            if (line.trim().isEmpty()) continue;
+
+            String[] p = line.split(",");
+
+            long tiun = Long.parseLong(p[0]);
+            int bikeId = Integer.parseInt(p[1]);
+            String estRec = p[2];
+            String estEnt = p[3];
+            String estado = p[4];
+
+            Student st = null;
+            Station rec = null;
+            Station ent = null;
+            Bike bike = null;
+
+            // buscar estudiante
+            for (Student s : Main.listaEstudiante) {
+                if (s.getTiun() == tiun) {
+                    st = s;
+                    break;
+                }
+            }
+
+            // buscar estaciones
+            for (Station s : Main.estaciones) {
+                if (s.getName_station().equals(estRec)) rec = s;
+                if (s.getName_station().equals(estEnt)) ent = s;
+            }
+
+            if (st == null || rec == null) continue;
+
+            // buscar bici 
+            for (Bike b : rec.getBicis()) {
+                if (b.getId() == bikeId) {
+                    bike = b;
+                    break;
+                }
+            }
+
+            if (bike == null) continue;
+
+            // crear reserva
+            Reservar r = new Reservar(bike, st);
+
+            r.setEstacionRecogida(rec);
+            r.setEstacionEntrega(ent);
+            r.setEstadoReserva(estado);
+
+            st.setReserva(r);
+            if (estado.equals("reservada") || estado.equals("en_uso")) {
+
+                bike.reservar();              // cambia estado de la bici
+                rec.retirarBicicleta(bike);   // la saca de la estación
+            }
+
+        }
+
+        System.out.println("Reservas cargadas correctamente.");
+
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+
+public static void cargarComentarios(String nombreArchivo) {
+
+    File archivo = new File(nombreArchivo);
+
+    if (!archivo.exists()) {
+        System.out.println("No existe archivo de comentarios.");
+        return;
+    }
+
+    try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+        String linea;
+        while ((linea = br.readLine()) != null) {
+            if (linea.trim().isEmpty()) continue;
+            String[] partes = linea.split(":");
+            if (partes.length < 4) continue;
+            String tipo = partes[0];
+            if (tipo.equals("ESTUDIANTE")) {
+                String type = partes[1];
+                long tiun = Long.parseLong(partes[2]);
+                String fecha = partes[3];
+                String mensaje = partes[4];
+                Student autor = null;
+                
+                for (Student s : Main.listaEstudiante) {
+                    if (s.getTiun() == tiun) {
+                        autor = s;
+                        break;
+                    }
+                }
+
+                if (autor != null) {
+                    Comment c = new Comment(mensaje, autor, type);
+                    Main.listaComentarios.add(c);
+                }
+
+            } else if (tipo.equals("ADMIN")) {
+
+                long tiun = Long.parseLong(partes[1]);
+                String fecha = partes[2];
+                String mensaje = partes[3];
+
+                Comment c = new Comment(
+                    mensaje,
+                    Main.administradorActual,
+                    tiun
+                );
+
+                Main.listaComentariosAdmin.add(c);
+            }
+        }
+        System.out.println("Comentarios cargados correctamente.");
+
+    } catch (IOException | NumberFormatException ex) {
+        ex.printStackTrace();
+    }
+}
+
+
 
     
 
