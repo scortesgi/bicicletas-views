@@ -165,11 +165,13 @@ public class Tiempo extends javax.swing.JPanel {
     }//GEN-LAST:event_tiempoReserva_text1MouseClicked
 
     private void tiempoReserva_text1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tiempoReserva_text1MouseEntered
-        // TODO add your handling code here:
+        tiempoReserva_text1.setForeground(Color.WHITE);
+        tiempoReserva_button1.setBackground(new Color(19,134,201));
     }//GEN-LAST:event_tiempoReserva_text1MouseEntered
 
     private void tiempoReserva_text1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tiempoReserva_text1MouseExited
-        // TODO add your handling code here:
+        tiempoReserva_text1.setForeground(Color.BLACK);
+        tiempoReserva_button1.setBackground(new Color(56,182,255));
     }//GEN-LAST:event_tiempoReserva_text1MouseExited
 
 
