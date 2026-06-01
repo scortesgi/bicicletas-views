@@ -117,16 +117,28 @@ public class Tiempo extends javax.swing.JPanel {
 
     private void tiempoUso_textMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tiempoUso_textMouseClicked
 
+
                                            
                                                      
         if (Main.estudianteActual != null && Main.estudianteActual.getReserva() != null) {
             Main.estudianteActual.getReserva().verificarExcesoReserva();
         } else {
+                              
+                                                     
+       if (Main.estudianteActual != null && Main.estudianteActual.getReserva() != null) {
+            Main.estudianteActual.getReserva().verificarExcesoReserva();
+        } else {
+
             javax.swing.JOptionPane.showMessageDialog(this,
                 "No cuenta con ninguna reserva activa en este momento.",
                 "Información",
                 javax.swing.JOptionPane.INFORMATION_MESSAGE);
+
         }
+
+        }
+
+
 
     }//GEN-LAST:event_tiempoUso_textMouseClicked
 
