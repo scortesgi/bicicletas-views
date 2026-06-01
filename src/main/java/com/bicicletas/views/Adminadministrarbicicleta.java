@@ -63,7 +63,7 @@ public class Adminadministrarbicicleta extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-                                            
+                                          
       String tiunStr = javax.swing.JOptionPane.showInputDialog(this,
           "Ingrese el TIUN del estudiante para desactivar el uso:");
       if (tiunStr == null || tiunStr.trim().isEmpty()) return;
@@ -73,16 +73,13 @@ public class Adminadministrarbicicleta extends javax.swing.JPanel {
           boolean encontrado = false;
 
           for (com.bicicletas.modelo.Student student : com.bicicletas.modelo.Main.listaEstudiante) {
-              if (student.getTiun() == tiun) {
-                  student.finalizacionDeUso();
-                  /*javax.swing.JOptionPane.showMessageDialog(this,
-                      "Uso finalizado con éxito para el estudiante " + student.getUserName(),
-                      "Finalización de uso",
-                      javax.swing.JOptionPane.INFORMATION_MESSAGE);*/
-                  encontrado = true;
-                  break;
-              }
-          }
+                if (student.getTiun() == tiun) {
+                    student.finalizacionDeUso(); // Reservar muestra el mensaje correcto
+                    encontrado = true;
+                    break;
+                }
+            }
+
 
           if (!encontrado) {
               javax.swing.JOptionPane.showMessageDialog(this,
@@ -100,6 +97,7 @@ public class Adminadministrarbicicleta extends javax.swing.JPanel {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
                                              
+                                            
         String tiunStr = javax.swing.JOptionPane.showInputDialog(this, 
             "Ingrese el TIUN del estudiante para activar el uso:");
         if (tiunStr == null || tiunStr.trim().isEmpty()) return;
@@ -110,15 +108,12 @@ public class Adminadministrarbicicleta extends javax.swing.JPanel {
 
             for (com.bicicletas.modelo.Student student : com.bicicletas.modelo.Main.listaEstudiante) {
                 if (student.getTiun() == tiun) {
-                    student.activacionDeUso();
-                   /* javax.swing.JOptionPane.showMessageDialog(this,
-                        "Uso activado con éxito para el estudiante " + student.getUserName(),
-                        "Activación de uso",
-                        javax.swing.JOptionPane.INFORMATION_MESSAGE);*/
+                    student.activacionDeUso(); // aquí se encargará Reservar de mostrar el mensaje correcto
                     encontrado = true;
                     break;
                 }
             }
+
 
             if (!encontrado) {
                 javax.swing.JOptionPane.showMessageDialog(this,

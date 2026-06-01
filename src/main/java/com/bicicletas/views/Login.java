@@ -312,45 +312,81 @@ public class Login extends javax.swing.JFrame {
     
     //estudiante
     else if (rolSeleccionado.equals("Estudiante")) {
+       
+
         for (com.bicicletas.modelo.Student student : com.bicicletas.modelo.Main.listaEstudiante) {
             // Verifica nsi todo está bienn
             System.out.println("DB USER: [" + student.getUserName() + "]");
-System.out.println("INPUT USER: [" + nombreIngresado + "]");
-System.out.println("DB ID: " + student.getCedula());
-System.out.println("INPUT ID: " + idIngresado);
-System.out.println("DB PASS: [" + student.getContraseña() + "]");
-System.out.println("INPUT PASS: [" + passwordIngresado + "]");
-System.out.println("-----");
+            System.out.println("INPUT USER: [" + nombreIngresado + "]");
+            System.out.println("DB ID: " + student.getCedula());
+            System.out.println("INPUT ID: " + idIngresado);
+            System.out.println("DB PASS: [" + student.getContraseña() + "]");
+            System.out.println("INPUT PASS: [" + passwordIngresado + "]");
+            System.out.println("-----");
 
-            if (student.getUserName().trim().equalsIgnoreCase(nombreIngresado.trim()) &&
+           if (student.getUserName().trim().equalsIgnoreCase(nombreIngresado.trim()) &&
                 student.getCedula() == idIngresado &&
-                student.getContraseña().trim().equals(passwordIngresado.trim()))
-            
-            {
+                student.getContraseña().trim().equals(passwordIngresado.trim())) {
+
                 usuarioEncontrado = true;
                 Main.estudianteActual = student;
-            
-                javax.swing.JOptionPane.showMessageDialog(this, "Bienvenido Estudiante: " + student.getUserName());
+
+                // Validar penalización
+                if (student.getState() != null && student.getState().equals("bloqueado")) {
+                    // Mostrar estado de penalización
+                    student.estadoPenalizacionConComentario(Main.listaComentariosAdmin);
+                    javax.swing.JOptionPane.showMessageDialog(this,
+                        "Su cuenta está bloqueada por una penalización.\nSolo puede consultar su estado.",
+                        "Acceso restringido",
+                        javax.swing.JOptionPane.ERROR_MESSAGE);
+                    return; // No lo deja entrar al menú
+                }
+
+                javax.swing.JOptionPane.showMessageDialog(this,
+                    "Bienvenido Estudiante: " + student.getUserName());
                 MenuEstudiante menuE = new MenuEstudiante();
                 menuE.setVisible(true);
-
-                this.dispose(); // Cerrar el login
+                this.dispose();
                 break;
-                
-                }
+            }
+
         }
+                // y si no coincide nada
+         if (!usuarioEncontrado) {
+          // Buscar si el TIUN existe en la lista
+          boolean existeTiun = false;
+          for (com.bicicletas.modelo.Student s : com.bicicletas.modelo.Main.listaEstudiante) {
+              if (s.getTiun() == idIngresado) {
+                  existeTiun = true;
+                  break;
+              }
+          }
+
+          if (!existeTiun) {
+              // estudiante no registrado
+              javax.swing.JOptionPane.showMessageDialog(this,
+                  "El estudiante no se encuentra registrado.\nPor favor regístrese antes de ingresar.",
+                  "Registro requerido",
+                  javax.swing.JOptionPane.WARNING_MESSAGE);
+
+              // Aquí puedes abrir tu formulario de registro
+              Signup signup = new Signup();
+              signup.setVisible(true);
+              this.dispose();
+
+          } else {
+              //  datos incorrectos
+              javax.swing.JOptionPane.showMessageDialog(this,
+                  "Usuario o identificación incorrectos. Verifique sus datos.",
+                  "Acceso Denegado",
+                  javax.swing.JOptionPane.ERROR_MESSAGE);
+          }
+      }
     } else {
         javax.swing.JOptionPane.showMessageDialog(this, "Seleccione un rol válido.", "Error", javax.swing.JOptionPane.WARNING_MESSAGE);
         return;
     }
 
-    // 4. Qué pasa si no coincide nada
-    if (!usuarioEncontrado) {
-    javax.swing.JOptionPane.showMessageDialog(this, "Usuario o identificación incorrectos. Verifique sus datos.", "Acceso Denegado", javax.swing.JOptionPane.ERROR_MESSAGE);
-    }
-
-        
-        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void panel_superiorMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_superiorMouseDragged
