@@ -1,6 +1,8 @@
 
 package com.bicicletas.views;
 
+import static com.bicicletas.modelo.Main.reserva;
+
 public class Adminadministrarbicicleta extends javax.swing.JPanel {
 
     public Adminadministrarbicicleta() {

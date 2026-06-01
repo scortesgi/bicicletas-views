@@ -129,6 +129,7 @@ public void retirarBicicleta() {
                 tiempoInicioUso = LocalDateTime.now();
                 tiempoFinReserva = LocalDateTime.now();
                 estadoReserva = "en_uso";
+                estacionRecogida.retirarBicicleta(bicicletaReservada);
                 JOptionPane.showMessageDialog(null,
                     "Uso activado con éxito para el estudiante " + estudiante.getUserName(),
                     "Activación de uso",

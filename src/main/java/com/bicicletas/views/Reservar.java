@@ -157,7 +157,6 @@ public class Reservar extends javax.swing.JPanel {
 
 if (reservacion) {
 
-    reserva.retirarBicicleta(); // SOLO UNA VEZ
 
     Main.estudianteActual.setReserva(reserva);
     DocReader.guardarReserva(reserva);
