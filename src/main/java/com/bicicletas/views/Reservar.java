@@ -4,6 +4,10 @@
  */
 package com.bicicletas.views;
 
+import com.bicicletas.modelo.Main;
+import com.bicicletas.modelo.Station;
+import com.bicicletas.modelo.Bike;
+import com.bicicletas.modelo.DocReader;
 import java.awt.Color;
 import java.time.LocalDate;
 
@@ -115,10 +119,59 @@ public class Reservar extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void reservar_textMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reservar_textMouseClicked
+                                        
+    String estRec = estRecogida_select.getSelectedItem().toString();
+    String estEnt = estEntrega_select.getSelectedItem().toString();
 
-        /*
-        AQUÍ IRÍA EL CÓDIGO PARA MOSTRAR QUE LA RESERVA SE ACTIVE
-        */
+    if (estRec.trim().isEmpty() || estEnt.trim().isEmpty()) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Seleccione ambas estaciones.");
+        return;
+    }
+    // Buscar estaciones en Main
+    com.bicicletas.modelo.Station recogida = null;
+    com.bicicletas.modelo.Station entrega = null;
+
+    for (com.bicicletas.modelo.Station s : com.bicicletas.modelo.Main.estaciones) {
+        if (s.getName_station().equalsIgnoreCase(estRec)) {
+            recogida = s;
+        }
+        if (s.getName_station().equalsIgnoreCase(estEnt)) {
+            entrega = s;
+        }
+    }
+
+    // Buscar primera bici disponible
+    com.bicicletas.modelo.Bike bici = null;
+
+    for (com.bicicletas.modelo.Bike b : recogida.getBicis()) {
+        if (b.getState().equals("disponible")) {
+            bici = b;
+            break;
+        }
+    }
+
+    if (bici == null) {
+        javax.swing.JOptionPane.showMessageDialog(this, "No hay bicicletas disponibles.");
+        return;
+    }
+
+    // Crear reserva
+    com.bicicletas.modelo.Reservar reserva =
+            new com.bicicletas.modelo.Reservar(bici, com.bicicletas.modelo.Main.estudianteActual);
+
+    reserva.setEstacionRecogida(recogida);
+    reserva.setEstacionEntrega(entrega);
+
+    boolean reservacion = reserva.realizarReserva();
+
+    if (reservacion) {
+        com.bicicletas.modelo.Main.estudianteActual.setReserva(reserva);
+        DocReader.guardarReserva(reserva);
+        javax.swing.JOptionPane.showMessageDialog(this,"Reserva creada con éxito. / ID de la bicicleta: " + bici.getId());
+    } else {
+        javax.swing.JOptionPane.showMessageDialog(this,"No se pudo crear la reserva.");
+    }
+
 
     }//GEN-LAST:event_reservar_textMouseClicked
 
