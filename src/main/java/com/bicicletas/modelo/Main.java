@@ -45,7 +45,8 @@ public class Main {
         for (Station estacion : estaciones) {
         Archivo.cargarBicicletas(estacion);
         }
-        
+        DocReader.cargarEstudiantesDesdeArchivo("estudiantes.txt");
+        DocReader.cargarComentariosDesdeArchivo("comentarios.txt");
   
     // para ver como es sn registrarse
     
