@@ -2,6 +2,7 @@ package com.bicicletas.modelo;
 
 import java.time.LocalDateTime; // Para capturar la fecha y hora exacta
 import java.time.Duration;      // Para calcular la diferencia de tiempo entre dos momentos
+import javax.swing.JOptionPane;
 
 public class Reservar {
     private Station estacionRecogida,estacionEntrega;
@@ -142,14 +143,24 @@ public class Reservar {
             estadoReserva = "cancelada";
             estudiante.devolverBicicleta(bicicletaReservada);
             bicicletaReservada.desReservar();
-            System.out.println("La reserva expiro. La cicla quedara de nuevo libre");
+            JOptionPane.showMessageDialog(null,
+                "La reserva expiró. La cicla quedará de nuevo libre.",
+                "Reserva cancelada",
+                JOptionPane.WARNING_MESSAGE);
             return true;
         }else{
-            System.out.println("La reserva aún está activa. Tiempo restante: " + (tiempoReservaMax - (Duration.between(tiempoInicioReserva, LocalDateTime.now()).toMinutes())) + " minutos.");
+             
+            JOptionPane.showMessageDialog(null,
+                "La reserva aún está activa. Tiempo restante: " + (tiempoReservaMax - (Duration.between(tiempoInicioReserva, LocalDateTime.now()).toMinutes())) + " minutos.",
+                "Reserva activa",
+                JOptionPane.INFORMATION_MESSAGE);
             return false;
         }
         }else{
-            System.out.println("Usted no cuenta con ninguna reserva activa en este momento.");
+            JOptionPane.showMessageDialog(null,
+                "Usted no cuenta con ninguna reserva activa en este momento.",
+                "Sin reserva",
+                JOptionPane.INFORMATION_MESSAGE);
             return false;
         }
         

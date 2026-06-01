@@ -4,6 +4,7 @@
  */
 package com.bicicletas.views;
 
+import com.bicicletas.modelo.Main;
 import java.awt.Color;
 import java.time.LocalDate;
 
@@ -115,30 +116,18 @@ public class Tiempo extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tiempoUso_textMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tiempoUso_textMouseClicked
-/*
-        String selectedOption=pqr_select.getSelectedItem().toString().toLowerCase();
-        String mensaje="";
-        if (selectedOption.equals(" ")||commentUser.getText().isEmpty()){
-            mensaje = "<html><body style='width: 250px;'>"
-            + "No se pudo procesar su comentario <br><br>"
-            + "Intente nuevamente"
-            + "</body></html>";
-            javax.swing.JOptionPane.showMessageDialog(null, mensaje, "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
-        }else{
-            if(pqr_select.getSelectedIndex()==3){
-                mensaje="<html><body style='width: 250px;'>"
-                + "Su " +  selectedOption +" fue procesado CORRECTAMENTE"
-                + "</body></html>";
-                javax.swing.JOptionPane.showMessageDialog(null, mensaje, "Envío exitoso", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-            }else{
-                mensaje="<html><body style='width: 250px;'>"
-                + "Su " +  selectedOption +" fue procesada CORRECTAMENTE"
-                + "</body></html>";
-                javax.swing.JOptionPane.showMessageDialog(null, mensaje, "Envío exitoso", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-            }
 
+                                           
+                                                     
+        if (Main.estudianteActual != null && Main.estudianteActual.getReserva() != null) {
+            Main.estudianteActual.getReserva().verificarExcesoReserva();
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "No cuenta con ninguna reserva activa en este momento.",
+                "Información",
+                javax.swing.JOptionPane.INFORMATION_MESSAGE);
         }
-*/
+
     }//GEN-LAST:event_tiempoUso_textMouseClicked
 
     private void tiempoUso_textMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tiempoUso_textMouseEntered
@@ -152,7 +141,15 @@ public class Tiempo extends javax.swing.JPanel {
     }//GEN-LAST:event_tiempoUso_textMouseExited
 
     private void tiempoReserva_text1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tiempoReserva_text1MouseClicked
-        // TODO add your handling code here:
+       if (Main.estudianteActual != null && Main.estudianteActual.getReserva() != null) {
+        // Llamar al método verificarExcesoReserva de la reserva actual
+        Main.estudianteActual.getReserva().verificarExcesoReserva();
+    } else {
+        javax.swing.JOptionPane.showMessageDialog(this,
+            "No cuenta con ninguna reserva activa en este momento.",
+            "Información",
+            javax.swing.JOptionPane.INFORMATION_MESSAGE);
+    }
     }//GEN-LAST:event_tiempoReserva_text1MouseClicked
 
     private void tiempoReserva_text1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tiempoReserva_text1MouseEntered
