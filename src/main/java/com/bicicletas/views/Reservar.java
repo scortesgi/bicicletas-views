@@ -5,6 +5,7 @@ import com.bicicletas.modelo.Main;
 import com.bicicletas.modelo.Station;
 import com.bicicletas.modelo.Bike;
 import com.bicicletas.modelo.DocReader;
+import com.bicicletas.modelo.Archivo;
 import java.awt.Color;
 import java.time.LocalDate;
 
@@ -109,7 +110,7 @@ public class Reservar extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void reservar_textMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reservar_textMouseClicked
-                                        
+      
     String estRec = estRecogida_select.getSelectedItem().toString();
     String estEnt = estEntrega_select.getSelectedItem().toString();
 
@@ -154,13 +155,19 @@ public class Reservar extends javax.swing.JPanel {
 
     boolean reservacion = reserva.realizarReserva();
 
-    if (reservacion) {
-        com.bicicletas.modelo.Main.estudianteActual.setReserva(reserva);
-        DocReader.guardarReserva(reserva);
-        javax.swing.JOptionPane.showMessageDialog(this,"Reserva creada con éxito. / ID de la bicicleta: " + bici.getId());
-    } else {
-        javax.swing.JOptionPane.showMessageDialog(this,"No se pudo crear la reserva.");
-    }
+if (reservacion) {
+
+    reserva.retirarBicicleta(); // SOLO UNA VEZ
+
+    Main.estudianteActual.setReserva(reserva);
+    DocReader.guardarReserva(reserva);
+
+    Archivo.reescribirArchivo(recogida);
+
+    javax.swing.JOptionPane.showMessageDialog(this,
+    "Reserva creada con éxito.\nID de la bicicleta: " + bici.getId()
+);
+}
 
 
     }//GEN-LAST:event_reservar_textMouseClicked
