@@ -144,16 +144,23 @@ public class adminBuscarEstudiante extends javax.swing.JPanel {
         // Contacto de emergencia
         String telEmerg = "No registrado";
         String nombreEmerg = "No registrado";
+        String cedulaEmerg = "No registrado";
+        
         if (objetivo.getPerEmergencia() != null) {
             telEmerg    = String.valueOf(objetivo.getPerEmergencia().getNumEmergencia());//se convierte en string
             nombreEmerg = objetivo.getPerEmergencia().getUserName();
+            cedulaEmerg = String.valueOf(objetivo.getPerEmergencia().getCedula());
         }
 
         // Penalización
         String penalizacion = "Ninguna";
-        if (objetivo.getFechaFinPenalizacion() != null) {
-            penalizacion = "Hasta: " + objetivo.getFechaFinPenalizacion().toString();
-        }
+        String motivo = "no tiene penalización";
+        
+        
+        
+        
+        
+            
 
         String info =
                 
@@ -171,6 +178,7 @@ public class adminBuscarEstudiante extends javax.swing.JPanel {
             "---------------------------\n" +
             "Nombre:        " + nombreEmerg             + "\n" +
             "Teléfono:      " + telEmerg                + "\n" +
+            "Cédula:      " +   cedulaEmerg                + "\n" +
             "+---------------------------\n";
 
         javax.swing.JOptionPane.showMessageDialog(this,
