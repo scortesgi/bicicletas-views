@@ -25,6 +25,8 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         
         DocReader.cargarEstudiantesDesdeArchivo("estudiantes.txt");
+        DocReader.cargarComentariosDesdeArchivo("comentarios.txt");
+
         
         //para q no coja ni admin ni estudiante
         jComboBox2.setSelectedIndex(-1);

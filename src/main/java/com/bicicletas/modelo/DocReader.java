@@ -26,14 +26,18 @@ public static void guardarReserva(Reservar r) {
 public static void cargarReservas() {
 
     File file = new File("reservas.txt");
-
     if (!file.exists()) return;
+
     try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+
         String line;
+
         while ((line = br.readLine()) != null) {
+
             if (line.trim().isEmpty()) continue;
+
             String[] p = line.split(",");
-            if (p.length < 5) continue;
+
             long tiun = Long.parseLong(p[0]);
             int bikeId = Integer.parseInt(p[1]);
             String estRec = p[2];
@@ -45,6 +49,7 @@ public static void cargarReservas() {
             Station ent = null;
             Bike bike = null;
 
+            // buscar estudiante
             for (Student s : Main.listaEstudiante) {
                 if (s.getTiun() == tiun) {
                     st = s;
@@ -52,13 +57,15 @@ public static void cargarReservas() {
                 }
             }
 
+            // buscar estaciones
             for (Station s : Main.estaciones) {
                 if (s.getName_station().equals(estRec)) rec = s;
                 if (s.getName_station().equals(estEnt)) ent = s;
             }
 
-            if (rec == null || st == null) continue;
+            if (st == null || rec == null) continue;
 
+            // buscar bici 
             for (Bike b : rec.getBicis()) {
                 if (b.getId() == bikeId) {
                     bike = b;
@@ -68,19 +75,25 @@ public static void cargarReservas() {
 
             if (bike == null) continue;
 
+            // crear reserva
             Reservar r = new Reservar(bike, st);
+
             r.setEstacionRecogida(rec);
             r.setEstacionEntrega(ent);
             r.setEstadoReserva(estado);
 
             st.setReserva(r);
+            if (estado.equals("reservada") || estado.equals("en_uso")) {
 
-            r.verificarExcesoReserva();
+                bike.reservar();              // cambia estado de la bici
+                rec.retirarBicicleta(bike);   // la saca de la estación
+            }
+
         }
 
         System.out.println("Reservas cargadas correctamente.");
 
-    } catch (IOException e) {
+    } catch (Exception e) {
         e.printStackTrace();
     }
 }
@@ -144,6 +157,7 @@ public static void cargarComentarios(String nombreArchivo) {
 
 
 
+    
 
     public static void guardarComentario(String nombreArchivo, Comment comentario) {
 
@@ -169,6 +183,38 @@ public static void cargarComentarios(String nombreArchivo) {
     }
 }
     
+    
+    public static void cargarComentariosDesdeArchivo(String nombreArchivo) {
+    File archivo = new File(nombreArchivo);
+    if (!archivo.exists()) return;
+    try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+        String linea;
+        while ((linea = br.readLine()) != null) {
+            if (linea.trim().isEmpty()) continue;
+            String[] partes = linea.split(":", 4);
+            if (partes.length < 4) continue;
+            
+    try {
+                long tiun      = Long.parseLong(partes[0].trim());
+                String tipo    = partes[1].trim();
+                String mensaje = partes[3].trim();
+                Student autor = null;
+                for (Student s : Main.listaEstudiante) {
+                    if (s.getTiun() == tiun) { autor = s; break; }
+                }
+                if (autor == null) continue;
+
+                Comment c = new Comment(mensaje, autor, tipo);
+                Main.listaComentarios.add(c);
+
+            } catch (NumberFormatException e) {
+                System.out.println("Línea inválida omitida: " + linea);
+            }
+        }
+    } catch (IOException ex) {
+        ex.printStackTrace();
+    }
+}
     
 
        public static void crearArchivo(String nombreArchivo) {

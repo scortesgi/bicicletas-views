@@ -34,6 +34,7 @@ public class Comment{
     public String getType(){
         return type;
     }
+    
     public String getMensaje(){
         return mensaje;
     }

@@ -62,12 +62,11 @@ public class MenuAdmin extends javax.swing.JFrame {
     initComponents();
     SetDate();
    
-    
+    Penalizarr.setIcon(new ImageIcon(penalizarEscalado));
     Administrar.setIcon(new ImageIcon(administrarEscalado));
     quitar.setIcon(new ImageIcon(quitarEscalado));
     Report.setIcon(new ImageIcon(reportEscalado));
     reglass.setIcon(new ImageIcon(reglasEscalado));
-    Penalizarr.setIcon(new ImageIcon(penalizarEscalado));
     AgregarC.setIcon(new ImageIcon(agregarCEscalado));
     Buscar.setIcon(new ImageIcon(buscarEscalado));
     CerrarSesion.setIcon(new ImageIcon(cerrarSesionEscalado));
@@ -180,14 +179,7 @@ Image buscarNEscalado = buscarNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH)
         initComponents();
         SetDate();
        
-    Administrar.setIcon(new ImageIcon(administrarEscalado));
-    quitar.setIcon(new ImageIcon(quitarEscalado));
-    Report.setIcon(new ImageIcon(reportEscalado));
-    reglass.setIcon(new ImageIcon(reglasEscalado));
-    Penalizarr.setIcon(new ImageIcon(penalizarEscalado));
-    AgregarC.setIcon(new ImageIcon(agregarCEscalado));
-    Buscar.setIcon(new ImageIcon(buscarEscalado));
-    CerrarSesion.setIcon(new ImageIcon(cerrarSesionEscalado));
+   
       
     }
     
@@ -215,11 +207,11 @@ Image buscarNEscalado = buscarNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH)
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        Penalizarr = new javax.swing.JLabel();
         Administrar = new javax.swing.JLabel();
         quitar = new javax.swing.JLabel();
         Report = new javax.swing.JLabel();
         reglass = new javax.swing.JLabel();
-        Penalizarr = new javax.swing.JLabel();
         CerrarSesion = new javax.swing.JLabel();
         AgregarC = new javax.swing.JLabel();
         Buscar = new javax.swing.JLabel();
@@ -252,6 +244,23 @@ Image buscarNEscalado = buscarNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH)
         jPanel2.setBackground(new java.awt.Color(19, 134, 201));
         jPanel2.setPreferredSize(new java.awt.Dimension(873, 190));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Penalizarr.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Penalizarr.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/penalizar_estudiante.png"))); // NOI18N
+        Penalizarr.setText("jLabel3");
+        Penalizarr.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Penalizarr.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PenalizarrMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                PenalizarrMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                PenalizarrMouseExited(evt);
+            }
+        });
+        jPanel2.add(Penalizarr, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 70, 70));
 
         Administrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Administrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/administrar_bicicleta.png"))); // NOI18N
@@ -320,23 +329,6 @@ Image buscarNEscalado = buscarNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH)
             }
         });
         jPanel2.add(reglass, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 20, 70, 70));
-
-        Penalizarr.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Penalizarr.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/penalizar_estudiante.png"))); // NOI18N
-        Penalizarr.setText("jLabel3");
-        Penalizarr.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Penalizarr.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                PenalizarrMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                PenalizarrMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                PenalizarrMouseExited(evt);
-            }
-        });
-        jPanel2.add(Penalizarr, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 70, 70));
 
         CerrarSesion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         CerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cerrar_sesion.png"))); // NOI18N
