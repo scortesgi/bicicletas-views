@@ -77,22 +77,29 @@ public class Reservar {
     //la cicla, si no se retira en ese tiempo se vueve a poner activa la cicla, y si si se retiera empiza a contar el tiempo de uso 
     //que se puede usar 15 minutos 
 
-    public boolean realizarReserva() {
-        if (bicicletaReservada.reservar()) { //este se activara si la cicla se encuentra disponible 
-            estadoReserva = "reservada";
-            estudiante.asignarBicicleta(bicicletaReservada);
-            estudiante.setReserva(this);
-            bicicletaReservada.reservar();
-            estacionRecogida.retirarBicicleta(bicicletaReservada);
-            System.out.println("Reserva realizada con éxito.");
-            tiempoInicioReserva = LocalDateTime.now();
-            return true;
-        } else {
-            estadoReserva = "fallida";
-            System.out.println("No se pudo realizar la reserva, esta bicicleta no se encuentra disponible selecciona otra. \nSeleccione otra ");
-            return false;
-        }
+public boolean realizarReserva() {
+    if (bicicletaReservada.reservar()) {
+        estadoReserva = "reservada";
+        estudiante.asignarBicicleta(bicicletaReservada);
+        estudiante.setReserva(this);
+
+        tiempoInicioReserva = LocalDateTime.now();
+        return true;
     }
+    return false;
+}
+    
+public void retirarBicicleta() {
+    if (!"reservada".equals(estadoReserva)) {
+        JOptionPane.showMessageDialog(null, "No hay reserva activa.");
+        return;
+    }
+
+    estacionRecogida.retirarBicicleta(bicicletaReservada);
+
+    estadoReserva = "en_uso";
+    tiempoInicioUso = LocalDateTime.now();
+}
     
     public void cancelarReserva() {
         if (estadoReserva.equals("reservada")) {
