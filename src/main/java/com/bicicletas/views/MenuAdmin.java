@@ -207,22 +207,22 @@ Image buscarNEscalado = buscarNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH)
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        Penalizarr = new javax.swing.JLabel();
-        Administrar = new javax.swing.JLabel();
-        quitar = new javax.swing.JLabel();
+        ReportP = new javax.swing.JPanel();
         Report = new javax.swing.JLabel();
+        QuitarP = new javax.swing.JPanel();
+        quitar = new javax.swing.JLabel();
+        ReglasP = new javax.swing.JPanel();
         reglass = new javax.swing.JLabel();
+        CerrarSesionP = new javax.swing.JPanel();
         CerrarSesion = new javax.swing.JLabel();
+        PenalizarP = new javax.swing.JPanel();
+        Penalizarr = new javax.swing.JLabel();
+        AdministrarP = new javax.swing.JPanel();
+        Administrar = new javax.swing.JLabel();
+        AgregarP = new javax.swing.JPanel();
         AgregarC = new javax.swing.JLabel();
+        BuscarP = new javax.swing.JPanel();
         Buscar = new javax.swing.JLabel();
-        AgregarCicla_button = new javax.swing.JButton();
-        Penalizar_button = new javax.swing.JButton();
-        Reglas_button = new javax.swing.JButton();
-        Reportes_button = new javax.swing.JButton();
-        QuitarEstudiante_button = new javax.swing.JButton();
-        Buscar_button = new javax.swing.JButton();
-        AdminCiclas_button = new javax.swing.JButton();
-        CerrarSesion_button1 = new javax.swing.JButton();
         panel_superior = new javax.swing.JPanel();
         exit = new javax.swing.JPanel();
         CERRAR = new javax.swing.JLabel();
@@ -245,56 +245,7 @@ Image buscarNEscalado = buscarNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH)
         jPanel2.setPreferredSize(new java.awt.Dimension(873, 190));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Penalizarr.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Penalizarr.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/penalizar_estudiante.png"))); // NOI18N
-        Penalizarr.setText("jLabel3");
-        Penalizarr.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Penalizarr.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                PenalizarrMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                PenalizarrMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                PenalizarrMouseExited(evt);
-            }
-        });
-        jPanel2.add(Penalizarr, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 70, 70));
-
-        Administrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Administrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/administrar_bicicleta.png"))); // NOI18N
-        Administrar.setText("jLabel3");
-        Administrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Administrar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                AdministrarMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                AdministrarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                AdministrarMouseExited(evt);
-            }
-        });
-        jPanel2.add(Administrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, 70, 70));
-
-        quitar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        quitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/quitar_acceso_estudiante.png"))); // NOI18N
-        quitar.setText("jLabel3");
-        quitar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        quitar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                quitarMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                quitarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                quitarMouseExited(evt);
-            }
-        });
-        jPanel2.add(quitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 20, 70, 70));
+        ReportP.setBackground(new java.awt.Color(56, 182, 255));
 
         Report.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Report.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/reportes_de_estudiantes.png"))); // NOI18N
@@ -311,7 +262,66 @@ Image buscarNEscalado = buscarNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH)
                 ReportMouseExited(evt);
             }
         });
-        jPanel2.add(Report, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 110, 70, 70));
+
+        javax.swing.GroupLayout ReportPLayout = new javax.swing.GroupLayout(ReportP);
+        ReportP.setLayout(ReportPLayout);
+        ReportPLayout.setHorizontalGroup(
+            ReportPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ReportPLayout.createSequentialGroup()
+                .addComponent(Report, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        ReportPLayout.setVerticalGroup(
+            ReportPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ReportPLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Report, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel2.add(ReportP, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 110, 70, 70));
+
+        QuitarP.setBackground(new java.awt.Color(56, 182, 255));
+
+        quitar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        quitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/quitar_acceso_estudiante.png"))); // NOI18N
+        quitar.setText("jLabel3");
+        quitar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        quitar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                quitarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                quitarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                quitarMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout QuitarPLayout = new javax.swing.GroupLayout(QuitarP);
+        QuitarP.setLayout(QuitarPLayout);
+        QuitarPLayout.setHorizontalGroup(
+            QuitarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 70, Short.MAX_VALUE)
+            .addGroup(QuitarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(QuitarPLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(quitar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        QuitarPLayout.setVerticalGroup(
+            QuitarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 70, Short.MAX_VALUE)
+            .addGroup(QuitarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(QuitarPLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(quitar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jPanel2.add(QuitarP, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, 70, 70));
+
+        ReglasP.setBackground(new java.awt.Color(56, 182, 255));
 
         reglass.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         reglass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/reglas.png"))); // NOI18N
@@ -328,7 +338,31 @@ Image buscarNEscalado = buscarNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH)
                 reglassMouseExited(evt);
             }
         });
-        jPanel2.add(reglass, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 20, 70, 70));
+
+        javax.swing.GroupLayout ReglasPLayout = new javax.swing.GroupLayout(ReglasP);
+        ReglasP.setLayout(ReglasPLayout);
+        ReglasPLayout.setHorizontalGroup(
+            ReglasPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 70, Short.MAX_VALUE)
+            .addGroup(ReglasPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ReglasPLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(reglass, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        ReglasPLayout.setVerticalGroup(
+            ReglasPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 70, Short.MAX_VALUE)
+            .addGroup(ReglasPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ReglasPLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(reglass, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jPanel2.add(ReglasP, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, 70, 70));
+
+        CerrarSesionP.setBackground(new java.awt.Color(56, 182, 255));
 
         CerrarSesion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         CerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cerrar_sesion.png"))); // NOI18N
@@ -345,7 +379,112 @@ Image buscarNEscalado = buscarNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH)
                 CerrarSesionMouseExited(evt);
             }
         });
-        jPanel2.add(CerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 110, 70, 70));
+
+        javax.swing.GroupLayout CerrarSesionPLayout = new javax.swing.GroupLayout(CerrarSesionP);
+        CerrarSesionP.setLayout(CerrarSesionPLayout);
+        CerrarSesionPLayout.setHorizontalGroup(
+            CerrarSesionPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 70, Short.MAX_VALUE)
+            .addGroup(CerrarSesionPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(CerrarSesionPLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(CerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        CerrarSesionPLayout.setVerticalGroup(
+            CerrarSesionPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 70, Short.MAX_VALUE)
+            .addGroup(CerrarSesionPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(CerrarSesionPLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(CerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jPanel2.add(CerrarSesionP, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 110, 70, 70));
+
+        PenalizarP.setBackground(new java.awt.Color(56, 182, 255));
+
+        Penalizarr.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Penalizarr.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/penalizar_estudiante.png"))); // NOI18N
+        Penalizarr.setText("jLabel3");
+        Penalizarr.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Penalizarr.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                PenalizarrFocusGained(evt);
+            }
+        });
+        Penalizarr.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PenalizarrMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                PenalizarrMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                PenalizarrMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PenalizarPLayout = new javax.swing.GroupLayout(PenalizarP);
+        PenalizarP.setLayout(PenalizarPLayout);
+        PenalizarPLayout.setHorizontalGroup(
+            PenalizarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PenalizarPLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Penalizarr, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        PenalizarPLayout.setVerticalGroup(
+            PenalizarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PenalizarPLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Penalizarr, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel2.add(PenalizarP, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 70, 70));
+
+        AdministrarP.setBackground(new java.awt.Color(56, 182, 255));
+
+        Administrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Administrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/administrar_bicicleta.png"))); // NOI18N
+        Administrar.setText("jLabel3");
+        Administrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Administrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AdministrarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                AdministrarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                AdministrarMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout AdministrarPLayout = new javax.swing.GroupLayout(AdministrarP);
+        AdministrarP.setLayout(AdministrarPLayout);
+        AdministrarPLayout.setHorizontalGroup(
+            AdministrarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 70, Short.MAX_VALUE)
+            .addGroup(AdministrarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(AdministrarPLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(Administrar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        AdministrarPLayout.setVerticalGroup(
+            AdministrarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 70, Short.MAX_VALUE)
+            .addGroup(AdministrarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(AdministrarPLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(Administrar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jPanel2.add(AdministrarP, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 20, 70, 70));
+
+        AgregarP.setBackground(new java.awt.Color(56, 182, 255));
 
         AgregarC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         AgregarC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregar_bicicleta.png"))); // NOI18N
@@ -362,7 +501,31 @@ Image buscarNEscalado = buscarNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH)
                 AgregarCMouseExited(evt);
             }
         });
-        jPanel2.add(AgregarC, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, 70, 70));
+
+        javax.swing.GroupLayout AgregarPLayout = new javax.swing.GroupLayout(AgregarP);
+        AgregarP.setLayout(AgregarPLayout);
+        AgregarPLayout.setHorizontalGroup(
+            AgregarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 70, Short.MAX_VALUE)
+            .addGroup(AgregarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(AgregarPLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(AgregarC, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        AgregarPLayout.setVerticalGroup(
+            AgregarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 70, Short.MAX_VALUE)
+            .addGroup(AgregarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(AgregarPLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(AgregarC, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jPanel2.add(AgregarP, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, 70, 70));
+
+        BuscarP.setBackground(new java.awt.Color(56, 182, 255));
 
         Buscar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar_estudiante.png"))); // NOI18N
@@ -379,54 +542,23 @@ Image buscarNEscalado = buscarNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH)
                 BuscarMouseExited(evt);
             }
         });
-        jPanel2.add(Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, 70, 70));
 
-        AgregarCicla_button.setBackground(new java.awt.Color(56, 182, 255));
-        AgregarCicla_button.setBorder(null);
-        AgregarCicla_button.setBorderPainted(false);
-        AgregarCicla_button.addActionListener(this::AgregarCicla_buttonActionPerformed);
-        jPanel2.add(AgregarCicla_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, 70, 70));
+        javax.swing.GroupLayout BuscarPLayout = new javax.swing.GroupLayout(BuscarP);
+        BuscarP.setLayout(BuscarPLayout);
+        BuscarPLayout.setHorizontalGroup(
+            BuscarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BuscarPLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        BuscarPLayout.setVerticalGroup(
+            BuscarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BuscarPLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
-        Penalizar_button.setBackground(new java.awt.Color(56, 182, 255));
-        Penalizar_button.setBorder(null);
-        Penalizar_button.setBorderPainted(false);
-        Penalizar_button.setPreferredSize(new java.awt.Dimension(70, 70));
-        Penalizar_button.addActionListener(this::Penalizar_buttonActionPerformed);
-        jPanel2.add(Penalizar_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 70, 70));
-
-        Reglas_button.setBackground(new java.awt.Color(56, 182, 255));
-        Reglas_button.setBorder(null);
-        Reglas_button.setBorderPainted(false);
-        Reglas_button.addActionListener(this::Reglas_buttonActionPerformed);
-        jPanel2.add(Reglas_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 20, 70, 70));
-
-        Reportes_button.setBackground(new java.awt.Color(56, 182, 255));
-        Reportes_button.setBorder(null);
-        Reportes_button.setBorderPainted(false);
-        Reportes_button.addActionListener(this::Reportes_buttonActionPerformed);
-        jPanel2.add(Reportes_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 110, 70, 70));
-
-        QuitarEstudiante_button.setBackground(new java.awt.Color(56, 182, 255));
-        QuitarEstudiante_button.setBorder(null);
-        QuitarEstudiante_button.setBorderPainted(false);
-        QuitarEstudiante_button.addActionListener(this::QuitarEstudiante_buttonActionPerformed);
-        jPanel2.add(QuitarEstudiante_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 20, 70, 70));
-
-        Buscar_button.setBackground(new java.awt.Color(56, 182, 255));
-        Buscar_button.setBorder(null);
-        Buscar_button.setBorderPainted(false);
-        jPanel2.add(Buscar_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, 70, 70));
-
-        AdminCiclas_button.setBackground(new java.awt.Color(56, 182, 255));
-        AdminCiclas_button.setBorder(null);
-        AdminCiclas_button.setBorderPainted(false);
-        AdminCiclas_button.addActionListener(this::AdminCiclas_buttonActionPerformed);
-        jPanel2.add(AdminCiclas_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, 70, 70));
-
-        CerrarSesion_button1.setBackground(new java.awt.Color(56, 182, 255));
-        CerrarSesion_button1.setBorder(null);
-        CerrarSesion_button1.setBorderPainted(false);
-        jPanel2.add(CerrarSesion_button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 110, 70, 70));
+        jPanel2.add(BuscarP, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 20, 70, 70));
 
         panel_superior.setBackground(new java.awt.Color(19, 134, 201));
         panel_superior.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -562,32 +694,6 @@ Image buscarNEscalado = buscarNImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH)
         this.setLocation(x-xMouse, y-yMouse);
     }//GEN-LAST:event_panel_superiorMouseDragged
 
-    private void AdminCiclas_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminCiclas_buttonActionPerformed
-                // TODO add your handling code here:
-    }//GEN-LAST:event_AdminCiclas_buttonActionPerformed
-
-    private void QuitarEstudiante_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuitarEstudiante_buttonActionPerformed
-       
-      
-    }//GEN-LAST:event_QuitarEstudiante_buttonActionPerformed
-
-    private void Reportes_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reportes_buttonActionPerformed
-
-       
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Reportes_buttonActionPerformed
-
-    private void Reglas_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reglas_buttonActionPerformed
-      
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Reglas_buttonActionPerformed
-
-    private void AgregarCicla_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarCicla_buttonActionPerformed
-      
-        
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AgregarCicla_buttonActionPerformed
-
     private void AdministrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AdministrarMouseEntered
     Administrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
     Administrar.setIcon(new ImageIcon(administrarNEscalado)); 
@@ -638,18 +744,6 @@ Report.setBorder(javax.swing.BorderFactory.createEmptyBorder());
     reglass.setIcon(new ImageIcon(reglasEscalado));        // TODO add your handling code here:
     }//GEN-LAST:event_reglassMouseExited
 
-    private void PenalizarrMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PenalizarrMouseEntered
-    Penalizarr.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-    Penalizarr.setIcon(new ImageIcon(penalizarNEscalado));    
-    Penalizarr.setToolTipText("Penalizar estudiante");
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PenalizarrMouseEntered
-
-    private void PenalizarrMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PenalizarrMouseExited
-    Penalizarr.setBorder(javax.swing.BorderFactory.createEmptyBorder());
-    Penalizarr.setIcon(new ImageIcon(penalizarEscalado));        // TODO add your handling code here:
-    }//GEN-LAST:event_PenalizarrMouseExited
-
     private void AgregarCMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarCMouseEntered
     AgregarC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
     AgregarC.setIcon(new ImageIcon(agregarCNEscalado));  
@@ -687,22 +781,6 @@ Report.setBorder(javax.swing.BorderFactory.createEmptyBorder());
     
 // TODO add your handling code here:
     }//GEN-LAST:event_CerrarSesionMouseExited
-
-    private void PenalizarrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PenalizarrMouseClicked
-     adminPenalizar vistaPenalizar = new adminPenalizar();
-
-        vistaPenalizar.setSize(jPanel4.getWidth(), jPanel4.getHeight());
-        vistaPenalizar.setLocation(0, 0);
-
-     
-        jPanel4.removeAll();
-        jPanel4.add(vistaPenalizar, java.awt.BorderLayout.CENTER);
-
-   
-        jPanel4.revalidate();
-        jPanel4.repaint();
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PenalizarrMouseClicked
 
     private void AdministrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AdministrarMouseClicked
     Adminadministrarbicicleta vistaAdminBici = new Adminadministrarbicicleta();
@@ -803,31 +881,59 @@ Report.setBorder(javax.swing.BorderFactory.createEmptyBorder());
         welcome.setVisible(true);
     }//GEN-LAST:event_CerrarSesionMouseClicked
 
-    private void Penalizar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Penalizar_buttonActionPerformed
+    private void PenalizarrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PenalizarrMouseClicked
+       adminPenalizar vistaPenalizar = new adminPenalizar();
+
+        vistaPenalizar.setSize(jPanel4.getWidth(), jPanel4.getHeight());
+        vistaPenalizar.setLocation(0, 0);
+
+     
+        jPanel4.removeAll();
+        jPanel4.add(vistaPenalizar, java.awt.BorderLayout.CENTER);
+
+   
+        jPanel4.revalidate();
+        jPanel4.repaint();         // TODO add your handling code here:
+    }//GEN-LAST:event_PenalizarrMouseClicked
+
+    private void PenalizarrFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_PenalizarrFocusGained
+            // TODO add your handling code here:
+    }//GEN-LAST:event_PenalizarrFocusGained
+
+    private void PenalizarrMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PenalizarrMouseEntered
+    Penalizarr.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+    Penalizarr.setIcon(new ImageIcon(penalizarNEscalado));  
+    Penalizarr.setToolTipText("Penalizar estudiante");
+// TODO add your handling code here:
+    }//GEN-LAST:event_PenalizarrMouseEntered
+
+    private void PenalizarrMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PenalizarrMouseExited
+    Penalizarr.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+    Penalizarr.setIcon(new ImageIcon(penalizarEscalado));
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_Penalizar_buttonActionPerformed
+    }//GEN-LAST:event_PenalizarrMouseExited
 
     /**
      * @param args the command line arguments
      */
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AdminCiclas_button;
     private javax.swing.JLabel Administrar;
+    private javax.swing.JPanel AdministrarP;
     private javax.swing.JLabel AgregarC;
-    private javax.swing.JButton AgregarCicla_button;
+    private javax.swing.JPanel AgregarP;
     private javax.swing.JLabel Buscar;
-    private javax.swing.JButton Buscar_button;
+    private javax.swing.JPanel BuscarP;
     private javax.swing.JLabel CERRAR;
     private javax.swing.JLabel CerrarSesion;
-    private javax.swing.JButton CerrarSesion_button1;
-    private javax.swing.JButton Penalizar_button;
+    private javax.swing.JPanel CerrarSesionP;
+    private javax.swing.JPanel PenalizarP;
     private javax.swing.JLabel Penalizarr;
-    private javax.swing.JButton QuitarEstudiante_button;
-    private javax.swing.JButton Reglas_button;
+    private javax.swing.JPanel QuitarP;
+    private javax.swing.JPanel ReglasP;
     private javax.swing.JLabel Report;
-    private javax.swing.JButton Reportes_button;
+    private javax.swing.JPanel ReportP;
     private javax.swing.JLabel UNlogo;
     private javax.swing.JPanel exit;
     private javax.swing.JLabel jLabel1;
