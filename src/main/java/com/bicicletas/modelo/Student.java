@@ -2,9 +2,9 @@ package com.bicicletas.modelo;
 
  //clase hija  de madre para estudiante
 
-import java.time.LocalDateTime; // Para capturar la fecha y hora exacta
+import java.time.LocalDateTime; 
 import java.util.ArrayList;
-import java.time.Duration;      // Para calcular la diferencia de tiempo entre dos momentos
+import java.time.Duration;     
 
 
 public class Student extends User {

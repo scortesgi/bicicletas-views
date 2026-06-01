@@ -145,15 +145,14 @@ public class DocReader {
 
                         while ((lectura = openHistorial.readLine()) != null) {
 
-                            // Ignorar líneas vacías
+                          
                             if (lectura.trim().isEmpty()) {
                                 continue;
                             }
 
-                            // Separar datos por coma
                             String[] partes = lectura.split(",");
 
-                            // Verificar formato correcto
+                          
                             if(partes.length < 4){
                                 continue;
                             }
@@ -195,7 +194,7 @@ public static void guardarAdministrador(
 
     try {
 
-        // Verifica máximo 5 administradores
+       
         BufferedReader br = new BufferedReader(new FileReader(archivo));
 
         int contador = 0;
@@ -335,7 +334,7 @@ public static boolean cambiarClaveAdministrador(
             && cedula == cedulaBuscar
             && contraseñaGuardada == contraseñaActual){
 
-                // 🔥 ESCRIBE NUEVA CLAVE
+             
                 pw.println(
                         nombre + "," +
                         cedula + "," +
@@ -346,7 +345,7 @@ public static boolean cambiarClaveAdministrador(
 
             }else{
 
-                // Mantiene la línea original
+           
                 pw.println(linea);
             }
         }
@@ -354,7 +353,6 @@ public static boolean cambiarClaveAdministrador(
         br.close();
         pw.close();
 
-        // REEMPLAZAR ARCHIVO ORIGINAL
         if(archivo.delete()){
 
             temporal.renameTo(archivo);

@@ -30,7 +30,7 @@ public class Comment{
             this.fecha = LocalDateTime.now();
     }
 
-    //Get
+   
     public String getType(){
         return type;
     }

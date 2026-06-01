@@ -1,21 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+
 package com.bicicletas.views;
 
 import java.awt.Color;
 import java.time.LocalDate;
 
-/**
- *
- * @author VALETOR
- */
 public class Reservar extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Reservar
-     */
     public Reservar() {
         initComponents();
         setSize(800, 460);

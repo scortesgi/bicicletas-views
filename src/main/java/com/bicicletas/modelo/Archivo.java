@@ -2,7 +2,7 @@ package com.bicicletas.modelo;
 import java.io.*;
 
 public class Archivo {
-    /********************************************************* */
+    
 public static void cargarBicicletas(Station estacion){
 
     try(BufferedReader br =
@@ -35,7 +35,7 @@ if (linea.trim().isEmpty()) continue;
         );
     }
 }
-/************************************************************** */
+
     //Guardar una bicicleta
     public static void guardarBike(String nombreArchivo,Bike bike){
 

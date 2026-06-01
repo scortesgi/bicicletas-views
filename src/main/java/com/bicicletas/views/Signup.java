@@ -1,25 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package com.bicicletas.views;
 //package com.bicicletas.views;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
-/*
-/**
- *
- * @author VALETOR
- */
+
 public class Signup extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Signup.class.getName());
 
-    /**
-     * Creates new form Signup
-     */
+  
      int xMouse, yMouse;
     public Signup() {
         initComponents();

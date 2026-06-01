@@ -1,21 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+
 package com.bicicletas.views;
 
 import com.bicicletas.modelo.Comment;
 import com.bicicletas.modelo.Main;
 
-/**
- *
- * @author sammu
- */
 public class ReportesPqrs extends javax.swing.JPanel {
 
-    /**
-     * Creates new form ReportesCiclas
-     */
     public ReportesPqrs() {
         initComponents();
     }

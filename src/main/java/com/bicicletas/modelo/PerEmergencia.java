@@ -4,10 +4,6 @@
  */
 package com.bicicletas.modelo;
 
-/**
- *
- * @author xioma
- */
 public class PerEmergencia extends User{
     //atributos
     private long numEmergencia;
