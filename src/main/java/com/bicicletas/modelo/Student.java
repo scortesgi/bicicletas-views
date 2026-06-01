@@ -153,18 +153,29 @@ public class Student extends User {
 
     public void tiempoDeUso(){
         //verificacion de que si cuente con la activacion del uso 
-        if((this.reserva != null)  && reserva.getEstadoReserva().equals("en_uso")){
-            if((Duration.between(reserva.getTiempoInicioUso(), LocalDateTime.now()).toMinutes()) > reserva.getTiempoUsoMax()){
-            System.out.println("Superate el tiempo de uso. Esto generara una penalización");
-            
-            }else{
-                System.out.println("Cuentas con un tiempo restante de uso de: " + (reserva.getTiempoUsoMax() - (Duration.between(reserva.getTiempoInicioUso(), LocalDateTime.now()).toMinutes())) + " minutos.");
-                
+       
+        if((this.reserva != null) && reserva.getEstadoReserva().equals("en_uso")){
+            long minutosUsados = Duration.between(reserva.getTiempoInicioUso(), LocalDateTime.now()).toMinutes();
+            if(minutosUsados > reserva.getTiempoUsoMax()){
+                javax.swing.JOptionPane.showMessageDialog(null,
+                    "Superaste el tiempo de uso. Esto generará una penalización.",
+                    "Tiempo de uso",
+                    javax.swing.JOptionPane.WARNING_MESSAGE);
+            } else {
+                long minutosRestantes = (long) (reserva.getTiempoUsoMax() - minutosUsados);
+                javax.swing.JOptionPane.showMessageDialog(null,
+                    "Cuentas con un tiempo restante de uso de: " + minutosRestantes + " minutos.",
+                    "Tiempo de uso",
+                    javax.swing.JOptionPane.INFORMATION_MESSAGE);
             }
-
-        }else {
-            System.out.println("Usted no cuenta con ninguna activacion de uso de bicicleta en estos momentos");
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(null,
+                "Usted no cuenta con ninguna activación de uso de bicicleta en estos momentos.",
+                "Tiempo de uso",
+                javax.swing.JOptionPane.INFORMATION_MESSAGE);
         }
+
+
     }
 
      public void verMotivosPenalizacion(ArrayList <Comment> listaComentariosAdmin){
