@@ -287,6 +287,9 @@ public class adminPenalizar extends javax.swing.JPanel {
                 tiun
             );
             com.bicicletas.modelo.Main.listaComentariosAdmin.add(comentario);
+            com.bicicletas.modelo.DocReader.guardarComentario("comentarios.txt", comentario);
+            
+            
         }
 
         javax.swing.JOptionPane.showMessageDialog(this,

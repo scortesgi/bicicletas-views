@@ -7,6 +7,7 @@
 package com.bicicletas.views;
 import com.bicicletas.modelo.Comment;
 import com.bicicletas.modelo.Main;
+import com.bicicletas.modelo.DocReader;
 import java.awt.Color;
 import java.time.LocalDate;
 
@@ -151,6 +152,7 @@ public class PQR extends javax.swing.JPanel {
             Comment comentario = new Comment(commentUser.getText(), Main.estudianteActual, selectedOption);
             
             Main.listaComentarios.add(comentario);
+            DocReader.guardarComentario("comentarios.txt", comentario);
             
             if(pqr_select.getSelectedIndex()==3){
             mensaje="<html><body style='width: 250px;'>"
