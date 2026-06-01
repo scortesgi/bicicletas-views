@@ -1,5 +1,6 @@
 package com.bicicletas.modelo;
 import java.io.*;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class DocReader {
@@ -8,6 +9,31 @@ public class DocReader {
         //constructor
 
 
+    public static void guardarComentario(String nombreArchivo, Comment comentario) {
+
+    File archivo = new File(nombreArchivo);
+
+    try (PrintWriter salida = new PrintWriter(new FileWriter(archivo, true))) {
+
+        if (comentario.getAutor() != null) {
+
+            salida.println(
+                "ESTUDIANTE:" +comentario.getType() + ":" +comentario.getAutor().getTiun() + ":" +
+                comentario.getFecha() + ":" + comentario.getMensaje());
+
+        } else {
+
+            salida.println(
+                "ADMIN:" + comentario.getTiun() + ":" + comentario.getFecha() + ":" + comentario.getMensaje());
+        }
+
+    } catch (IOException ex) {
+
+        ex.printStackTrace();
+    }
+}
+    
+    
 
        public static void crearArchivo(String nombreArchivo) {
 
